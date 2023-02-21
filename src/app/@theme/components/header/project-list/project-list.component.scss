@@ -1,0 +1,30 @@
+nb-card {
+    min-width: 10rem;
+    max-width: 20rem;
+    //margin: 0 auto 2rem;
+  }
+
+  .hovAffect{
+    background-color: white;
+  }
+
+  .hovAffect :hover{
+    background: #e0dbdb;
+    border-radius: 9px;
+  }
+
+  // ::ng-deep.nb-theme-default nb-user.shape-round .user-container {
+  //   display: inline-block;
+  // }
+  
+  // ::ng-deep.nb-theme-default nb-user.shape-round .user-picture {
+  //   border-radius: 10% !important;
+  // }
+
+  :host /deep/ nb-user.shape-round .user-container{
+    display: inline-block;
+  }
+
+  :host /deep/ nb-user.shape-round .user-picture{
+    border-radius: 15% !important;
+  }

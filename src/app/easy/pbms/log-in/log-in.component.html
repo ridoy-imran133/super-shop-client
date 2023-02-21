@@ -1,0 +1,21 @@
+<nb-card style="margin: 2% 2%;padding: 5% 25%;">
+    <nb-card-body>
+        <h2> Login </h2>
+        <form>
+            <label class="levelFontDesign">Username:</label>
+            <input class="form-control" type="text" fullWidth nbInput placeholder="username">
+
+            <label class="levelFontDesign">Password:</label>
+            <input class="form-control" type="text" fullWidth nbInput placeholder="Password">
+            <nb-checkbox style="margin-top: 3%;"  status="primary">Remember me</nb-checkbox>
+            <p (click)="forgotpass()" class="forgot-pass">Forgot Password ?</p>
+            <div class="row">
+                <button nbButton hero [status]="'primary'" type="submit" style="width: 70px; height: 30px; font-size: 12px;" nbSpinnerStatus="danger" nbSpinnerSize="large" nbSpinnerMessage="">Login</button>
+            </div>
+            <!-- <div class="row">
+                <nb-checkbox  status="primary">Remember me</nb-checkbox>
+                <p style="text-align: right;">Forgot Password</p>
+            </div> -->
+        </form>
+    </nb-card-body>
+</nb-card>

@@ -1,0 +1,57 @@
+<nb-card>
+    <nb-card-header>
+        {{textval}} Outlet
+        <a nbButton style="float: right;" size="tiny" [status]="'danger'" (click)="dismissfornone()">
+            <span>X</span></a>
+    </nb-card-header>
+    <nb-card-body>
+        <form (ngSubmit)="onSaveOutlet()" [formGroup]="masterForm">
+            <div class="row" style="margin-top: 1%;">
+                <div class="col-md-2">
+                    <label class="levelFontDesign">Outlet name: <span style="color: red;">*</span></label>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <input [(ngModel)]="outlet.OutletName" formControlName="outlet_name"
+                            class="form-control" type="text" fullWidth nbInput [ngClass]="{ 'is-invalid': submitted && fval.outlet_name.errors }">
+                            <div *ngIf="submitted && fval.outlet_name.errors" class="invalid-feedback">
+                                <div *ngIf="fval.outlet_name.errors.required">Gift Name</div>
+                            </div>
+                    </div>
+                </div>
+
+                <div class="col-md-2">
+                    <label class="levelFontDesign">Mobile: <span style="color: red;">*</span></label>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <input [(ngModel)]="outlet.Mobile" formControlName="mobile"
+                            class="form-control" type="text" fullWidth nbInput [ngClass]="{ 'is-invalid': submitted && fval.mobile.errors }">
+                            <div *ngIf="submitted && fval.mobile.errors" class="invalid-feedback">
+                                <div *ngIf="fval.mobile.errors.required">Gift Name</div>
+                            </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row" style="margin-top: 1%;">
+                <div class="col-md-2">
+                    <label class="levelFontDesign">Address: <span style="color: red;">*</span></label>
+                </div>
+                <div class="col-md-10">
+                    <div class="form-group">
+                        <input [(ngModel)]="outlet.Address" formControlName="address"
+                            class="form-control" type="text" fullWidth nbInput [ngClass]="{ 'is-invalid': submitted && fval.address.errors }">
+                            <div *ngIf="submitted && fval.address.errors" class="invalid-feedback">
+                                <div *ngIf="fval.address.errors.required">Gift Name</div>
+                            </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <button nbButton hero [status]="'primary'" type="submit"
+                    style="width: 70px; height: 30px; font-size: 12px;" nbSpinnerStatus="danger"
+                    nbSpinnerSize="large" nbSpinnerMessage="">Save</button>
+            </div>
+        </form>
+    </nb-card-body>
+</nb-card>

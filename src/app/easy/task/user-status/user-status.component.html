@@ -1,0 +1,58 @@
+<nb-card>
+  <nb-card-header>{{ title }}
+  <a nbButton style="float: right; padding: 2px;" size="tiny" [status]="'danger'"
+           (click)="dismiss()"><i class="nb-close" style="font-weight: bold; font-size: 14px;"></i></a>
+  </nb-card-header>
+  <nb-card-body>
+
+    <ng2-smart-table [settings]="settings" [source]="source" (custom)="onCustom($event)">
+    </ng2-smart-table>
+  </nb-card-body>
+  <nb-card-body>
+    <div>
+      <h6><span>Add Status </span></h6>
+    </div>
+    <form [formGroup]="FMDivisionForm" (ngSubmit)="onSaveStatus()">
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="form-group">
+            <label for="Name" class="label">Status</label>
+            <br />
+            <input [(ngModel)]="_UserStatus.Name"
+                   formControlName="Name" class="form-control" [ngClass]="{ 'is-invalid': fval.Name.errors }"
+                   type="text" fullWidth nbInput shape="semi-round" placeholder="Status Name">
+
+            <div *ngIf="fval.Name.errors" class="invalid-feedback">
+              <div *ngIf="fval.Name.errors.required"> Status is required</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-sm-6">
+          <div class="form-group">
+            <label for="FixtureDesign" class="label">Upload Document</label>
+            <br />
+            <div class="custom-file">
+              <input type="file" class="custom-file-input" id="customFile" shape="semi-round" name="filename" accept="image/*,.doc, .docx,.ppt, .pptx,.pdf"
+                     (change)="onFileChange($event)">
+              <label class="custom-file-label" for="customFile">{{_selectedFileName}}</label>
+            </div>
+
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12" style="text-align: center;">
+          <button class="buttonTextFormatter" hero nbButton [status]="'primary'" type="submit">
+            Save
+          </button>
+
+
+        </div>
+      </div>
+    </form>
+</nb-card-body>
+  <!-- <nb-card-footer>
+    <button nbButton hero status="primary" (click)="dismiss()">Dismiss Dialog</button>
+  </nb-card-footer> -->
+</nb-card>

@@ -1,0 +1,34 @@
+<div class="row">
+    <div class="col-lg-12">
+        <nb-card>
+          <nb-card-header>{{_title}} User</nb-card-header>
+          <form>
+
+          </form>
+          <nb-card-body>
+            <form (ngSubmit)="onSaveUser()" [formGroup]="masterForm">
+                <div class="form-group">
+                    <input  [(ngModel)]="_test.Name" formControlName="Name" class="form-control" [ngClass]="{ 'is-invalid': fval.Name.errors && fval.Name?.touched }"
+                    type="text" fullWidth nbInput shape="semi-round" placeholder="Full Name">
+
+                    <div *ngIf="fval.Name.errors" class="invalid-feedback">
+                        <div *ngIf="fval.Name.errors.required">Full Name Required</div>
+                    </div>
+                </div>    
+                <div class="form-group">
+                    <input  [(ngModel)]="_test.Value" formControlName="Value" class="form-control" [ngClass]="{ 'is-invalid': fval.Value.errors }"
+                    type="text" fullWidth nbInput shape="semi-round" placeholder="Value">
+
+                    <div *ngIf="fval.Value.errors" class="invalid-feedback">
+                        <div *ngIf="fval.Value.errors.required">Value Required</div>
+                    </div>
+                </div>             
+                <div class="form-group">
+                    <button nbButton hero [status]="'primary'" type="submit" style="width:135px;" nbSpinnerStatus="danger" nbSpinnerSize="large" nbSpinnerMessage="">Save</button>
+                </div>
+            </form>
+
+          </nb-card-body>
+        </nb-card>
+      </div>
+</div>

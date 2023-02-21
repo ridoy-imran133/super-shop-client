@@ -1,0 +1,32 @@
+
+<div class="row">
+  <div class="col-md-12" style = "overflow-y: scroll;">
+    <nb-card>
+      <nb-card-header>
+        <span>User List </span>
+        <input #search class="search" type="text" placeholder="Search..." nbInput shape="semi-round" (keydown.enter)="onSearch(search.value)" style="margin-left: 25%;">
+        <a (click)="exportAsXLSX()" nbButton style="float: right; background: #24c532; opacity: 0.7; color: white; margin-right: 1px;" size="tiny" shape="round"> excel </a>
+        <a (click)="exportAsPDF()" nbButton style="float: right; background: #43abff; opacity: 0.7; color: white; margin-right: 1px;" size="tiny" shape="round"> pdf </a>
+        <a nbButton style="float: right;" size="small" shape="round" [status]="'primary'"
+           (click)="addUser()"><i class="nb-plus"></i> Add User </a>
+          
+      </nb-card-header>
+
+      <nb-card-body style="padding: 1rem 0rem; padding-top: 0rem;">
+
+        <ng2-smart-table #table [settings]="settings"
+         [source]="source"
+         (rowSelect)="showSoCodes()"
+         (userRowSelect)="onUserRowSelect()"
+         (custom)="onCustom($event)">
+        </ng2-smart-table>
+      </nb-card-body>
+    </nb-card>
+      <!-- <div class="smart-table-container table-fixed-header" style = "height: 540px;">
+        
+      </div> -->
+      
+    <!-- </tbody></table> -->
+  </div>
+</div>
+

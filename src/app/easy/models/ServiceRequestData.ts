@@ -1,0 +1,27 @@
+export class ServiceRequestData{
+    cust_no : string
+    cust_name : string
+    work_date : string
+    service_name : string
+    vendor_name : string
+    gift_name : string
+    cust_birthday : string
+    cust_mobile : string
+    cust_address : string
+    branch_name : string
+    branch_code : string
+    rm_name : string
+    rm_mobile : string
+    reporting_date : string
+    total_person : string
+    pick_address : string
+    drop_airport : string
+    flight_no : string
+    reporting_date_return : string
+    return_airport : string
+    drop_address : string
+    flight_no_return : string
+    total_person_return : string
+    vehichle_type : string
+    vehichle_type_return : string
+}

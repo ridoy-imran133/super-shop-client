@@ -1,0 +1,74 @@
+<div class="row">
+  <div class="col-md-12">
+    <nb-card>
+        <nb-card-header style="padding-top: 10px; padding-bottom: 10px;">
+          <span>User Search </span>
+          <nb-icon style="float: right; font-size: 1.3rem;" icon="arrow-down" *ngIf="arrowButton" (click) = arrowButtonFunction()></nb-icon>
+          <nb-icon style="float: right; font-size: 1.3rem;" icon="arrow-left" *ngIf="!arrowButton" (click) = arrowButtonFunction()></nb-icon>
+        </nb-card-header>
+        <nb-card-body *ngIf="arrowButton" style="padding-bottom: 0px; padding-top: 8px;">
+          <form (ngSubmit)="searchUserList()" [formGroup]="masterForm">
+            <div class="row">
+              <div class="col-sm-1" style="padding-left: 0px;">
+                <label for="formpicker" class="label col-form-label levelDesign">Start Date:</label>
+              </div>
+              <div class="col-sm-4" style="width: 100%;">
+                  <div class="form-group">
+                      <input nbInput [nbDatepicker]="formpicker" [(ngModel)]="_FilterModel.StartDate" placeholder="Start Date"
+                          formControlName="StartDate" class="form-control" >
+                      <nb-datepicker #formpicker></nb-datepicker>              
+                  </div>
+              </div>
+              <div class="col-sm-2" style="padding-left: 0px;">
+              </div>
+              <div class="col-sm-1" style="padding-left: 0px;">
+                <label for="formpicker1" class="label col-form-label levelDesign">End Date:</label>
+              </div>
+              <div class="col-sm-4" >
+                  <div class="form-group">
+                      <input nbInput [nbDatepicker]="formpicker1" [(ngModel)]="_FilterModel.EndDate" placeholder="End Date"          
+                          formControlName="EndDate" class="form-control" >
+                      <nb-datepicker #formpicker1></nb-datepicker>              
+                  </div>
+              </div>
+          </div> 
+            <div class="form-group row">
+              <div class="offset-sm-3 col-sm-9" style="margin-left: 0%;">
+                <button nbButton hero [status]="'primary'" type="submit" style="width:135px;">Search</button>
+              </div>
+            </div>
+          </form>
+
+        </nb-card-body>
+    </nb-card>
+  </div>
+</div>
+
+<div class="row" *ngIf="tablearrowheaderButton">
+  <div class="col-md-12">
+    <nb-card>
+      <nb-card-header style="padding-top: 8px; padding-bottom: 8px;">
+        <span>User List </span>
+        <input #search class="search" type="text" placeholder="Search..." nbInput shape="semi-round" (keydown.enter)="onSearch(search.value)" style="margin-left: 25%;">
+        <nb-icon style="float: right; font-size: 1.3rem; margin-top: 9px;" icon="arrow-down" *ngIf="tablearrowButton" (click) = tableArrowButtonFunction()></nb-icon>
+        <nb-icon style="float: right; font-size: 1.3rem; margin-top: 9px;" icon="arrow-left" *ngIf="!tablearrowButton" (click) = tableArrowButtonFunction()></nb-icon>
+        <a (click)="exportAsXLSX()" nbButton style="float: right; background: #24c532; opacity: 0.7; color: white; margin-right: 1px; margin-top: 8px;" size="tiny" shape="round"> excel </a>
+        <!-- <a nbButton style="float: right;" size="small" shape="round" [status]="'primary'"
+           (click)="addUser()"><i class="nb-plus"></i> Add User </a> -->
+      </nb-card-header>
+
+      <nb-card-body *ngIf="tablearrowButton">
+
+        <ng2-smart-table #table [settings]="settings"
+               [source]="source"
+               (userRowSelect)="onUserRowSelect($event)"
+               (custom)="onCustom($event)">
+              </ng2-smart-table>
+      </nb-card-body>
+    </nb-card>
+  </div>
+</div>
+
+
+  
+  

@@ -1,0 +1,183 @@
+:host /deep/ .ng2-smart-action-multiple-select{
+text-align: center;
+}
+
+:host /deep/ .ng2-smart-action-multiple-select > input{
+width:12px;
+height:12px;
+display: unset;
+}
+
+.levelFontDesign{
+    font-size: 11px;
+      font-weight: 600;
+      margin-top: 8%;
+      opacity: 0.7;
+      font-family: arial;
+  }
+
+  .levelFontDesign1{
+    font-size: 11px;
+    font-weight: 600;
+    opacity: 0.7;
+    font-family: arial;
+}
+
+nb-card-body.example-items-rows {
+  align-items: center;
+}
+
+nb-checkbox:not(:only-child) {
+  margin-right: 1.5rem;
+}
+
+// ::ng-deep table tr td:nth-of-type(1),
+// ::ng-deep table tr th:nth-of-type(1)
+// { padding:0 !important; display: block;height: 13px; position: relative;}
+// ::ng-deep table tr td:nth-of-type(1) input,
+// ::ng-deep table tr th:nth-of-type(1) input
+// { margin:0 !important; position: absolute; top: 15px;}
+// ::ng-deep table tr td:nth-of-type(2),
+// ::ng-deep table tr th:nth-of-type(2)
+// { padding: 0 0 0 20px !important;}
+
+:host /deep/ ng2-st-tbody-custom a.ng2-smart-action.ng2-smart-action-custom-custom {
+  width: 300px;
+}
+// { padding: 0 0 0 20px !important;}
+
+:host /deep/ ng2-st-tbody-custom a.ng2-smart-action.ng2-smart-action-custom-custom {
+  width: 100px;
+}
+
+//:host /deep/ tbody { max-height: 300px; } 
+// :host /deep/ thead { display: table; width: 100%; } 
+// :host /deep/ tbody tr { display: table; width: 100%; }
+
+table{
+  height: 555px !important;
+}
+
+table.ng-reflect-ng-class{
+  height: 755px !important;
+}
+:host /deep/ .cell_right {
+  text-align: right;
+  box-sizing: border-box;
+  display: block;
+  color: #686B6D !important;
+  //border: 2px solid #EBEBEB !important;
+  //padding: 5px !important;
+  line-height: 1.25rem;
+  font-size: .75rem !important;
+  font-family: Arial !important;
+  font-weight: 400 !important;
+  margin-bottom: 0;
+  }
+  :host /deep/ ng2-smart-table thead th{
+    text-align: center;
+  }
+
+:host ::ng-deep table tr:first-child th { position : sticky; top: -1px; z-index: 100; border: 1px solid #dee2e6; }
+.table-container { height: 600px; overflow-y: auto; border-top: 1px solid #dee2e6; }
+
+::ng-deep span.ng2-smart-page-link{
+  background-color: red!important;
+}
+::ng-deep span.ng2-smart-page-link.page-link { 
+  background-color: green!important;
+  display: inline-block !important; }
+:host /deep/ a.ng2-smart-page-link.page-link {
+  height: 30px;
+  width: 30px;
+  text-align: center;
+  vertical-align: middle;
+  color: royalblue;
+  font-weight: bold;
+  line-height: 6px;
+  }
+  /* selected paging number */
+  :host /deep/ span.ng2-smart-page-link.page-link {
+  height: 30px;
+  width: 30px;
+  text-align: center;
+  vertical-align: middle;
+  color: white;
+  font-weight: bold;
+  line-height: 6px;
+  }
+  :host /deep/ span.ng2-smart-page-item.page-item.disabled {
+  height: 30px;
+  width: 30px;
+  text-align: center;
+  vertical-align: middle;
+  color: grey;
+  font-weight: bold;
+  line-height: 6px;
+  }
+  
+  /* previous paging button */
+  :host /deep/ a.ng2-smart-page-link.page-link.page-link-prev {
+  height: 30px;
+  width: 30px;
+  text-align: center;
+  vertical-align: middle;
+  color: royalblue;
+  font-weight: bold;
+  line-height: 6px;
+  }
+  
+  /* previous paging button disabled */
+  :host /deep/ span.ng2-smart-page-link.page-link.page-link-prev.disabled {
+  height: 30px;
+  width: 30px;
+  text-align: center;
+  vertical-align: middle;
+  color: grey;
+  font-weight: bold;
+  line-height: 6px;
+  }
+  
+  /* next paging button */
+  :host /deep/ a.ng2-smart-page-link.page-link.page-link-next {
+  height: 30px;
+  width: 30px;
+  text-align: center;
+  vertical-align: middle;
+  color: royalblue;
+  font-weight: bold;
+  line-height: 6px;
+  }
+  
+  /* next paging button */
+  :host /deep/ span.ng2-smart-page-link.page-link.page-link-next.disabled {
+  height: 30px;
+  width: 30px;
+  text-align: center;
+  vertical-align: middle;
+  color: grey;
+  font-weight: bold;
+  line-height: 6px;
+  }
+  .modal{
+    z-index: 1040 !important;
+  }
+
+  .blurcolor{
+    //background-color: rgba(250, 250, 250, 0.48);
+    background-color: rgba(0, 0, 0, 0.48);
+  }
+  .levelFontDesign{
+    font-size: 11px;
+      font-weight: 600;
+      margin-top: 8%;
+      opacity: 0.7;
+      font-family: arial;
+  }
+
+  .levelFontDesign1{
+    font-size: 11px;
+    font-weight: 600;
+    opacity: 0.7;
+    font-family: arial;
+}

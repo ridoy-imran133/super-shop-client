@@ -1,0 +1,19 @@
+<nb-card>
+    <nb-card-header>
+        Gift List
+        <a nbButton style="float: right;" size="small" shape="round" [status]="'primary'" (click)="addCategory()"><i
+            class="nb-plus"></i> Add Gift </a>
+    </nb-card-header>
+    <nb-card-body>
+        <ng2-smart-table [settings]="settings" [source]="source" (custom)="onCustom($event)">
+        </ng2-smart-table>
+      </nb-card-body>
+</nb-card>
+
+<div *ngIf="display == 'block'" class="modal blurcolor bd-example-modal-xl" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" [ngStyle]="{'display':display}">
+  <div class="modal-dialog modal-xl">
+    <div class="modal-content">
+      <ngx-add-category [_categoryFromOther]="categorypass" [textfromgift]="display" [textval]="addedit"></ngx-add-category>
+    </div>
+  </div>
+</div>

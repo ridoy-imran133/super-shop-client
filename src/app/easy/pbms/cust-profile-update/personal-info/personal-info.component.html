@@ -1,0 +1,125 @@
+<nb-card>
+    <nb-card-header> Service</nb-card-header>
+    <nb-card-body>
+        <form (ngSubmit)="onSaveVendor()" [formGroup]="masterForm">
+            <div class="row">
+                <div class="col-md-2">
+                    <label class="levelFontDesign">Vendor Code:</label>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <input [(ngModel)]="_vendor.vendor_code" formControlName="vendor_code" class="form-control" [disabled]="isupdate"
+                        type="text" fullWidth nbInput placeholder="Vendor Code">
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <label class="levelFontDesign">Vendor name:</label>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <input [(ngModel)]="_vendor.vendor_name" formControlName="vendor_name" class="form-control" 
+                        type="text" fullWidth nbInput placeholder="Vendor name">
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-md-2">
+                    <label class="levelFontDesign">Service Name:</label>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <nb-select [(ngModel)]="_vendor.vas_code" formControlName="vas_code"
+                                    [selected]="_vendor.vas_code" fullWidth placeholder="Select Service">
+                            <nb-option *ngFor="let vs of _vasServices" [value]="vs.service_code"> {{ vs.service_name }}</nb-option>
+                        </nb-select>
+                        <div *ngIf="fval.vas_code.errors" class="invalid-feedback">
+                            <div *ngIf="fval.vas_code.errors.required">Service Name is Required</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-2">
+                    <label class="levelFontDesign">Location Code</label>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <input [(ngModel)]="_vendor.loaction_code" formControlName="loaction_code" class="form-control" 
+                        type="text" fullWidth nbInput placeholder="Location Code">
+                        
+                    </div>
+                </div>
+            </div>                            
+            <div class="row">
+                <div class="col-md-2">
+                    <label class="levelFontDesign">Address:</label>
+                </div>
+                <div class="col-md-10">
+                    <div class="form-group">
+                        <textarea [(ngModel)]="_vendor.address" formControlName="address" class="form-control" 
+                        rows="2" name="address" id ="address" nbInput fullWidth placeholder="Address"></textarea>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-2">
+                    <label class="levelFontDesign">Email:</label>
+                </div>
+                <div class="col-md-10">
+                    <div class="form-group">
+                        <textarea [(ngModel)]="_vendor.email" formControlName="email" class="form-control" 
+                        rows="2" name="email" id ="email" nbInput fullWidth placeholder="Email"></textarea>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-2">
+                    <label class="levelFontDesign">Contact Person:</label>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                            <input [(ngModel)]="_vendor.contact_person" formControlName="contact_person" class="form-control" 
+                        type="text" fullWidth nbInput placeholder="Contact Person">
+                        <div *ngIf="fval.contact_person.errors" class="invalid-feedback">
+                            <div *ngIf="fval.contact_person.errors.required">Contact Person is Required</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <label class="levelFontDesign">Contact Person Mobile</label>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                            <input [(ngModel)]="_vendor.contact_person_mobile" formControlName="contact_person_mobile" class="form-control" 
+                        type="text" fullWidth nbInput placeholder="Contact Person Mobile">
+                        <div *ngIf="fval.contact_person_mobile.errors" class="invalid-feedback">
+                            <div *ngIf="fval.contact_person_mobile.errors.required">Contact Person Mobile is Required</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-2">
+                    <label class="levelFontDesign">Own Vendor:</label>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <nb-checkbox status="basic" [(ngModel)]="town_vendor" formControlName="own_vendor"></nb-checkbox>
+                        {{town_vendor}}
+                    </div>
+                </div>                                
+                <div class="col-md-2">
+                    <label class="levelFontDesign">Active:</label>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <nb-checkbox status="basic" [(ngModel)]="tstatus" formControlName="status"></nb-checkbox>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <button nbButton hero [status]="'primary'" type="submit" style="width: 70px; height: 30px; font-size: 12px;" nbSpinnerStatus="danger" nbSpinnerSize="large" nbSpinnerMessage="">Save</button>
+            </div>
+        </form>
+    </nb-card-body>
+</nb-card>

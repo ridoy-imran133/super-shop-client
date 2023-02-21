@@ -1,0 +1,27 @@
+.levelFontDesign{
+    font-size: 11px;
+      font-weight: 600;
+      margin-top: 2%;
+      opacity: 0.7;
+      font-family: arial;
+  }
+
+  .right {
+    position: absolute;
+    right: 0px;
+  }
+  .forgot-pass{
+    float: right;
+    color: #3366ff;
+    font-size: 14px;
+    font-weight: 549;
+    cursor: pointer;
+    opacity: 0.6;
+  }
+  .forgot-pass :hover{
+    background-color: aliceblue;
+  }
+
+  p:hover {
+    color: rgb(187, 185, 185)
+  }

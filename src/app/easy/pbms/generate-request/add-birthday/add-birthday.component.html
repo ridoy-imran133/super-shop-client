@@ -1,0 +1,106 @@
+<nb-card *ngIf="!isCustomerList">
+    <nb-card-header>
+        <span>Add Service</span>
+        <a nbButton style="float: right;" size="tiny" [status]="'danger'" (click)="dismiss(null)"> <span>X</span></a>
+    </nb-card-header>
+    <nb-card-body>
+        <form (ngSubmit)="monthwiseBirthday()" [formGroup]="masterForm">
+            <div class="row" style="margin-top: 1%;">
+                <div class="col-md-2">
+                    <label class="levelFontDesign">Month:</label>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <nb-select [(ngModel)]="_month" formControlName="month" name="month"
+                                              [selected]="_month" fullWidth placeholder="Select Month">
+                            <nb-option value="01">January</nb-option>
+                            <nb-option value="02">February</nb-option>
+                            <nb-option value="03">March</nb-option>
+                            <nb-option value="04">April</nb-option>
+                            <nb-option value="05">May</nb-option>
+                            <nb-option value="06">June</nb-option>
+                            <nb-option value="07">July</nb-option>
+                            <nb-option value="08">August</nb-option>
+                            <nb-option value="09">September</nb-option>
+                            <nb-option value="10">October</nb-option>
+                            <nb-option value="11">November</nb-option>
+                            <nb-option value="12">December</nb-option>
+                        </nb-select>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <label class="levelFontDesign">Year:</label>
+                </div>
+                  <div class="col-md-4">
+                    <div class="form-group">
+                        <nb-select [(ngModel)]="_year" formControlName="year" name="year"
+                                              [selected]="_year" fullWidth placeholder="Select year">
+                            <nb-option value="01">2022</nb-option>
+                            <nb-option value="02">2023</nb-option>
+                        </nb-select>
+                    </div>
+                  </div>
+            </div>
+            <div class="form-group">
+                <button nbButton hero [status]="'primary'" type="submit" style="width: 70px; height: 30px; font-size: 12px;" nbSpinnerStatus="danger" nbSpinnerSize="large" nbSpinnerMessage="">Search</button>
+            </div>
+        </form>
+    </nb-card-body>
+</nb-card>
+<nb-card *ngIf="isCustomerList" style="height: 600px;">
+<!-- <nb-card style="height: 600px; width: 800px;" *ngIf="isCustomerList"> -->
+    <nb-card-body>
+        <nb-card style="max-height: 70%; min-height: 70%; max-width: 100%; min-width: 100%;">
+            <nb-card-header>
+                <span>Customer List(<span style="color: red;">{{birthcustcount}}</span>)</span>
+                <a nbButton style="float: right;" size="tiny" [status]="'danger'" (click)="dismiss(null)"> <span>X</span></a>
+            </nb-card-header>
+            <nb-card-body>      
+                <ng2-smart-table [settings]="settings"
+                    [source]="source"
+                    (custom)="onCustom($event)" *ngIf="!isLoader">
+                </ng2-smart-table>
+            </nb-card-body>
+            <nb-card *ngIf="isLoader" size="small" [nbSpinner]="!loading" nbSpinnerStatus="success" nbSpinnerSize="giant"
+                nbSpinnerMessage="wait">
+                <nb-card-body>
+                </nb-card-body>
+            </nb-card>
+        </nb-card>
+        
+        <nb-card>
+            <nb-card-header>
+                <span>Add Service</span>
+            </nb-card-header>
+            <nb-card-body>
+                <form (ngSubmit)="onSaveBirthday()" [formGroup]="masterForm">
+                    <div class="row">
+                        <div class="col-md-2">
+                            <label class="levelFontDesign">Gift Type:</label>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <nb-select [(ngModel)]="gift_type" formControlName="gift_type" name="gift_type" (selectedChange)="changeVendor(gift_type)"
+                                                      [selected]="gift_type" fullWidth placeholder="Select Gift Type">
+                                    <nb-option *ngFor="let g of _gifts" [value]="g.gift_code"> {{ g.gift_name }}</nb-option>
+                                </nb-select>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <label class="levelFontDesign">Vendor:</label>
+                        </div>
+                        <div class="col-md-4">
+                            <nb-select [(ngModel)]="vendor" formControlName="vendor" name="vendor"
+                                                        [selected]="vendor" fullWidth placeholder="Select Vendor">
+                                <nb-option *ngFor="let c of _showVendor" [value]="c.vendor_code"> {{ c.vendor_name }}</nb-option>
+                            </nb-select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <button (click)="onSaveBirthday()" nbButton hero [status]="'primary'" type="button" style="width: 70px; height: 30px; font-size: 12px;" nbSpinnerStatus="danger" nbSpinnerSize="large" nbSpinnerMessage="">Save</button>
+                    </div>
+                </form>
+            </nb-card-body>
+        </nb-card>
+    </nb-card-body>
+</nb-card>

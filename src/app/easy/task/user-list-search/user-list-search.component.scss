@@ -1,0 +1,40 @@
+@import '../../../@theme/styles/themes';
+
+@include nb-install-component() {
+  nb-card {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+:host ::ng-deep table tr:first-child th { 
+    position: sticky;
+    z-index: 100;
+    top: 0;
+ }
+
+ .table-fixed-header {
+    display: flex;
+    justify-content: space-between;
+    //margin-right: 18px;
+  }
+
+
+  :host ::ng-deep a.ng2-smart-action.ng2-smart-action-edit-cancel{
+    background-color: aqua;
+    padding: 5px;
+    font-size: 0.875rem !important;
+  }
+
+  :host ::ng-deep a.ng2-smart-action.ng2-smart-action-edit-save{
+    background-color: aqua;
+    padding: 5px;
+    font-size: 0.875rem !important;
+  }
+
+  .levelDesign{
+    font-size: 13px;
+    font-family: sans-serif;
+    color: #222B45;
+    padding-top: 12px;
+    padding-left: 12px;
+  }

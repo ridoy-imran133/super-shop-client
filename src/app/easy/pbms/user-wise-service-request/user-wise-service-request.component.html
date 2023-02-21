@@ -1,0 +1,92 @@
+<nb-card>
+  <nb-card-header>
+    <span>Service Search </span>
+    <nb-icon style="float: right; font-size: 1.3rem;cursor: pointer;" icon="arrow-down" *ngIf="searcharrow"
+        (click)=commonshowhide()></nb-icon>
+      <nb-icon style="float: right; font-size: 1.3rem;cursor: pointer;" icon="arrow-left" *ngIf="!searcharrow"
+        (click)=commonshowhide()></nb-icon>
+  </nb-card-header>
+  <nb-card-body style="padding-bottom: 0px; padding-top: 8px;">
+    <form (ngSubmit)="searchServices()" [formGroup]="masterForm" *ngIf="searcharrow">
+      <div class="row" *ngIf="branchareavisible">          
+        <div class="col-md-2" *ngIf="isareacode">
+          <label class="levelFontDesign">Area Code:</label>
+        </div>
+        <div class="col-md-4" *ngIf="isareacode">
+          <div class="form-group">
+            <nb-select [(ngModel)]="_searchModel.area_code" formControlName="area_code"
+              [ngClass]="{ 'is-invalid': submitted && fval.area_code.errors }" [selected]="_searchModel.area_code"
+              fullWidth placeholder="Select Area" (selectedChange)="areawisebranch(_searchModel.area_code)">
+              <nb-option *ngIf="isareacode" value="">All</nb-option>
+              <nb-option *ngFor="let c of _areas" [value]="c.area_code"> {{ c.area_name }}</nb-option>
+            </nb-select>
+          </div>
+        </div>
+        <div class="col-md-2">
+          <label class="levelFontDesign">Branch:</label>
+        </div>
+        <div class="col-md-4">
+          <div class="form-group">
+            <nb-select [(ngModel)]="_searchModel.branch_code" formControlName="branch_code"
+              [ngClass]="{ 'is-invalid': submitted && fval.branch_code.errors }" [selected]="_searchModel.branch_code"
+              fullWidth placeholder="Select Branch">
+              <!-- <nb-option *ngIf="isareacode" value="">All</nb-option> -->
+              <nb-option *ngFor="let c of _showbranch" [value]="c.branch_code"> {{ c.branch_name }}</nb-option>
+            </nb-select>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">          
+        <div class="col-md-2">
+          <label class="levelFontDesign">Service:</label>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <nb-select [(ngModel)]="_searchModel.service_code" formControlName="service_code"
+                            [selected]="_searchModel.service_code" fullWidth placeholder="Select Service">
+                    <nb-option *ngFor="let vs of _vasServices" [value]="vs.service_code"> {{ vs.service_name }}</nb-option>
+                </nb-select>
+            </div>
+        </div>
+        <div class="col-md-2">
+          <label class="levelFontDesign">Status:</label>
+        </div>
+        <div class="col-md-4">
+          <div class="form-group">
+            <nb-select [(ngModel)]="_searchModel.statuscode" formControlName="statuscode"
+               [selected]="_searchModel.statuscode"
+              fullWidth placeholder="Select Status">
+              <!-- <nb-option *ngIf="isareacode" value="">All</nb-option> -->
+              <nb-option value="A">Success</nb-option>
+              <nb-option value="P">Pending</nb-option>
+              <nb-option value="R">Recommendation</nb-option>
+              <nb-option value="C">Cancel</nb-option>
+            </nb-select>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+          <button nbButton hero [status]="'primary'" type="submit" style="width: 70px; height: 30px; font-size: 12px;"
+            nbSpinnerStatus="danger" nbSpinnerSize="large" nbSpinnerMessage="">Search</button>
+      </div>
+    </form>
+  </nb-card-body>
+</nb-card>
+
+<nb-card *ngIf="custgridshow">
+    <nb-card-header>
+      <span style="margin-right: 2%;">All Service</span>
+      <input #search class="search" type="text" placeholder="Search..." nbInput shape="semi-round"
+                (keyup)="onSearch(search.value)">
+                <nb-icon style="float: right; font-size: 1.3rem;cursor: pointer;" icon="arrow-down" *ngIf="customerlistshow"
+                    (click)=commonshowhide()></nb-icon>
+                <nb-icon style="float: right; font-size: 1.3rem;cursor: pointer;" icon="arrow-left" *ngIf="!customerlistshow"
+                    (click)=commonshowhide()></nb-icon>
+    </nb-card-header>
+    <nb-card-body *ngIf="customerlistshow">
+        <ng2-smart-table #table [settings]="settings" [source]="source">
+        </ng2-smart-table>
+    </nb-card-body>
+</nb-card>

@@ -1,0 +1,60 @@
+.levelFontDesign{
+    font-size: 11px;
+      font-weight: 600;
+      margin-top: 8%;
+      opacity: 0.7;
+      font-family: arial;
+  }
+
+  .levelFontDesignforp{
+      font-size: 11px;
+      font-weight: 600;
+      margin-top: 2%;
+      opacity: 0.7;
+      font-family: arial;
+  }
+
+//   ::ng-deep.nb-theme-default nb-route-tabset .tab-link{
+//     line-height: 0 !important;
+//     text-transform: none !important;
+//   }
+
+  ::ng-deep nb-route-tabset .tab-link {
+    line-height: 0 !important;
+    text-transform: none !important;
+    // background-color: red !important;
+    // background: red !important;
+    // border: 1px solid red;
+  }
+
+  //nb-theme-default nb-route-tabset .tab-link
+  // ::ng-deep nb-route-tabset .tab-link {
+  //   line-height: 0 !important;
+  //   text-transform: none !important;
+  // }
+
+  // ::ng-deep nb-route-tabset .route-tab.active .tab-link::before {
+  //   background-color: red !important;
+  // }
+
+  .levelFontDesign1{
+    font-size: 11px;
+    font-weight: 600;
+    opacity: 0.7;
+    font-family: arial;
+}
+
+.levelFormFontDesign{
+font-size: 11px;
+font-weight: 600;
+margin-top: 8%;
+opacity: 0.7;
+font-family: arial;
+}
+
+.levelFontDesignforptag{
+  font-size: 11px;
+    font-weight: 600;
+    opacity: 0.7;
+    font-family: arial;
+}

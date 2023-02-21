@@ -1,0 +1,80 @@
+<nb-layout>
+    <nb-layout-column>
+        <nb-card style="margin: 0% 20%;padding: 1% 3%;">
+            <nb-card-body>
+                <h2> Registration </h2>
+                <form (ngSubmit)="onRegistration()" [formGroup]="registrationForm">
+                    <label class="levelFontDesign">Full Name:</label>
+                    <input [(ngModel)]="registration.fullname" formControlName="fullname" class="form-control" type="text" 
+                           [ngClass]="{ 'is-invalid': submitted && fval.fullname.errors }" fullWidth nbInput placeholder="Full Name">
+                    <div *ngIf="submitted && fval.fullname.errors" class="invalid-feedback">
+                        <div *ngIf="fval.fullname.errors.required">Please enter your Full Name</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label class="levelFontDesign">Username:</label>
+                            <input [(ngModel)]="registration.username" formControlName="username" class="form-control" type="text" 
+                                   [ngClass]="{ 'is-invalid': submitted && fval.username.errors }" fullWidth nbInput placeholder="User Name">
+                            <div *ngIf="submitted && fval.username.errors" class="invalid-feedback">
+                                <div *ngIf="fval.username.errors.required">Please enter your Username</div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="levelFontDesign">Password:</label>
+                            <input [(ngModel)]="registration.password" formControlName="password" class="form-control" type="text" 
+                                   [ngClass]="{ 'is-invalid': submitted && fval.password.errors }" fullWidth nbInput placeholder="Password">
+                            <div *ngIf="submitted && fval.password.errors" class="invalid-feedback">
+                                <div *ngIf="fval.password.errors.required">Please enter your Password</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label class="levelFontDesign">Phone Number:</label>
+                            <input [(ngModel)]="registration.phonenumber" formControlName="phonenumber" class="form-control" type="text" 
+                                   [ngClass]="{ 'is-invalid': submitted && fval.phonenumber.errors }" fullWidth nbInput placeholder="Phone Number">
+                            <div *ngIf="submitted && fval.phonenumber.errors" class="invalid-feedback">
+                                <div *ngIf="fval.phonenumber.errors.required">Please enter your Phone Number</div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="levelFontDesign">Email:</label>
+                            <input [(ngModel)]="registration.email" formControlName="email" class="form-control" type="text" 
+                                   [ngClass]="{ 'is-invalid': submitted && fval.email.errors }" fullWidth nbInput placeholder="Email">
+                            <div *ngIf="submitted && fval.email.errors" class="invalid-feedback">
+                                <div *ngIf="fval.email.errors.required">Please enter your Email</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label class="levelFontDesign">Gender:</label>
+                            <input [(ngModel)]="registration.gender" formControlName="gender" class="form-control" type="text" 
+                                   [ngClass]="{ 'is-invalid': submitted && fval.gender.errors }" fullWidth nbInput placeholder="Gender">
+                            <div *ngIf="submitted && fval.gender.errors" class="invalid-feedback">
+                                <div *ngIf="fval.gender.errors.required">Please enter your Gender</div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="levelFontDesign">Date of Birth:</label>
+                            <input [(ngModel)]="registration.dateofbirth" formControlName="dateofbirth" class="form-control" type="date" 
+                                   [ngClass]="{ 'is-invalid': submitted && fval.dateofbirth.errors }" fullWidth nbInput placeholder="dateofbirth">
+                            <div *ngIf="submitted && fval.dateofbirth.errors" class="invalid-feedback">
+                                <div *ngIf="fval.dateofbirth.errors.required">Please enter your username</div>
+                            </div>
+                        </div>
+                    </div>
+        
+                    <label class="levelFontDesign">address:</label>
+                    <textarea [(ngModel)]="registration.address" formControlName="address" class="form-control" type="text" 
+                              [ngClass]="{ 'is-invalid': submitted && fval.address.errors }" fullWidth nbInput placeholder="address">
+                    </textarea>
+                    <div style="margin: 2%;"></div>
+                    <div class="row" style="margin: 0%;">
+                        <button nbButton hero [status]="'primary'" type="submit" style="width: 70px; height: 30px; font-size: 12px;" nbSpinnerStatus="danger" nbSpinnerSize="large" nbSpinnerMessage="">Signup</button>
+                    </div>                  
+                </form>
+            </nb-card-body>
+        </nb-card>
+    </nb-layout-column>
+</nb-layout>

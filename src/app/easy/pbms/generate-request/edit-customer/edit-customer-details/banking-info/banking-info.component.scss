@@ -1,0 +1,31 @@
+.levelFontDesignPersonal{
+  font-size: 11px;
+  font-weight: 600;
+  margin-top: 8%;
+  opacity: 0.7;
+  font-family: arial;
+  }
+
+  .levelFontDesign1{
+    font-size: 14px;
+    font-weight: 600;
+    opacity: 0.7;
+    font-family: arial;
+}
+
+.nb-theme-default nb-card{
+  border: none !important;
+}
+
+::ng-deep.nb-theme-default nb-route-tabset .route-tab.active .tab-link::before {
+  background-color: none;
+}
+
+::ng-deep.nb-theme-default nb-tabset nb-tab{
+  padding: 0 !important;
+  
+}
+
+::ng-deep.nb-theme-default nb-tabset .tab-link{
+  text-transform: none !important;
+}

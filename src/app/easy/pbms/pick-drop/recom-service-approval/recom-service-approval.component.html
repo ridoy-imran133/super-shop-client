@@ -1,0 +1,108 @@
+<div class="row">
+    <div class="col-md-12">
+        <nb-card>
+          <nb-card-header> 
+            <span>Recomendation</span>
+            <a nbButton style="float: right;" size="tiny" [status]="'danger'" (click)="dismissfornone()"> <span>X</span></a>
+          </nb-card-header>
+          <form>
+
+          </form>
+          <nb-card-body>
+            <form (ngSubmit)="recommendationServiceReq()" [formGroup]="masterForm">
+                <div class="row" style="margin-top: 0.6%;">
+                    <div class="col-md-2">
+                        <label class="levelFontDesign">Service:</label>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <input disabled readonly [(ngModel)]="servicename" formControlName="servicename" class="form-control" 
+                            type="text" fullWidth nbInput placeholder="Service Name">
+                        </div>
+                    </div>
+                    <div class="col-md-3" *ngIf="_serviceRequest.recom_message != ''">
+                        <label class="levelFontDesign" style="color: red">Reason:</label>
+                    </div>
+                    <div class="col-md-3" *ngIf="_serviceRequest.recom_message != ''">
+                        <p style="margin: 0; font-size: 11px; font-weight: bold; color: red; opacity: 0.7;">{{_serviceRequest.recom_message}}</p>                        
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-2">
+                        <label class="levelFontDesign">Customer No:</label>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <input disabled readonly [(ngModel)]="_serviceRequest.cust_no" formControlName="cust_id" class="form-control" 
+                            type="text" fullWidth nbInput placeholder="Service Name">
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <label class="levelFontDesign">Customer Name:</label>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <input disabled readonly [(ngModel)]="_serviceRequest.cust_name" formControlName="customer_name" class="form-control" 
+                            type="text" fullWidth nbInput placeholder="Service Name">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-2">
+                        <label class="levelFontDesign">CASA Balance:</label>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <input readonly [(ngModel)]="_serviceRequest.casa_bal" formControlName="casa_balance" class="form-control text-right" 
+                            type="text" fullWidth nbInput placeholder="Balance" disabled>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <label class="levelFontDesign">FD Balance:</label>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <input readonly [(ngModel)]="_serviceRequest.fd_bal" formControlName="fd_balance" class="form-control text-right" 
+                            type="text" fullWidth nbInput placeholder="Balance" disabled>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-2">
+                        <label class="levelFontDesign">Total Balance:</label>
+                    </div>
+                    <div class="col-md-4">
+                        <input readonly [(ngModel)]="_serviceRequest.tot_bal" formControlName="total_balance" class="form-control text-right" 
+                            type="text" fullWidth nbInput placeholder="Balance" disabled>
+                    </div>
+                    <div class="col-md-2">
+                        <label class="levelFontDesign">Date:</label>
+                    </div>
+                    <div class="col-md-4">
+                        <input readonly [(ngModel)]="insdate" formControlName="ins_date" class="form-control" 
+                            type="text" fullWidth nbInput placeholder="Date" disabled>
+                    </div>
+                </div>
+                <div class="row" style="margin-top: 2%;">
+                    <div class="col-md-2">
+                        <label class="levelFontDesign">Note:<span style="color: red;"> *</span></label>
+                    </div>
+                    <div class="col-md-10">
+                        <div class="form-group">
+                            <textarea [(ngModel)]="_serviceRequest.recom_note" formControlName="remarks" class="form-control" [ngClass]="{ 'is-invalid': submitted && fval.remarks.errors }"
+                            rows="5" name="remarks" id ="remarks" nbInput fullWidth placeholder="Note"></textarea>
+                            <div *ngIf="submitted && fval.remarks.errors" class="invalid-feedback">
+                                <div *ngIf="fval.remarks.errors.required">Note required</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <button nbButton hero [status]="'primary'" type="submit" style="width: 70px; height: 30px; font-size: 12px; margin-right: 1%;" nbSpinnerStatus="danger" nbSpinnerSize="large" nbSpinnerMessage="">Approve</button>
+                    <button nbButton hero [status]="'danger'" type="button" style="width: 70px; height: 30px; font-size: 12px;" nbSpinnerStatus="danger" nbSpinnerSize="large" nbSpinnerMessage="" (click)="cancelRequest()">Decline</button>
+                </div>
+            </form>
+          </nb-card-body>
+        </nb-card>
+      </div>
+</div>

@@ -1,0 +1,57 @@
+<nb-card>
+    <nb-card-header>
+        Sub Category
+        <!-- {{text}} Vendor -->
+        <a nbButton style="float: right;" size="tiny" [status]="'danger'" (click)="dismissfornone()">
+            <span>X</span></a>
+    </nb-card-header>
+    <nb-card-body>
+        <form (ngSubmit)="onSaveCategory()" [formGroup]="masterForm">
+            <div class="row" style="margin-top: 1%;">
+                <div class="col-md-2">
+                    <label class="levelFontDesign">Category: <span style="color: red;">*</span></label>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <nb-select [(ngModel)]="_subcategoryFromOther.CatCode" formControlName="cat_code" [ngClass]="{ 'is-invalid': submitted && fval.cat_code.errors }"
+                            [selected]="_subcategoryFromOther.CatCode" fullWidth placeholder="Select Vendor">
+                            <nb-option *ngFor="let c of categories" [value]="c.CatCode"> {{ c.CategoryName }}</nb-option>
+                        </nb-select>
+                        <div *ngIf="fval.cat_code.errors" class="invalid-feedback">
+                            <div *ngIf="fval.cat_code.errors.required">Vendor Name is Required</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <label class="levelFontDesign">Sub Category: <span style="color: red;">*</span></label>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <input [(ngModel)]="_subcategoryFromOther.SubCategoryName" formControlName="sub_cat_name"
+                            class="form-control" type="text" fullWidth nbInput [ngClass]="{ 'is-invalid': submitted && fval.sub_cat_name.errors }">
+                            <div *ngIf="submitted && fval.sub_cat_name.errors" class="invalid-feedback">
+                                <div *ngIf="fval.sub_cat_name.errors.required">Gift Name</div>
+                            </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- <div class="row">
+                <div class="col-md-2">
+                    <label class="levelFontDesign">Active:</label>
+                </div>
+                <div class="col-md-4" style="padding-top: 1%;">
+                    <div class="form-group">
+                        <nb-checkbox status="basic" [(ngModel)]="status" formControlName="status">
+                        </nb-checkbox>
+                    </div>
+                </div>
+            </div> -->
+            <div class="form-group">
+                <button nbButton hero [status]="'primary'" type="submit"
+                    style="width: 70px; height: 30px; font-size: 12px;" nbSpinnerStatus="danger"
+                    nbSpinnerSize="large" nbSpinnerMessage="">Save</button>
+            </div>
+        </form>
+    </nb-card-body>
+</nb-card>

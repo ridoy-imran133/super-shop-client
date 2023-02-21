@@ -1,0 +1,30 @@
+<nb-card>
+    <nb-card-header>
+        {{textval}} Brand
+        <a nbButton style="float: right;" size="tiny" [status]="'danger'" (click)="dismissfornone()">
+            <span>X</span></a>
+    </nb-card-header>
+    <nb-card-body>
+        <form (ngSubmit)="onSaveBrand()" [formGroup]="masterForm">
+            <div class="row" style="margin-top: 1%;">
+                <div class="col-md-2">
+                    <label class="levelFontDesign">Brand name: <span style="color: red;">*</span></label>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <input [(ngModel)]="_brandFromOther.BrandName" formControlName="brand_name"
+                            class="form-control" type="text" fullWidth nbInput [ngClass]="{ 'is-invalid': submitted && fval.brand_name.errors }">
+                            <div *ngIf="submitted && fval.brand_name.errors" class="invalid-feedback">
+                                <div *ngIf="fval.brand_name.errors.required">Gift Name</div>
+                            </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <button nbButton hero [status]="'primary'" type="submit"
+                    style="width: 70px; height: 30px; font-size: 12px;" nbSpinnerStatus="danger"
+                    nbSpinnerSize="large" nbSpinnerMessage="">Save</button>
+            </div>
+        </form>
+    </nb-card-body>
+</nb-card>

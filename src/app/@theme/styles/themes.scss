@@ -1,0 +1,172 @@
+// @nebular theming framework
+@import '~@nebular/theme/styles/theming';
+// @nebular out of the box themes
+@import '~@nebular/theme/styles/themes';
+
+$nb-themes: nb-register-theme((
+  layout-padding-top: .25rem,
+  layout-text-font-family: Arial,
+  layout-padding: 1rem 1rem 0rem,
+  layout-medium-padding: .75rem .75rem 0rem,
+  layout-small-padding: 0.25rem 0.25rem 0,
+
+  menu-item-icon-margin: 0 0.5rem 0 0,
+
+  card-height-tiny: 13.5rem,
+  card-height-small: 21.1875rem,
+  card-height-medium: 28.875rem,
+  card-height-large: 36.5625rem,
+  card-height-giant: 44.25rem,
+  card-margin-bottom: .5rem,
+  card-header-with-select-padding-top: 0.5rem,
+  card-header-with-select-padding-bottom: 0.5rem,
+
+  select-min-width: 6rem,
+
+  slide-out-background: #f7f9fc,
+  slide-out-shadow-color: 0 4px 14px 0 #8f9bb3,
+  slide-out-shadow-color-rtl: 0 4px 14px 0 #8f9bb3,
+
+  menu-text-color: #cac2c2,
+  menu-text-font-family: Arial,
+  menu-text-font-size: 0.75rem,
+  menu-item-padding: .4rem 0.75rem,
+  menu-item-hover-background-color: #293846,
+  menu-item-hover-text-color: #ffffff,
+  menu-item-icon-hover-color: #ffffff,
+  menu-item-active-background-color: #293846,
+  menu-item-active-text-color: #ffffff,
+  menu-item-icon-active-color: #ffffff,
+  menu-item-divider-style: none,
+
+  menu-submenu-text-color: #cac2c2,
+  menu-submenu-padding: 0 0 0 .25rem,  
+  //menu-submenu-item-padding: .35rem 2.65rem,
+  menu-submenu-item-padding: .35rem 1.55rem,
+  menu-submenu-item-active-background-color: #293846,
+  menu-submenu-item-hover-text-color: #ffffff,
+  menu-submenu-item-icon-hover-color: #ffffff,
+  menu-submenu-item-hover-background-color: #293846,
+  menu-submenu-item-active-text-color: #ffffff,
+  menu-submenu-item-icon-active-color: #ffffff,
+
+
+  sidebar-width: 12.5rem,
+  sidebar-width-compact: 3.5rem,
+
+  header-height: 3.3rem,
+  header-background-color: #FFD101,
+  header-text-font-family: Arial,
+
+  footer-text-font-family: Arial,
+
+  //list item
+  list-item-padding : 0.1rem 0.6rem,
+  list-item-text-color: #cac2c2,
+  list-item-font-family: Arial,
+  list-item-font-size: 0.95rem,
+  list-item-font-weight: 600,
+  list-item-line-height: 0.5rem,
+  list-item-divider-color: none,
+
+  popover-arrow-size: 0.1rem,
+  popover-border-radius: 0.75rem,
+  popover-padding: 0,
+  popover-shadow: -0.1rem 0.25rem 0.25rem 0.25rem #d3cece,
+
+  route-tabset-tab-background-color: #6c757d,
+  route-tabset-tab-text-color: #ffffff,
+  route-tabset-tab-active-underline-color: yellow,
+  route-tabset-tab-focus-underline-color: yellow,
+  route-tabset-tab-hover-background-color: green,
+  route-tabset-tab-underline-width: 0rem,
+
+  //tabset-background-color: #6c757d,
+  tabset-tab-background-color: #6c757d,
+  tabset-tab-text-color: #ffffff,
+  tabset-tab-underline-width: 0rem,
+  tabset-tab-active-background-color: #3366ff,	
+  tabset-tab-hover-background-color: green,
+  tabset-tab-active-text-color: #ffffff,
+  tabset-tab-padding: 0.5rem 2.4rem,
+
+  input-basic-background-color: #ffffff,
+  input-basic-hover-background-color: #ffffff,
+  input-primary-disabled-text-color: #f1eeee,
+  input-primary-disabled-background-color: #f7f7f7,
+  select-outline-basic-background-color: #ffffff,
+  select-outline-basic-hover-background-color: #ffffff,
+  input-basic-disabled-text-color: #383f55,
+
+  card-scrollbar-background-color: #f7f9fc,
+  card-scrollbar-width: 0.5125rem,
+
+  checkbox-height: 0.85rem,
+  checkbox-width: 0.85rem,
+  checkbox-text-font-size: 13px,
+
+  card-padding: 0.3rem 1.1rem,
+), default, default);
+
+$nb-themes: nb-register-theme((
+  layout-padding-top: 2.25rem,
+
+  menu-item-icon-margin: 0 0.5rem 0 0,
+
+  card-height-tiny: 13.5rem,
+  card-height-small: 21.1875rem,
+  card-height-medium: 28.875rem,
+  card-height-large: 36.5625rem,
+  card-height-giant: 44.25rem,
+  card-margin-bottom: 1.875rem,
+  card-header-with-select-padding-top: 0.5rem,
+  card-header-with-select-padding-bottom: 0.5rem,
+
+  select-min-width: 6rem,
+
+  slide-out-background: #252547,
+  slide-out-shadow-color: 2px 0 3px #29157a,
+  slide-out-shadow-color-rtl: -2px 0 3px #29157a,
+), cosmic, cosmic);
+
+$nb-themes: nb-register-theme((
+  layout-padding-top: 2.25rem,
+
+  menu-item-icon-margin: 0 0.5rem 0 0,
+
+  card-height-tiny: 13.5rem,
+  card-height-small: 21.1875rem,
+  card-height-medium: 28.875rem,
+  card-height-large: 36.5625rem,
+  card-height-giant: 44.25rem,
+  card-margin-bottom: 1.875rem,
+  card-header-with-select-padding-top: 0.5rem,
+  card-header-with-select-padding-bottom: 0.5rem,
+
+  select-min-width: 6rem,
+
+  slide-out-background: linear-gradient(270deg, #edf1f7 0%, #e4e9f2 100%),
+  slide-out-shadow-color: 0 4px 14px 0 #8f9bb3,
+  slide-out-shadow-color-rtl: 0 4px 14px 0 #8f9bb3,
+), corporate, corporate);
+
+$nb-themes: nb-register-theme((
+  layout-padding-top: 2.25rem,
+
+  menu-item-icon-margin: 0 0.5rem 0 0,
+
+  card-height-tiny: 13.5rem,
+  card-height-small: 21.1875rem,
+  card-height-medium: 28.875rem,
+  card-height-large: 36.5625rem,
+  card-height-giant: 44.25rem,
+  card-margin-bottom: 1.875rem,
+  card-header-with-select-padding-top: 0.5rem,
+  card-header-with-select-padding-bottom: 0.5rem,
+
+  select-min-width: 6rem,
+
+  slide-out-background: linear-gradient(270deg, #222b45 0%, #151a30 100%),
+  slide-out-shadow-color: 0 4px 14px 0 #8f9bb3,
+  slide-out-shadow-color-rtl: 0 4px 14px 0 #8f9bb3,
+), dark, dark);

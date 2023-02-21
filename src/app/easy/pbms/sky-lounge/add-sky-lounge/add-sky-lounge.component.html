@@ -1,0 +1,117 @@
+<div class="row">
+    <div class="col-lg-12">
+        <nb-card>
+          <nb-card-header>
+            <span>Service</span>
+            <a nbButton style="float: right;" size="tiny" [status]="'danger'" (click)="dismissforcancel()"> <span>X</span></a>
+          </nb-card-header>
+          <nb-card-body>
+            <form (ngSubmit)="onSaverequest()" [formGroup]="masterForm">
+                <div class="row">
+                    <div class="col-md-2">
+                        <label class="levelFontDesign">Customer Id:</label>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <input readonly [(ngModel)]="service.cust_no" formControlName="customer_no" class="form-control" 
+                            type="text" fullWidth nbInput placeholder="Enter value" disabled>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <label class="levelFontDesign">Customer Name:</label>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <input readonly [(ngModel)]="service.cust_name" formControlName="customer_name" class="form-control" 
+                            type="text" fullWidth nbInput placeholder="Customer Name" disabled>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-2">
+                        <label class="levelFontDesign">Phone Number:</label>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <input readonly [(ngModel)]="service.cust_mobile" formControlName="cust_mobile" class="form-control" 
+                            type="text" fullWidth nbInput placeholder="Phone Number" disabled>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <label class="levelFontDesign">DOB:</label>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <input readonly [(ngModel)]="birthdate" formControlName="cust_birthday" class="form-control" 
+                            type="text" fullWidth nbInput placeholder="Date of Birth" disabled>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-2">
+                        <label class="levelFontDesign">Air Line:<span style="color: red;"> *</span></label>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <!-- <input readonly [(ngModel)]="customer_name" formControlName="customer_name" class="form-control" 
+                            type="text" fullWidth nbInput placeholder="Air Line"> -->
+                            <nb-select [(ngModel)]="service.airline_code" formControlName="airline_code" [ngClass]="{ 'is-invalid': submitted && fval.airline_code.errors }"
+                                        [selected]="service.airline_code" fullWidth placeholder="Select Airline">
+                                <nb-option *ngFor="let c of _airlines" [value]="c.airline_code"> {{ c.airline_name }}</nb-option>
+                            </nb-select>
+                            <div *ngIf="submitted && fval.airline_code.errors" class="invalid-feedback">
+                                <div *ngIf="fval.airline_code.errors.required">Select Airline</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <label class="levelFontDesign">Flight No:<span style="color: red;"> *</span></label>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <input [(ngModel)]="service.flight_no" formControlName="flight_no" class="form-control" [ngClass]="{ 'is-invalid': submitted && fval.flight_no.errors }"
+                            type="text" fullWidth nbInput placeholder="Flight No">
+                            <div *ngIf="submitted && fval.flight_no.errors" class="invalid-feedback">
+                                <div *ngIf="fval.flight_no.errors.required">Flight No Required</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-2">
+                        <label class="levelFontDesign">Reporting Date:<span style="color: red;"> *</span></label>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <!-- <input readonly [(ngModel)]="customer_name" formControlName="customer_name" class="form-control" 
+                            type="text" fullWidth nbInput placeholder="Date"> -->
+                            <input nbInput [nbDatepicker]="formpicker" [(ngModel)]="rep_date" placeholder="Reporting Date"
+                                formControlName="reporting_date" class="form-control" [ngClass]="{ 'is-invalid': submitted && fval.reporting_date.errors }">
+                            <nb-datepicker #formpicker format="dd/MM/yyyy"></nb-datepicker>
+                            <div *ngIf="submitted && fval.reporting_date.errors" class="invalid-feedback">
+                                <div *ngIf="fval.reporting_date.errors.required">Reporting Date Required</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <label class="levelFontDesign">Total Person:<span style="color: red;"> *</span></label>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <input appNumbersOnly [(ngModel)]="service.total_person" formControlName="total_person" class="form-control"
+                            type="text" fullWidth nbInput placeholder="Total Person" [ngClass]="{ 'is-invalid': submitted && fval.total_person.errors }">
+                            <div *ngIf="submitted && fval.total_person.errors" class="invalid-feedback">
+                                <div *ngIf="fval.total_person.errors.required">Total Person is Required</div>
+                            </div>
+                        </div>
+                    </div>                    
+                </div> 
+                <div class="form-group">
+                    <button nbButton hero [status]="'primary'" type="submit" style="width: 70px; height: 30px; font-size: 12px;" nbSpinnerStatus="danger" nbSpinnerSize="large" nbSpinnerMessage="">Save</button>
+                </div>
+            </form>
+          </nb-card-body>
+          <!-- <nb-card-footer>By Wikipedia</nb-card-footer> -->
+        </nb-card>
+      </div>
+</div>

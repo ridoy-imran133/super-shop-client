@@ -1,0 +1,19 @@
+
+<div class="row">
+  <div class="col-md-12">
+    <nb-card>
+      <nb-card-header>
+        <span>It Team List </span>
+        <a nbButton style="float: right;" size="small" shape="round" [status]="'primary'"
+           (click)="open3()"><i class="nb-plus"></i> Add It Team </a>
+      </nb-card-header>
+
+      <nb-card-body>
+
+        <ng2-smart-table [settings]="settings" [source]="source" (custom)="onCustom($event)">          
+        </ng2-smart-table>
+      </nb-card-body>
+    </nb-card>
+  </div>
+</div>
+

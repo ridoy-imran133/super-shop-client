@@ -1,0 +1,93 @@
+.nb-theme-default nb-card{
+    border: none !important;
+}
+
+::ng-deep.nb-theme-default nb-route-tabset .route-tab.active .tab-link::before {
+    background-color: none;
+}
+
+::ng-deep.nb-theme-default nb-tabset nb-tab{
+    padding: 0 !important;
+    
+}
+
+::ng-deep.nb-theme-default nb-tabset .tab-link{
+    text-transform: none !important;
+}
+// ::ng-deep.nb-theme-default li{
+//     margin-right: 2px !important;
+// }
+
+.levelFontDesign1{
+    font-size: 11px;
+    font-weight: 600;
+    opacity: 0.7;
+    font-family: arial;
+}
+
+
+
+.model-full {
+    // width: 100% !important;
+    // height: 100% !important;
+    align-items: top !important;
+    // .cdk-visually-hidden {
+    //   width: 99% !important;
+    //   height: 99% !important;
+    // }
+  
+    // nb-dialog-container {
+    //   width: 100% !important;
+    //   height: 100% !important;
+    // }
+  }
+
+  .blurcolor{
+    background-color: rgba(0, 0, 0, 0.48);
+  }
+  .modal{
+    z-index: 1040 !important;
+  }
+
+  :host /deep/ .cell_right {
+    text-align: right;
+    box-sizing: border-box;
+    display: block;
+    color: #686B6D !important;
+    //border: 2px solid #EBEBEB !important;
+    //padding: 5px !important;
+    line-height: 1.25rem;
+    font-size: .75rem !important;
+    font-family: Arial !important;
+    font-weight: 400 !important;
+    margin-bottom: 0;
+    }
+
+    .levelFontDesign{
+        font-size: 11px;
+          font-weight: 600;
+          margin-top: 8%;
+          opacity: 0.7;
+          font-family: arial;
+      }
+
+      .levelFontDesignnext{
+        font-size: 11px;
+          font-weight: 600;
+          margin-top: 3%;
+          opacity: 0.7;
+          font-family: arial;
+      }
+
+:host /deep/ .ng2-smart-action-multiple-select{
+        text-align: center;
+    }
+    
+:host /deep/ .ng2-smart-action-multiple-select > input{
+    width:12px;
+    height:12px;
+    display: unset;
+    }
+
+:host ::ng-deep table tr:first-child th { position : sticky; top: -1px; z-index: 100; border: 1px solid #dee2e6; }
+:host ::ng-deep table tr:first-child th input { margin-left: 38%; }

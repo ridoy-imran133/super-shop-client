@@ -1,0 +1,264 @@
+<nb-card style="max-height: 95%; min-height: 95%; max-width: 100%; min-width: 100%;">
+    <nb-card-body>
+        <form [formGroup]="PersonalInfoForm">
+            <!-- <div class="row">
+                <div class="col-md-2">
+                    <label class="levelFontDesignPersonal">Customer No:</label>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                            <p class="levelFontDesignPersonalView">{{personalInfo.cust_no}}</p>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <label class="levelFontDesignPersonal">Customer Name:</label>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                            <p class="levelFontDesignPersonalView">{{personalInfo.customer_name}}</p>
+                    </div>
+                </div>
+            </div> -->
+            <fieldset style="margin-top: 10px; border: 2px solid #edf1f7; padding: 0.35em 0.75em 0em">
+            <div class="row">
+                <div class="col-md-2">
+                    <label class="levelFontDesignPersonal">Branch Code</label>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <input class="levelFontDesignPersonal" disabled readonly [(ngModel)]="personalInfo.branch_code" formControlName="branch_code"
+                            class="form-control" type="text" fullWidth nbInput placeholder="Travel Code">
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <label class="levelFontDesignPersonal">Branch Name</label>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <input disabled readonly [(ngModel)]="personalInfo.branch_name" formControlName="branch_name"
+                            class="form-control" type="text" fullWidth nbInput placeholder="Branch Name">
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-2">
+                    <label class="levelFontDesignPersonal">Business Date</label>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <input nbInput [nbDatepicker]="formpicker" [(ngModel)]="personalInfo.business_date"
+                            placeholder="Business Date" formControlName="business_date" class="form-control" disabled>
+                        <nb-datepicker #formpicker></nb-datepicker>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <label class="levelFontDesignPersonal">Cat ID</label>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <input disabled readonly [(ngModel)]="personalInfo.cat_desc" formControlName="cat_desc"
+                            class="form-control" type="text" fullWidth nbInput placeholder="Cat ID">
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-2">
+                    <label class="levelFontDesignPersonal">Segment Code</label>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <input disabled readonly [(ngModel)]="personalInfo.segment_name" formControlName="segment_name"
+                            class="form-control" type="text" fullWidth nbInput placeholder="Segment Code">
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <label class="levelFontDesignPersonal">Customer Type</label>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <input disabled readonly [(ngModel)]="personalInfo.customer_desc"
+                            formControlName="customer_desc" class="form-control" type="text" fullWidth nbInput
+                            placeholder="Customer Type">
+                    </div>
+                </div>
+            </div>
+            </fieldset>
+
+            <fieldset style="margin-top: 10px; border: 2px solid #edf1f7; padding: 0.35em 0.75em 0em">
+            <div class="row">
+                <div class="col-md-2">
+                    <label class="levelFontDesignPersonal">Birth Date</label>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <input nbInput [nbDatepicker]="formpicker" [(ngModel)]="personalInfo.birth_date"
+                            placeholder="Birth Date" formControlName="birth_date" class="form-control" disabled>
+                        <nb-datepicker #formpicker></nb-datepicker>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <label class="levelFontDesignPersonal">CIF Creation Date</label>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <input nbInput [nbDatepicker]="formpicker" [(ngModel)]="personalInfo.cif_creation_date"
+                            placeholder="CIF Creation Date" formControlName="cif_creation_date" class="form-control"
+                            disabled>
+                        <nb-datepicker #formpicker></nb-datepicker>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-2">
+                    <label class="levelFontDesignPersonal">Family CIF</label>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <input disabled readonly [(ngModel)]="personalInfo.family_cif" formControlName="family_cif"
+                            class="form-control" type="text" fullWidth nbInput placeholder="Family CIF">
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <label class="levelFontDesignPersonal">Address</label>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <textarea class="levelTextFontDesignPersonal" disabled readonly
+                            [(ngModel)]="personalInfo.address" formControlName="address" rows="4"></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-2">
+                    <label class="levelFontDesignPersonal">Priority Code</label>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <input disabled readonly [(ngModel)]="personalInfo.priority_code"
+                            formControlName="priority_code" class="form-control" type="text" fullWidth nbInput
+                            placeholder="Priority Code">
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <label class="levelFontDesignPersonal">Mobile Number</label>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <input disabled readonly [(ngModel)]="personalInfo.mobile_number"
+                            formControlName="mobile_number" class="form-control" type="text" fullWidth nbInput
+                            placeholder="Mobile Number">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-2">
+                    <label class="levelFontDesignPersonal">E-Mail</label>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <input disabled readonly [(ngModel)]="personalInfo.e_mail" formControlName="e_mail"
+                            class="form-control" type="text" fullWidth nbInput placeholder="E-Mail">
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <label class="levelFontDesignPersonal">Birthday Recom</label>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <input disabled readonly [(ngModel)]="personalInfo.birthday_recom"
+                            formControlName="birthday_recom" class="form-control" type="text" fullWidth nbInput
+                            placeholder="Birthday Recom">
+                    </div>
+                </div>
+            </div>
+
+        </fieldset>
+           
+        <fieldset style="margin-top: 10px; border: 2px solid #edf1f7; padding: 0.35em 0.75em 0em">
+            <div class="row">
+                <div class="col-md-2">
+                    <label class="levelFontDesignPersonal">Picdrop Recom</label>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <input disabled readonly [(ngModel)]="personalInfo.picdrop_recom"
+                            formControlName="picdrop_recom" class="form-control" type="text" fullWidth nbInput
+                            placeholder="Picdrop Recom">
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <label class="levelFontDesignPersonal">Birthday Reason</label>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <input disabled readonly [(ngModel)]="personalInfo.birthday_reason"
+                            formControlName="birthday_reason" class="form-control" type="text" fullWidth nbInput
+                            placeholder="Birthday Reason">
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-2">
+                    <label class="levelFontDesignPersonal">CASA Balance</label>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <input disabled readonly [(ngModel)]="personalInfo.casa_balance" formControlName="casa_balance"
+                            class="form-control" type="text" fullWidth nbInput placeholder="CASA Balance" style = "text-align: right;">
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <label class="levelFontDesignPersonal">FD Balance</label>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <input disabled readonly [(ngModel)]="personalInfo.fd_balance" formControlName="fd_balance"
+                            class="form-control" type="text" fullWidth nbInput placeholder="FD Balance" style = "text-align: right;">
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-2">
+                    <label class="levelFontDesignPersonal">Total Balance</label>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <input disabled readonly [(ngModel)]="personalInfo.total_balance"
+                            formControlName="total_balance" class="form-control" type="text" fullWidth nbInput
+                            placeholder="Total Balance" style = "text-align: right;">
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <label class="levelFontDesignPersonal">Picdrop Reason</label>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <input disabled readonly [(ngModel)]="personalInfo.picdrop_reason"
+                            formControlName="picdrop_reason" class="form-control" type="text" fullWidth nbInput
+                            placeholder="Picdrop Reason">
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-2">
+                    <label class="levelFontDesignPersonal">Status</label>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <input disabled readonly [(ngModel)]="personalInfo.status" formControlName="status"
+                            class="form-control" type="text" fullWidth nbInput placeholder="Status">
+                    </div>
+                </div>
+
+            </div>
+        </fieldset>
+        </form>
+    </nb-card-body>
+</nb-card>

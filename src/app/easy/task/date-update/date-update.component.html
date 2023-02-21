@@ -1,0 +1,46 @@
+<nb-card>
+    <nb-card-header>{{ title }}
+      <a nbButton style="float: right; padding: 2px;" size="tiny" [status]="'danger'"
+           (click)="dismiss()"><i class="nb-close" style="font-weight: bold; font-size: 14px;"></i></a>
+    </nb-card-header>
+    <nb-card-body>
+      <form [formGroup]="FMDivisionForm" (ngSubmit)="onSaveDate()">
+        <div class="row">
+            <div class="col-md-6" style="width: 100%;">
+
+                <div class="form-group">
+                    <input nbInput [nbDatepicker]="formpicker" [(ngModel)]="_user.StartDate" placeholder="Start Date"
+                        formControlName="StartDate" class="form-control" [ngClass]="{ 'is-invalid': fval.StartDate.errors }" >
+                    <nb-datepicker #formpicker></nb-datepicker>              
+                    <div *ngIf="fval.StartDate.errors" class="invalid-feedback">
+                        <div *ngIf="fval.StartDate.errors.required"> Start Date is required</div>                    
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6" >
+                <div class="form-group">
+                    <input nbInput [nbDatepicker]="formpicker1" [(ngModel)]="_user.EndDate" placeholder="End Date"          
+                        formControlName="EndDate" class="form-control" [ngClass]="{ 'is-invalid': fval.EndDate.errors }" >
+                    <nb-datepicker #formpicker1></nb-datepicker>              
+                    <div *ngIf="fval.EndDate.errors" class="invalid-feedback">
+                        <div *ngIf="fval.EndDate.errors.required"> End Date is required</div>                    
+                    </div>
+                </div>
+            </div>
+        </div> 
+        <div class="row">
+          <div class="col-12" style="text-align: center;">
+            <button class="buttonTextFormatter" hero nbButton [status]="'primary'" type="submit">
+              Next
+            </button>
+  
+  
+          </div>
+        </div>
+      </form>
+  </nb-card-body>
+    <!-- <nb-card-footer>
+      <button nbButton hero status="primary" (click)="dismiss()">Dismiss Dialog</button>
+    </nb-card-footer> -->
+  </nb-card>
+  

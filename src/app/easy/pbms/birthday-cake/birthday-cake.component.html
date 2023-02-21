@@ -1,0 +1,70 @@
+<!-- <nb-card style="max-height: 90%; min-width: 100%;" *ngIf="roleid == 'R001' || roleid == 'R004'">
+    <nb-card-header>
+        <span>Add Service</span>
+    </nb-card-header>
+    <nb-card-body>
+        <form (ngSubmit)="searchBirthdayRequest()" [formGroup]="masterForm">
+            <div class="row">
+                <div class="col-md-2">
+                    <label class="levelFontDesign">Service:</label>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <nb-select [(ngModel)]="gift_type" formControlName="gift_type" name="gift_type"
+                                                      [selected]="gift_type" fullWidth placeholder="Select Gift Type">
+                                    <nb-option *ngFor="let g of _gifts" [value]="g.gift_code"> {{ g.gift_name }}</nb-option>
+                                </nb-select>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                  
+                </div>
+                  <div class="col-md-4">
+                  </div>
+            </div>
+            <div class="form-group">
+                <button nbButton hero [status]="'primary'" type="submit" style="width: 70px; height: 30px; font-size: 12px;" nbSpinnerStatus="danger" nbSpinnerSize="large" nbSpinnerMessage="">Search</button>
+            </div>
+        </form>
+    </nb-card-body>
+</nb-card> -->
+
+<nb-card>
+    <nb-card-header>
+        <span>Birthday List</span>
+        <!-- <input #search class="search" type="text" placeholder="Search..." nbInput shape="semi-round" (keyup)="onSearch(search.value)" style="margin-left: 25%;"> -->
+    </nb-card-header>
+    <nb-card-body>
+        <nb-tabset>
+            <nb-tab tabTitle="Pending"
+                    badgeText={{this._pendingcount}}
+                    badgePosition="top right"
+                    badgeStatus="danger"
+                    route="/easy/pbms/birthday-cake">
+                    <ng2-smart-table #table [settings]="settings"
+                                [source]="source"
+                                (custom)="onCustom($event)"
+                                (userRowSelect)="onUserRowSelect($event)" *ngIf="_pendingcount != 0">
+                    </ng2-smart-table>
+                    <div *ngIf="_pendingcount == 0" style="border: 2px solid #edf1f7; padding: 0.35em 0.75em 0em">
+                        <span class="levelFontDesign1">no data found</span>
+                    </div>
+            </nb-tab>
+        </nb-tabset>
+        <div class="row" style="margin-top: 1%;" *ngIf="_isshown">
+            <div class="col-md-1" style="margin-top: 0.35%;">
+                <button *ngIf="roleid == 'R001' || roleid == 'R004'" style="margin-top: 1%;" size="tiny" nbButton status="primary" (click)="approveMultipleBirthday()">Approve</button>
+            </div>
+            <div class="col-md-1">
+                <label class="levelFontDesign">Search:</label>
+            </div>
+            <div class="col-md-3">
+                <input #search class="search" type="text" placeholder="Search..." nbInput shape="semi-round" (keyup)="onSearch(search.value)">
+            </div>
+            <div class="col-md-7">
+
+            </div>
+        </div>
+        
+    </nb-card-body>
+</nb-card>

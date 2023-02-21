@@ -1,0 +1,220 @@
+<nb-card>
+    <nb-card-header>
+      <span>Customer Search </span>
+      <nb-icon style="float: right; font-size: 1.3rem;" icon="arrow-down" *ngIf="issearchsection" (click) = arrowButtonFunction()></nb-icon>
+      <nb-icon style="float: right; font-size: 1.3rem;" icon="arrow-left" *ngIf="!issearchsection" (click) = arrowButtonFunction()></nb-icon>
+    </nb-card-header>
+    <nb-card-body style="padding-bottom: 0px; padding-top: 8px;" *ngIf="issearchsection">
+      <form (ngSubmit)="searchCustomer()" [formGroup]="masterForm">
+        <div class="row">
+            <div class="col-md-2">
+
+            </div>
+            <div class="col-md-3">
+                <div class="row">
+                    <div class="col-md-4">
+                        <label class="levelFontDesign">Service:</label>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="form-group" >
+                            <nb-select [(ngModel)]="_report.service_code" formControlName="service_code" [selected]="_report.service_code" fullWidth placeholder="Select Service">
+                                <nb-option *ngFor="let vs of _vasServices" [value]="vs.service_code"> {{ vs.service_name }}</nb-option>
+                            </nb-select>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <label class="levelFontDesign">Confirm From Date:</label>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="form-group">
+                            <input nbInput [nbDatepicker]="formpicker" [(ngModel)]="_report.confirm_from_date" placeholder="Confirm Date"
+                                formControlName="confirm_from_date" class="form-control" >
+                            <nb-datepicker #formpicker format="dd/MM/yyyy"></nb-datepicker>
+                            <!-- <div *ngIf="submitted && fval.confirm_from_date.errors" class="invalid-feedback">
+                              <div *ngIf="fval.confirm_from_date.errors.required">Reporting Date Required</div>
+                          </div> -->
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <label class="levelFontDesign">Arrival From Date:</label>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="form-group">
+                            <input nbInput [nbDatepicker]="formpicker2" [(ngModel)]="_report.arrival_from_date" placeholder="Arraival Date"
+                                formControlName="arrival_from_date" class="form-control">
+                            <nb-datepicker #formpicker2 format="dd/MM/yyyy"></nb-datepicker>
+                            <!-- <div *ngIf="submitted && fval.arrival_from_date.errors" class="invalid-feedback">
+                              <div *ngIf="fval.arrival_from_date.errors.required">Arraival Date Required</div>
+                          </div> -->
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <label class="levelFontDesign">Departure From Date:</label>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="form-group">
+                            <input nbInput [nbDatepicker]="formpicker4" [(ngModel)]="_report.departure_from_date" placeholder="Departure Date"
+                                formControlName="departure_from_date" class="form-control">
+                            <nb-datepicker #formpicker4 format="dd/MM/yyyy"></nb-datepicker>
+                            <!-- <div *ngIf="submitted && fval.departure_from_date.errors" class="invalid-feedback">
+                              <div *ngIf="fval.departure_from_date.errors.required">Departure Date Required</div>
+                          </div> -->
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <label class="levelFontDesign">Center:</label>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="form-group" >
+                            <nb-select [(ngModel)]="_report.branch_code" formControlName="branch_code" [selected]="_report.branch_code" fullWidth placeholder="Select Center">
+                                <nb-option *ngFor="let b of _branch" [value]="b.branch_code"> {{ b.branch_name }}</nb-option>
+                            </nb-select>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="col-md-4">
+                        <label class="levelFontDesign">Vendor:</label>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="form-group" >
+                            <nb-select [(ngModel)]="_report.vendor_code" formControlName="vendor_code" fullWidth placeholder="Select Vendor">
+                                <nb-option *ngFor="let v of _vendors" [value]="v.vendor_code"> {{ v.vendor_name }}</nb-option>
+                            </nb-select>
+                        </div>                       
+                    </div>
+                </div>
+            </div>
+            <div style="border-left: 2px solid rgb(134, 129, 129); margin-top: 1%; margin-left: 4%; margin-right: 4%; margin-bottom: 2%;">
+            </div>
+            <div class="col-md-3">
+                <div class="row">
+                    <div class="col-md-4">
+                        <label class="levelFontDesign">Status:</label>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="form-group" >
+                            <nb-select [(ngModel)]="_report.status_code" formControlName="status_code" [selected]="_report.status_code" fullWidth placeholder="Select Status">
+                                <nb-option value="A">Approval</nb-option>
+                                <nb-option value="P">Pending</nb-option>
+                                <nb-option value="R">Recommendation</nb-option>
+                                <nb-option value="C">Cancel</nb-option>
+                            </nb-select>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <label class="levelFontDesign">Confirm To Date:</label>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="form-group">
+                            <input nbInput [nbDatepicker]="formpicker1" [(ngModel)]="_report.confirm_to_date" placeholder="Confirm To Date"
+                                formControlName="confirm_to_date" class="form-control">
+                            <nb-datepicker #formpicker1 format="dd/MM/yyyy"></nb-datepicker>
+                            <!-- <div *ngIf="submitted && fval.confirm_to_date.errors" class="invalid-feedback">
+                              <div *ngIf="fval.confirm_to_date.errors.required">Reporting Date Required</div>
+                          </div> -->
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <label class="levelFontDesign">Arrival To Date:</label>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="form-group">
+                            <input nbInput [nbDatepicker]="formpicker3" [(ngModel)]="_report.arrival_to_date" placeholder="Arraival To Date"
+                                formControlName="arrival_to_date" class="form-control">
+                            <nb-datepicker #formpicker3 format="dd/MM/yyyy"></nb-datepicker>
+                            <!-- <div *ngIf="submitted && fval.arrival_to_date.errors" class="invalid-feedback">
+                              <div *ngIf="fval.arrival_to_date.errors.required">Arraival Date Required</div>
+                          </div> -->
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <label class="levelFontDesign">Departure To Date:</label>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="form-group">
+                            <input nbInput [nbDatepicker]="formpicker5" [(ngModel)]="_report.departure_to_date" placeholder="Departure To Date"
+                                formControlName="departure_to_date" class="form-control">
+                            <nb-datepicker #formpicker5 format="dd/MM/yyyy"></nb-datepicker>
+                            <!-- <div *ngIf="submitted && fval.departure_to_date.errors" class="invalid-feedback">
+                              <div *ngIf="fval.departure_to_date.errors.required">Departure Date Required</div>
+                          </div> -->
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <label class="levelFontDesign">RM:</label>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="form-group" >
+                            <nb-select [(ngModel)]="_report.priority_code" formControlName="priority_code" [selected]="_report.priority_code" fullWidth placeholder="Select RM">
+                                <nb-option *ngFor="let r of _rm" [value]="r.priority_code"> {{ r.emp_rm_name }}</nb-option>
+                            </nb-select>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <label class="levelFontDesign">Birth Month:</label>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="form-group" >
+                            <nb-select [(ngModel)]="_report.birth_month" formControlName="birth_month" [selected]="_report.birth_month" fullWidth placeholder="Select Month">
+                            <nb-option value="01">January</nb-option>
+                            <nb-option value="02">February</nb-option>
+                            <nb-option value="03">March</nb-option>
+                            <nb-option value="04">April</nb-option>
+                            <nb-option value="05">May</nb-option>
+                            <nb-option value="06">June</nb-option>
+                            <nb-option value="07">July</nb-option>
+                            <nb-option value="08">August</nb-option>
+                            <nb-option value="09">September</nb-option>
+                            <nb-option value="10">October</nb-option>
+                            <nb-option value="11">November</nb-option>
+                            <nb-option value="12">December</nb-option>
+                            </nb-select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+
+            </div>
+        </div>
+        <div class="form-group">
+          <button nbButton hero [status]="'primary'" type="submit" style="width: 70px; height: 30px; font-size: 12px;" nbSpinnerStatus="danger" nbSpinnerSize="large" nbSpinnerMessage="">Search</button>&nbsp;&nbsp;
+          <input (click)="clearformdata()" type="reset" nbButton class="btn btn-primary" readonly hero style="width: 70px; height: 30px; font-size: 12px;" nbSpinnerStatus="danger" nbSpinnerSize="large" nbSpinnerMessage="" value="CLEAR">
+        </div>
+      </form>
+    </nb-card-body>
+</nb-card>
+
+<nb-card *ngIf="tablesearch">
+    <nb-card-header>
+        <span>Service List </span>
+        <nb-icon style="float: right; font-size: 1.3rem;" icon="arrow-down" *ngIf="istablesection" (click) = !arrowButtonFunction()></nb-icon>
+        <nb-icon style="float: right; font-size: 1.3rem;" icon="arrow-left" *ngIf="!istablesection" (click) = arrowButtonFunction()></nb-icon>
+        <a (click)="exportAsXLSX()" nbButton style="float: right; background: #24c532; opacity: 0.7; color: white; margin-right: 1px;" size="tiny" shape="round"> excel </a>
+    </nb-card-header>
+    <nb-card-body *ngIf="istablesection">    
+      <ng2-smart-table #table [settings]="settings"
+            [source]="source">
+      </ng2-smart-table>
+    </nb-card-body>
+  </nb-card>

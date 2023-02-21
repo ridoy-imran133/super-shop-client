@@ -1,0 +1,277 @@
+<nb-card>
+    <nb-card-header>
+      <span>Service</span>
+      <a nbButton style="float: right;" size="tiny" [status]="'danger'" (click)="dismiss()"> <span>X</span></a>
+    </nb-card-header>
+    <nb-card-body>
+      <form (ngSubmit)="onSaveUser()" [formGroup]="masterForm">
+        <nb-card style="max-height: 450px;">
+            <nb-card-body>
+                <div class="row" style="margin-top: 1%;">
+                    <div class="col-md-2">
+                        <label class="levelFontDesign">Service:</label>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <input disabled readonly [(ngModel)]="servicename" formControlName="servicename" class="form-control" 
+                            type="text" fullWidth nbInput placeholder="Service Name">
+                        </div>
+                    </div>
+                      <div class="col-md-2">
+                          <label class="levelFontDesign">Customer Id:</label>
+                      </div>
+                      <div class="col-md-4">
+                          <div class="form-group">
+                              <!-- <input #autoInput nbInput type="text" (input)="onChange()" placeholder="Enter value" [nbAutocomplete]="auto" /> -->
+                              <input readonly [(ngModel)]="_serviceRequest.cust_no" formControlName="customer_no" #autoInput class="form-control" (input)="onChange()" 
+                              type="text" fullWidth nbInput placeholder="Enter value" disabled>
+                              <!-- <input #autoInput *ngIf="_serviceRequest.cust_no" [(ngModel)]="_serviceRequest.cust_no" formControlName="customer_no" class="form-control" 
+                              type="text" fullWidth nbInput placeholder="Enter value">
+                              <nb-autocomplete #auto (selectedChange)="onSelectionChange($event)">
+                                  <nb-option *ngFor="let option of filteredOptions$ | async" [value]="option">
+                                    {{ option }}
+                                  </nb-option>                          
+                                </nb-autocomplete> -->
+                          </div>
+                      </div>
+                  </div>
+                  <div class="row">
+                      <div class="col-md-2">
+                          <label class="levelFontDesign">Customer Name:</label>
+                      </div>
+                      <div class="col-md-4">
+                          <div class="form-group">
+                              <input readonly [(ngModel)]="_serviceRequest.cust_name" formControlName="customer_name" class="form-control" 
+                              type="text" fullWidth nbInput placeholder="Customer Name" disabled>
+                          </div>
+                      </div>
+                      <div class="col-md-2">
+                          <label class="levelFontDesign">Phone Number:</label>
+                      </div>
+                      <div class="col-md-4">
+                          <div class="form-group">
+                              <input readonly [(ngModel)]="_serviceRequest.cust_mobile" formControlName="cust_mobile" class="form-control" 
+                              type="text" fullWidth nbInput placeholder="Phone Number" disabled>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="row">
+                      <div class="col-md-2">
+                          <label class="levelFontDesign">DOB</label>
+                      </div>
+                      <div class="col-md-4">
+                          <div class="form-group">
+                              <input readonly [(ngModel)]="birthdate" formControlName="cust_birthday" class="form-control" 
+                              type="text" fullWidth nbInput placeholder="Date of Birth" disabled>
+                          </div>
+                      </div>
+                      <div class="col-md-2">
+                          <label class="levelFontDesign">Casa Balance:</label>
+                      </div>
+                      <div class="col-md-4">
+                          <div class="form-group">
+                              <input readonly [(ngModel)]="_serviceRequest.casa_bal" formControlName="casa_balance" class="form-control text-right" 
+                              type="text" fullWidth nbInput placeholder="Balance" disabled>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="row">
+                      <div class="col-md-2">
+                          <label class="levelFontDesign">FD Balance</label>
+                      </div>
+                      <div class="col-md-4">
+                          <div class="form-group">
+                              <input readonly [(ngModel)]="_serviceRequest.fd_bal" formControlName="fd_balance" class="form-control text-right" 
+                              type="text" fullWidth nbInput placeholder="Balance" disabled>
+                          </div>
+                      </div>
+                      <div class="col-md-2">
+                          <label class="levelFontDesign">Total Balance:</label>
+                      </div>
+                      <div class="col-md-4">
+                          <input readonly [(ngModel)]="_serviceRequest.tot_bal" formControlName="total_balance" class="form-control text-right" 
+                              type="text" fullWidth nbInput placeholder="Balance" disabled>
+                      </div>
+                  </div>
+                  <div class="row" *ngIf="isdepartureformg">
+                      <div class="col-md-12">
+                          <fieldset style="border: 2px solid #edf1f7; padding: 0.35em 0.75em 0em">
+                              <legend style="width: 11%; font-size: 14px; font-weight: 600; opacity: 0.7; font-family: arial;">Departure</legend>
+                              <div class="row">
+                                  <div class="col-md-2">
+                                      <label class="levelFontDesign">Air Line: <span style="color: red;"> *</span></label>
+                                  </div>
+                                  <div class="col-md-4">
+                                      <div class="form-group">
+                                          <!-- <input readonly [(ngModel)]="customer_name" formControlName="customer_name" class="form-control" 
+                                          type="text" fullWidth nbInput placeholder="Air Line"> -->
+                                          <nb-select [(ngModel)]="_serviceRequest.airline_code" formControlName="airline_code" [ngClass]="{ 'is-invalid': fval.airline_code.errors }"
+                                                      [selected]="_serviceRequest.airline_code" fullWidth placeholder="Select Airline">
+                                              <nb-option *ngFor="let c of _airlines" [value]="c.airline_code"> {{ c.airline_name }}</nb-option>
+                                          </nb-select>
+                                          <div *ngIf="fval.airline_code.errors" class="invalid-feedback">
+                                            <div *ngIf="fval.airline_code.errors.required"> Airline code is required</div>                    
+                                        </div>
+                                      </div>
+                                  </div>
+                                  <div class="col-md-2">
+                                      <label class="levelFontDesign">Flight No: <span style="color: red;"> *</span></label>
+                                  </div>
+                                  <div class="col-md-4">
+                                      <div class="form-group">
+                                          <input [(ngModel)]="_serviceRequest.flight_no" formControlName="flight_no" class="form-control" [ngClass]="{ 'is-invalid': fval.flight_no.errors }"
+                                          type="text" fullWidth nbInput placeholder="Flight No">
+                                          <div *ngIf="fval.flight_no.errors" class="invalid-feedback">
+                                              <div *ngIf="fval.flight_no.errors.required"> Flight No is required</div>                    
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+                              <div class="row">
+                                  <div class="col-md-2">
+                                      <label class="levelFontDesign">Reporting Date: <span style="color: red;"> *</span></label>
+                                  </div>
+                                  <div class="col-md-4">
+                                      <div class="form-group">
+                                        <input nbInput placeholder="Pick Date" [nbDatepicker]="dateTimePicker12" [(ngModel)]="rep_date" placeholder="Reporting Date"
+                                              formControlName="reporting_date" class="form-control" [ngClass]="{ 'is-invalid': submitted && fval.reporting_date.errors }" (keydown.enter)="dateform()">
+                                                <nb-date-timepicker format="dd/MM/yyyy  hh:mm a"
+                                                twelveHoursFormat
+                                                #dateTimePicker12></nb-date-timepicker>
+                                              <div *ngIf="submitted && fval.reporting_date.errors" class="invalid-feedback">
+                                                <div *ngIf="fval.reporting_date.errors.required">Reporting Date Required</div>
+                                            </div>
+                                      </div>
+                                  </div>
+                                  <div class="col-md-2">
+                                    <label class="levelFontDesign">Total Person: <span style="color: red;"> *</span></label>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <input appNumbersOnly [(ngModel)]="_serviceRequest.total_person" formControlName="total_person" class="form-control text-right" [ngClass]="{ 'is-invalid': submitted && fval.total_person.errors }"
+                                        type="text" fullWidth nbInput placeholder="Total Person">
+                                        <div *ngIf="submitted && fval.total_person.errors" class="invalid-feedback">
+                                          <div *ngIf="fval.total_person.errors.required">Total Person is Required</div>
+                                      </div>
+                                    </div>
+                                </div>
+                              </div>
+                          </fieldset>
+                      </div>
+                  </div>
+                  <div class="row" style="margin-top: 1%; margin-bottom: 1%;" *ngIf="isreturnformg">
+                      <div class="col-md-12">
+                          <fieldset style="border: 2px solid #edf1f7">
+                              <legend style="width: 8%; font-size: 14px; font-weight: 600; opacity: 0.7; font-family: arial;">Return</legend>
+                              <div class="row">
+                                  <div class="col-md-2">
+                                      <label class="levelFontDesign">Air Line: <span style="color: red;"> *</span></label>
+                                  </div>
+                                  <div class="col-md-4">
+                                      <div class="form-group">
+                                          <nb-select [(ngModel)]="_serviceRequest.airline_code_return" formControlName="airline_code_return" [ngClass]="{ 'is-invalid': submitted && fval.airline_code_return.errors }"
+                                                      [selected]="_serviceRequest.airline_code_return" fullWidth placeholder="Select Airline">
+                                              <nb-option *ngFor="let c of _airlines" [value]="c.airline_code"> {{ c.airline_name }}</nb-option>
+                                          </nb-select>
+                                          <div *ngIf="submitted && fval.airline_code_return.errors" class="invalid-feedback">
+                                            <div *ngIf="fval.airline_code_return.errors.required">Total Person is Required</div>
+                                        </div>
+                                      </div>
+                                  </div>
+                                  <div class="col-md-2">
+                                      <label class="levelFontDesign">Flight No: <span style="color: red;"> *</span></label>
+                                  </div>
+                                  <div class="col-md-4">
+                                      <div class="form-group">
+                                          <input [(ngModel)]="_serviceRequest.flight_no_return" formControlName="flight_no_return" class="form-control" 
+                                          type="text" fullWidth nbInput placeholder="Flight No" [ngClass]="{ 'is-invalid': submitted && fval.flight_no_return.errors }">
+                                          <div *ngIf="submitted && fval.flight_no_return.errors" class="invalid-feedback">
+                                            <div *ngIf="fval.flight_no_return.errors.required">Flight No is Required</div>
+                                        </div>
+                                      </div>
+                                  </div>
+                              </div>
+                              <div class="row">
+                                  <div class="col-md-2">
+                                      <label class="levelFontDesign">Reporting Date: <span style="color: red;"> *</span></label>
+                                  </div>
+                                  <div class="col-md-4">
+                                      <div class="form-group">
+                                        <input nbInput placeholder="Pick Date" [nbDatepicker]="dateTimePicker1" [(ngModel)]="rep_date_ret" placeholder="Reporting Date"
+                                              formControlName="reporting_date_return" class="form-control" [ngClass]="{ 'is-invalid': submitted && fval.reporting_date_return.errors }">
+                                                <nb-date-timepicker format="dd/MM/yyyy  hh:mm a"
+                                                twelveHoursFormat
+                                                #dateTimePicker1></nb-date-timepicker>
+                                              <div *ngIf="submitted && fval.reporting_date_return.errors" class="invalid-feedback">
+                                                <div *ngIf="fval.reporting_date_return.errors.required">Reporting Date Required</div>
+                                            </div>
+                                      </div>
+                                  </div>
+                                  <div class="col-md-2">
+                                    <label class="levelFontDesign">Total Person: <span style="color: red;"> *</span></label>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <input appNumbersOnly [(ngModel)]="_serviceRequest.total_person_return" formControlName="total_person_return" class="form-control text-right" [ngClass]="{ 'is-invalid': submitted && fval.total_person_return.errors }"
+                                        type="text" fullWidth nbInput placeholder="Total Person">
+                                        <div *ngIf="submitted && fval.total_person_return.errors" class="invalid-feedback">
+                                          <div *ngIf="fval.total_person_return.errors.required">Total Person Required</div>
+                                      </div>
+                                    </div>
+                                </div>
+                              </div>
+                          </fieldset>
+                      </div>
+                  </div>
+                  <div class="row">
+                      <div class="col-md-12">
+                          <fieldset style="border: 2px solid #edf1f7">
+                              <legend style="width: 17%; font-size: 14px; font-weight: 600; opacity: 0.7; font-family: arial;">Alternate Contact</legend>
+                              <div class="row">
+                                  <div class="col-md-2">
+                                      <label class="levelFontDesign">Name:</label>
+                                  </div>
+                                  <div class="col-md-4">
+                                      <div class="form-group">
+                                          <input [(ngModel)]="_serviceRequest.alternet_name" formControlName="alternet_contact_name" class="form-control" 
+                                          type="text" fullWidth nbInput placeholder="Name">
+                                      </div>
+                                  </div>
+                                  <div class="col-md-2">
+                                      <label class="levelFontDesign">Phone Number:</label>
+                                  </div>
+                                  <div class="col-md-4">
+                                      <div class="form-group">
+                                          <input appNumbersOnly [(ngModel)]="_serviceRequest.alternet_mobile" formControlName="alternet_contact_mobile" class="form-control" 
+                                          [ngClass]="{ 'is-invalid': submitted && fval.alternet_contact_mobile.errors }" type="text" fullWidth nbInput placeholder="Phone Number">
+                                          <div *ngIf="submitted && fval.alternet_contact_mobile.errors" class="invalid-feedback">
+                                            <div *ngIf="fval.alternet_contact_mobile.errors.pattern || fval.alternet_contact_mobile.errors.maxlength || fval.alternet_contact_mobile.errors.minlength">Phone number must be at least 11 numbers</div>
+                                        </div>
+                                      </div>
+                                  </div>
+                              </div>
+                          </fieldset>
+                      </div>
+                  </div>
+                  <div class="row" style="margin-top: 2%;">
+                      <div class="col-md-2">
+                          <label class="levelFontDesign">Remarks:</label>
+                      </div>
+                      <div class="col-md-10">
+                          <div class="form-group">
+                              <textarea [(ngModel)]="_serviceRequest.remarks" formControlName="remarks" class="form-control" 
+                              rows="5" name="remarks" id ="remarks" nbInput fullWidth placeholder="remarks"></textarea>
+                          </div>
+                      </div>
+                  </div>
+            </nb-card-body>
+            <nb-card-footer>
+                <div class="form-group">
+                    <button nbButton hero [status]="'primary'" type="submit" style="width: 70px; height: 30px; font-size: 12px;" nbSpinnerStatus="danger" nbSpinnerSize="large" nbSpinnerMessage="">Save</button>
+                </div>
+            </nb-card-footer>
+        </nb-card>
+      </form>
+    </nb-card-body>
+    <!-- <nb-card-footer>By Wikipedia</nb-card-footer> -->
+  </nb-card>

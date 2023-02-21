@@ -1,0 +1,66 @@
+<nb-card>
+    <nb-card-header>
+        <span>Update RM</span>
+        <a nbButton style="float: right;" size="tiny" [status]="'danger'" (click)="dismiss()"> <span>X</span></a>
+    </nb-card-header>
+    <nb-card-body>
+
+        <div class="row">
+            <div class="col-md-2">
+                <label class="levelFontDesign">RM Code:</label>
+            </div>
+            <div class="col-md-4">
+                <p class="pFontDesign">{{_rmdetails.rm_code}}</p>
+            </div>
+            <div class="col-md-2">
+              <label class="levelFontDesign">RM Name:</label>
+            </div>
+            <div class="col-md-4">
+              <p class="pFontDesign">{{_rmdetails.emp_name}}</p>
+          </div>
+        </div>
+    
+        <div class="row">
+            <div class="col-md-2">
+                <label class="levelFontDesign">Priority Code:</label>
+            </div>
+            <div class="col-md-4">
+                <p class="pFontDesign">{{_rmdetails.priority_code}}</p>
+            </div>
+            <div class="col-md-2">
+              <label class="levelFontDesign">Branch:</label>
+            </div>
+            <div class="col-md-4">
+              <p class="pFontDesign">{{_rmdetails.branch_name}}</p>
+          </div>    
+        </div>
+    
+        <div class="row" style="margin-top: 3%; margin-bottom: 3%;">
+            <div class="col-md-2" >
+                <label class="levelFontDesign">Branch:</label>
+              </div>
+              <div class="col-md-3" >
+                <div class="form-group">
+                  <nb-select [(ngModel)]="branch_code" fullWidth placeholder="Select Branch" (selectedChange)="branchselect()">
+                    <!-- <nb-option *ngIf="isareacode" value="">All</nb-option> -->
+                    <nb-option *ngFor="let c of _branch" [value]="c.branch_code"> {{ c.branch_name }}</nb-option>
+                  </nb-select>
+                </div>
+              </div>
+            <div class="col-md-2">
+                <label class="levelFontDesign1">Update RM:</label>
+            </div>
+            <div class="col-md-8">
+                <nb-select [(ngModel)]="_customer.priority_code" placeholder="Select" style="width: 400px;">
+                    <nb-option *ngFor="let r of _rm" [value]="r.priority_code"> {{ r.emp_rm_name }}</nb-option>
+                </nb-select>
+                <!-- <div *ngIf="_customer.priority_code == null || _customer.priority_code = ''">
+                    <p>RM is required</p>
+                </div> -->
+            </div>
+            <div class="col-md-2">
+                <button size="tiny" nbButton status="primary" (click)="savepriority()" style="margin-top: 12%;">save</button>
+            </div>
+        </div>
+    </nb-card-body>
+</nb-card>

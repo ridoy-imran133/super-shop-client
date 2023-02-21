@@ -1,0 +1,89 @@
+<div class="row">
+    <div class="col-md-12">
+        <nb-card>
+            <nb-card-header>
+                <span>Airport Pick & Drop</span>
+                <!-- <a nbButton style="float: right;" size="small" shape="round" [status]="'primary'" (click)="addMeetAndGreetRequest()"><i class="nb-plus"></i> Add service </a> -->
+            </nb-card-header>
+            <nb-card-body>
+                <div class="row">
+                    <div class="col-md-12">
+                        <!-- <nb-route-tabset [tabs]="tabs"></nb-route-tabset> -->
+
+                        <nb-tabset>
+                            <nb-tab tabTitle="Pending" badgeText={{this._pendingcount}} badgePosition="top right"
+                                badgeStatus="danger" route="/easy/pbms/meet-greet/pending">
+                                <ng2-smart-table #table [settings]="settingsPen" [source]="sourcePen"
+                                    (custom)="onCustom($event)" *ngIf="_pendingcount != 0">
+                                </ng2-smart-table>
+                                <div *ngIf="_pendingcount == 0"
+                                    style="border: 2px solid #edf1f7; padding: 0.35em 0.75em 0em">
+                                    <span class="levelFontDesign1">no data found</span>
+                                </div>
+                            </nb-tab>
+                            <nb-tab tabTitle="Recommendation" badgeText={{this._recomcount}} badgePosition="top right"
+                                badgeStatus="danger" route="/easy/pbms/meet-greet/recommendation">
+                                <ng2-smart-table #table [settings]="settingsRecom" [source]="sourceRecom"
+                                    (custom)="onCustom($event)" *ngIf="_recomcount != 0">
+                                </ng2-smart-table>
+                                <div *ngIf="_recomcount == 0" style="border: 2px solid #edf1f7; padding: 0.35em 0.75em">
+                                    <span class="levelFontDesign1">no data found</span>
+                                </div>
+                            </nb-tab>
+                        </nb-tabset>
+
+                        <div class="row" style="margin-top: 1%;" *ngIf="_isshownpen">
+                            <div class="col-md-1">
+                                <label class="levelFontDesign">Search</label>
+                            </div>
+                            <div class="col-md-3">
+                                <input #search class="search" type="text" placeholder="Search..." nbInput
+                                    shape="semi-round" (keyup)="onSearch(search.value)">
+                            </div>
+                            <div class="col-md-1" style="margin-top: 0.35%;">
+                                <button *ngIf="roleid == 'R001' || roleid == 'R004'" style="margin-top: 1%;" size="tiny"
+                                    nbButton status="primary" (click)="approveMultipleBirthday()">Approve</button>
+                            </div>
+                            <div class="col-md-7">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </nb-card-body>
+        </nb-card>
+    </div>
+</div>
+
+<div class="modal blurcolor bd-example-modal-xl" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" [ngStyle]="{'display':displayforapproval}">
+    <div class="modal-dialog modal-xl">
+      <div class="modal-content">
+        <ngx-pending-service-approval [_serviceRequestfromother]="srforapproval"></ngx-pending-service-approval>
+      </div>
+    </div>
+</div>
+
+<div class="modal blurcolor bd-example-modal-xl" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" [ngStyle]="{'display':displayforrecom}">
+    <div class="modal-dialog modal-xl">
+      <div class="modal-content">
+        <ngx-recom-service-approval [_serviceRequestfromother]="srforrecom"></ngx-recom-service-approval>
+      </div>
+    </div>
+</div>
+
+<div class="modal blurcolor bd-example-modal-xl" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" [ngStyle]="{'display':displayforedit}">
+    <div class="modal-dialog modal-xl">
+      <div class="modal-content">
+        <ngx-add-pick-drop [_serviceRequestfromother]="srforedit" [textfromanother]="textforedit" [textfrompickgreet]="displayforedit"></ngx-add-pick-drop>
+      </div>
+    </div>
+</div>
+
+
+<!-- <div class="modal blurcolor bd-example-modal-xl" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" [ngStyle]="{'display':displayforrecom}">
+    <div class="modal-dialog modal-xl">
+      <div class="modal-content">
+        <ngx-recom-service-approval [_serviceRequestfromother]="srforrecom"></ngx-recom-service-approval>
+      </div>
+    </div>
+</div> -->

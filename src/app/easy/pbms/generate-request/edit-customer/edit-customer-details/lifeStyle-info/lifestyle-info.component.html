@@ -1,0 +1,799 @@
+<form (ngSubmit)="onSaveLifeStyleInfo()" [formGroup]="lifestyleInfoForm">
+    <nb-card style="max-height: 600px;">
+        <nb-card-body>
+            <fieldset style="border: 2px solid #edf1f7; padding: 0.35em 0.75em 0em">
+                <legend style="width: 6%; font-size: 14px; font-weight: 600; opacity: 0.9; font-family: arial;">
+                    <span>Travel</span>
+                </legend>
+                <div class="row">
+                    <div class="col-md-2">
+                        <label class="levelFontDesignPersonal">Travel Code</label>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <input [(ngModel)]="lifeStyleInfo.travel_mode_code" formControlName="travel_mode_code"
+                                class="form-control" type="text" fullWidth nbInput placeholder="Travel Code">
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <label class="levelFontDesignPersonal">Child Favorite Place</label>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <input [(ngModel)]="lifeStyleInfo.child_fav_place" formControlName="child_fav_place"
+                                class="form-control" type="text" fullWidth nbInput placeholder="Child Favorite Place">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-2">
+                        <label class="levelFontDesignPersonal">Airline Name</label>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <input [(ngModel)]="lifeStyleInfo.airline_name" formControlName="airline_name"
+                                class="form-control" type="text" fullWidth nbInput placeholder="Airline Name">
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <label class="levelFontDesignPersonal">Local Holiday Place</label>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <input [(ngModel)]="lifeStyleInfo.local_holiday_place" formControlName="local_holiday_place"
+                                class="form-control" type="text" fullWidth nbInput placeholder="Local Holiday Place">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-2">
+                        <label class="levelFontDesignPersonal">Forign Holiday Place</label>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <input [(ngModel)]="lifeStyleInfo.foreign_holiday_place"
+                                formControlName="foreign_holiday_place" class="form-control" type="text" fullWidth
+                                nbInput placeholder="Foreign Holiday Place">
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <label class="levelFontDesignPersonal">Local Hotel</label>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <input [(ngModel)]="lifeStyleInfo.local_hotel" formControlName="local_hotel"
+                                class="form-control" type="text" fullWidth nbInput placeholder="Local Hotel">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-2">
+                        <label class="levelFontDesignPersonal">Foreign Hotel</label>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <input [(ngModel)]="lifeStyleInfo.foreign_hotel" formControlName="foreign_hotel"
+                                class="form-control" type="text" fullWidth nbInput placeholder="Foreign Hotel">
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <label class="levelFontDesignPersonal">Wishing Vacation Place</label>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <input [(ngModel)]="lifeStyleInfo.wishing_vacation_place"
+                                formControlName="wishing_vacation_place" class="form-control" type="text" fullWidth
+                                nbInput placeholder="Wishing Vacation Place">
+                        </div>
+                    </div>
+                </div>
+               
+            </fieldset>
+
+
+            <fieldset style="margin-top: 10px; border: 2px solid #edf1f7; padding: 0.35em 0.75em 0em">
+                <legend style="width: 6%; font-size: 14px; font-weight: 600; opacity: 0.9; font-family: arial;">
+                    <span>Food</span>
+                </legend>
+                <div class="row">
+                    <div class="col-md-2">
+                        <label class="levelFontDesignPersonal">Local Shopping Place</label>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <input [(ngModel)]="lifeStyleInfo.local_shopping_place"
+                                formControlName="local_shopping_place" class="form-control" type="text" fullWidth
+                                nbInput placeholder="Local Shopping Place">
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <label class="levelFontDesignPersonal">Foreign Shopping Place</label>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <input [(ngModel)]="lifeStyleInfo.foreign_shopping_place"
+                                formControlName="foreign_shopping_place" class="form-control" type="text" fullWidth
+                                nbInput placeholder="Foreign Shopping Place">
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="row">
+                    <div class="col-md-2">
+                        <label class="levelFontDesignPersonal">Jewelry Shop</label>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <input [(ngModel)]="lifeStyleInfo.jewelry_shop" formControlName="jewelry_shop"
+                                class="form-control" type="text" fullWidth nbInput placeholder="Jewelry Shop">
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <label class="levelFontDesignPersonal">Foreign Restaurant</label>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <input [(ngModel)]="lifeStyleInfo.foreign_restaurant" formControlName="foreign_restaurant"
+                                class="form-control" type="text" fullWidth nbInput placeholder="Foreign Restaurant">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-2">
+                        <label class="levelFontDesignPersonal">Privilege Store Name</label>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <input [(ngModel)]="lifeStyleInfo.privilege_store_name"
+                                formControlName="privilege_store_name" class="form-control" type="text" fullWidth
+                                nbInput placeholder="Privilege Store Name">
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <label class="levelFontDesignPersonal">Favorite Cosine</label>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <input [(ngModel)]="lifeStyleInfo.favorite_cosine" formControlName="favorite_cosine"
+                                class="form-control" type="text" fullWidth nbInput placeholder="Favorite Cosine">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-2">
+                        <label class="levelFontDesignPersonal">Favorite Dessert</label>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <input [(ngModel)]="lifeStyleInfo.favorite_dessert" formControlName="favorite_dessert"
+                                class="form-control" type="text" fullWidth nbInput placeholder="Favorite Dessert">
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <label class="levelFontDesignPersonal">Favorite Drink</label>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <input [(ngModel)]="lifeStyleInfo.favorite_drink" formControlName="favorite_drink"
+                                class="form-control" type="text" fullWidth nbInput placeholder="Favorite Drink">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-2">
+                        <label class="levelFontDesignPersonal">Favorite Fruit</label>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <input [(ngModel)]="lifeStyleInfo.favorite_fruit" formControlName="favorite_fruit"
+                                class="form-control" type="text" fullWidth nbInput placeholder="Favorite Fruit">
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <label class="levelFontDesignPersonal">Local Restaurant</label>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <input [(ngModel)]="lifeStyleInfo.local_restaurant" formControlName="local_restaurant"
+                                class="form-control" type="text" fullWidth nbInput placeholder="Local Restaurant">
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+
+            <fieldset style="margin-top: 10px; border: 2px solid #edf1f7; padding: 0.35em 0.75em 0em">
+                <legend style="width: 6%; font-size: 14px; font-weight: 600; opacity: 0.9; font-family: arial;">
+                    <span>Leisure</span>
+                </legend>
+                <div class="row">
+                    <div class="col-md-2">
+                        <label class="levelFontDesignPersonal">Song Type Bengali</label>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <input [(ngModel)]="lifeStyleInfo.song_type_ben" formControlName="song_type_ben"
+                                class="form-control" type="text" fullWidth nbInput placeholder="Song Type Bengali">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-2">
+                        <label class="levelFontDesignPersonal">Song Type Nonben</label>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <input [(ngModel)]="lifeStyleInfo.song_type_nonben" formControlName="song_type_nonben"
+                                class="form-control" type="text" fullWidth nbInput placeholder="Song Type Non-bengali">
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <label class="levelFontDesignPersonal">Singer Bengali</label>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <input [(ngModel)]="lifeStyleInfo.singer_ben" formControlName="singer_ben"
+                                class="form-control" type="text" fullWidth nbInput placeholder="Singer Bengali">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-2">
+                        <label class="levelFontDesignPersonal">Singer Non-Bengali</label>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <input [(ngModel)]="lifeStyleInfo.singer_nonben" formControlName="singer_nonben"
+                                class="form-control" type="text" fullWidth nbInput placeholder="Singer Non-Bengali">
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <label class="levelFontDesignPersonal">Movie Genre Bengali</label>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <input [(ngModel)]="lifeStyleInfo.movie_genre_ben" formControlName="movie_genre_ben"
+                                class="form-control" type="text" fullWidth nbInput placeholder="Movie Genre Bengali">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-2">
+                        <label class="levelFontDesignPersonal">Movie Genre Non-Bengali</label>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <input [(ngModel)]="lifeStyleInfo.movie_genre_nonben" formControlName="movie_genre_nonben"
+                                class="form-control" type="text" fullWidth nbInput
+                                placeholder="Movie Genre Non-Bengali">
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <label class="levelFontDesignPersonal">Actor Bengali</label>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <input [(ngModel)]="lifeStyleInfo.actor_ben" formControlName="actor_ben"
+                                class="form-control" type="text" fullWidth nbInput placeholder="Actor Bengali">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-2">
+                        <label class="levelFontDesignPersonal">Actor Non-Bengali</label>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <input [(ngModel)]="lifeStyleInfo.actor_nonben" formControlName="actor_nonben"
+                                class="form-control" type="text" fullWidth nbInput placeholder="Actor Non-Bengali">
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <label class="levelFontDesignPersonal">Movie Bengali</label>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <input [(ngModel)]="lifeStyleInfo.movie_ben" formControlName="movie_ben"
+                                class="form-control" type="text" fullWidth nbInput placeholder="Movie Bengali">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-2">
+                        <label class="levelFontDesignPersonal">Movie English</label>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <input [(ngModel)]="lifeStyleInfo.movie_eng" formControlName="movie_eng"
+                                class="form-control" type="text" fullWidth nbInput placeholder="Movie English">
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <label class="levelFontDesignPersonal">Movie Others</label>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <input [(ngModel)]="lifeStyleInfo.movie_others" formControlName="movie_others"
+                                class="form-control" type="text" fullWidth nbInput placeholder="Movie Others">
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="col-md-2">
+                        <label class="levelFontDesignPersonal">Writer Bengali</label>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <input [(ngModel)]="lifeStyleInfo.writer_ben" formControlName="writer_ben"
+                                class="form-control" type="text" fullWidth nbInput placeholder="Writer Bengali">
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <label class="levelFontDesignPersonal">Writer Non-Bengali</label>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <input [(ngModel)]="lifeStyleInfo.writer_nonben" formControlName="writer_nonben"
+                                class="form-control" type="text" fullWidth nbInput placeholder="Writer Non-Bengali">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-2">
+                        <label class="levelFontDesignPersonal">Favorite Radio Channel</label>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <input [(ngModel)]="lifeStyleInfo.fav_radio_channel" formControlName="fav_radio_channel"
+                                class="form-control" type="text" fullWidth nbInput placeholder="Favorite Radio Channel">
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <label class="levelFontDesignPersonal">Favorite TV Channel</label>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <input [(ngModel)]="lifeStyleInfo.fav_tv_channel" formControlName="fav_tv_channel"
+                                class="form-control" type="text" fullWidth nbInput placeholder="Favorite TV Channel">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-2">
+                        <label class="levelFontDesignPersonal">Favorite Painter</label>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <input [(ngModel)]="lifeStyleInfo.fav_painter" formControlName="fav_painter"
+                                class="form-control" type="text" fullWidth nbInput placeholder="Favorite Painter">
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <label class="levelFontDesignPersonal">Preferable Magazine</label>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <input [(ngModel)]="lifeStyleInfo.preferable_magazine" formControlName="preferable_magazine"
+                                class="form-control" type="text" fullWidth nbInput placeholder="Preferable Magazine">
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+
+            <fieldset style="margin-top: 10px; border: 2px solid #edf1f7; padding: 0.35em 0.75em 0em">
+                <legend style="width: 8%; font-size: 14px; font-weight: 600; opacity: 0.9; font-family: arial;">
+                    <span>Life Style</span>
+                </legend>
+                <div class="row">
+                    <div class="col-md-2">
+                        <label class="levelFontDesignPersonal">Favorite Mobile Brand</label>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <input [(ngModel)]="lifeStyleInfo.fav_mobile_brand" formControlName="fav_mobile_brand"
+                                class="form-control" type="text" fullWidth nbInput placeholder="Favorite Mobile Brand">
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <label class="levelFontDesignPersonal">Favorite Accessories</label>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <input [(ngModel)]="lifeStyleInfo.fav_accessories" formControlName="fav_accessories"
+                                class="form-control" type="text" fullWidth nbInput placeholder="Favorite Accessories">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-2">
+                        <label class="levelFontDesignPersonal">Favorite Purfume</label>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <input [(ngModel)]="lifeStyleInfo.fav_purfume" formControlName="fav_purfume"
+                                class="form-control" type="text" fullWidth nbInput placeholder="Favorite Purfume">
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <label class="levelFontDesignPersonal">Favorite Car Brand</label>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <input [(ngModel)]="lifeStyleInfo.fav_car_brand" formControlName="fav_car_brand"
+                                class="form-control" type="text" fullWidth nbInput placeholder="Favorite Car Brand">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-2">
+                        <label class="levelFontDesignPersonal">Favorite Grocery Storebd</label>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <input [(ngModel)]="lifeStyleInfo.fav_grocery_storebd" formControlName="fav_grocery_storebd"
+                                class="form-control" type="text" fullWidth nbInput
+                                placeholder="Favorite Grocery Storebd">
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <label class="levelFontDesignPersonal">Favorite Toiletries Brand</label>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <input [(ngModel)]="lifeStyleInfo.fav_toiletries_brand"
+                                formControlName="fav_toiletries_brand" class="form-control" type="text" fullWidth
+                                nbInput placeholder="Favorite Toiletries Brand">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-2">
+                        <label class="levelFontDesignPersonal">Favorite Spa</label>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <input [(ngModel)]="lifeStyleInfo.fav_spa" formControlName="fav_spa" class="form-control"
+                                type="text" fullWidth nbInput placeholder="Favorite Spa">
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <label class="levelFontDesignPersonal">Child Birthday Arrange Type</label>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <input [(ngModel)]="lifeStyleInfo.child_birthday_arng_type"
+                                formControlName="child_birthday_arng_type" class="form-control" type="text" fullWidth
+                                nbInput placeholder="Child Birthday Arrange Type">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-2">
+                        <label class="levelFontDesignPersonal">Birthday Gift Code</label>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <input [(ngModel)]="lifeStyleInfo.birthday_gift_code" formControlName="birthday_gift_code"
+                                class="form-control" type="text" fullWidth nbInput placeholder="Birthday Gift Code">
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <label class="levelFontDesignPersonal">Birthday Gift Details</label>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <input [(ngModel)]="lifeStyleInfo.birthday_gift_details"
+                                formControlName="birthday_gift_details" class="form-control" type="text" fullWidth
+                                nbInput placeholder="Birthday Gift Details">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-2">
+                        <label class="levelFontDesignPersonal">Aniversary Gift Code</label>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <input [(ngModel)]="lifeStyleInfo.aniversary_gift_code"
+                                formControlName="aniversary_gift_code" class="form-control" type="text" fullWidth
+                                nbInput placeholder="Aniversary Gift Code">
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <label class="levelFontDesignPersonal">Aniversary Gift Details</label>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <input [(ngModel)]="lifeStyleInfo.aniversary_gift_details"
+                                formControlName="aniversary_gift_details" class="form-control" type="text" fullWidth
+                                nbInput placeholder="Aniversary Gift Details">
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="col-md-2">
+                        <label class="levelFontDesignPersonal">Health Club Member</label>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <input [(ngModel)]="lifeStyleInfo.health_club_member" formControlName="health_club_member"
+                                class="form-control" type="text" fullWidth nbInput placeholder="Health Club Member">
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <label class="levelFontDesignPersonal">Social Club Member</label>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <input [(ngModel)]="lifeStyleInfo.social_club_member" formControlName="social_club_member"
+                                class="form-control" type="text" fullWidth nbInput placeholder="Social Club Member">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-2">
+                        <label class="levelFontDesignPersonal">Local Hospital</label>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <input [(ngModel)]="lifeStyleInfo.local_hospital" formControlName="local_hospital"
+                                class="form-control" type="text" fullWidth nbInput placeholder="Local Hospital">
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <label class="levelFontDesignPersonal">Foreign Hospital</label>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <input [(ngModel)]="lifeStyleInfo.foreign_hospital" formControlName="foreign_hospital"
+                                class="form-control" type="text" fullWidth nbInput placeholder="Foreign Hospital">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-2">
+                        <label class="levelFontDesignPersonal">Car Servicing Center</label>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <input [(ngModel)]="lifeStyleInfo.car_servicing_center"
+                                formControlName="car_servicing_center" class="form-control" type="text" fullWidth
+                                nbInput placeholder="Car Servicing Center">
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+
+            <fieldset style="margin-top: 10px; border: 2px solid #edf1f7; padding: 0.35em 0.75em 0em">
+                <legend style="width: 6%; font-size: 14px; font-weight: 600; opacity: 0.9; font-family: arial;">
+                    <span>Sports</span>
+                </legend>
+                <div class="row">
+                    <div class="col-md-2">
+                        <label class="levelFontDesignPersonal">Games Watching</label>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <input [(ngModel)]="lifeStyleInfo.games_watching" formControlName="games_watching"
+                                class="form-control" type="text" fullWidth nbInput placeholder="Games Watching">
+                        </div>
+                    </div>
+
+                    <div class="col-md-2">
+                        <label class="levelFontDesignPersonal">Favorite Football Team</label>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <input [(ngModel)]="lifeStyleInfo.fav_football_team" formControlName="fav_football_team"
+                                class="form-control" type="text" fullWidth nbInput placeholder="Favorite Football Team">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    
+                    <div class="col-md-2">
+                        <label class="levelFontDesignPersonal">Favorite Cricket Team</label>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <input [(ngModel)]="lifeStyleInfo.fav_cricket_team" formControlName="fav_cricket_team"
+                                class="form-control" type="text" fullWidth nbInput placeholder="Favorite Cricket Team">
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <label class="levelFontDesignPersonal">Favorite Others Team</label>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <input [(ngModel)]="lifeStyleInfo.fav_others_team" formControlName="fav_others_team"
+                                class="form-control" type="text" fullWidth nbInput placeholder="Favorite Others Team">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-2">
+                        <label class="levelFontDesignPersonal">Favorite Sports Person</label>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <input [(ngModel)]="lifeStyleInfo.fav_sports_person" formControlName="fav_sports_person"
+                                class="form-control" type="text" fullWidth nbInput placeholder="Favorite Sports Person">
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+
+            <fieldset style="margin-top: 10px; border: 2px solid #edf1f7; padding: 0.35em 0.75em 0em">
+                <legend style="width: 6%; font-size: 14px; font-weight: 600; opacity: 0.9; font-family: arial;">
+                    <span>Others</span>
+                </legend>
+                <div class="row">
+                    <div class="col-md-2">
+                        <label class="levelFontDesignPersonal">Hobby</label>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <input [(ngModel)]="lifeStyleInfo.hobby" formControlName="hobby" class="form-control"
+                                type="text" fullWidth nbInput placeholder="Hobby">
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <label class="levelFontDesignPersonal">Favorite Color</label>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <input [(ngModel)]="lifeStyleInfo.fav_color" formControlName="fav_color"
+                                class="form-control" type="text" fullWidth nbInput placeholder="Favorite Color">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-2">
+                        <label class="levelFontDesignPersonal">Favorite Dress</label>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <input [(ngModel)]="lifeStyleInfo.fav_dress" formControlName="fav_dress"
+                                class="form-control" type="text" fullWidth nbInput placeholder="Favorite Dress">
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <label class="levelFontDesignPersonal">Passionate Social Culture</label>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <input [(ngModel)]="lifeStyleInfo.passionate_social_culture"
+                                formControlName="passionate_social_culture" class="form-control" type="text" fullWidth
+                                nbInput placeholder="Passionate Social Culture">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-2">
+                        <label class="levelFontDesignPersonal">Associate Charity Organization</label>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <input [(ngModel)]="lifeStyleInfo.associate_charity_org"
+                                formControlName="associate_charity_org" class="form-control" type="text" fullWidth
+                                nbInput placeholder="Associate Charity Organization">
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <label class="levelFontDesignPersonal">Taken Other Bank Service</label>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <input [(ngModel)]="lifeStyleInfo.taken_other_bank_serv"
+                                formControlName="taken_other_bank_serv" class="form-control" type="text" fullWidth
+                                nbInput placeholder="Taken Other Bank Service">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-2">
+                        <label class="levelFontDesignPersonal">Social Event Expect EBL</label>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <input [(ngModel)]="lifeStyleInfo.social_event_expect_ebl"
+                                formControlName="social_event_expect_ebl" class="form-control" type="text" fullWidth
+                                nbInput placeholder="Social Event Expect EBL">
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <label class="levelFontDesignPersonal">Favorite Others Bank</label>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <input [(ngModel)]="lifeStyleInfo.fav_others_bank" formControlName="fav_others_bank"
+                                class="form-control" type="text" fullWidth nbInput placeholder="Favorite Others Bank">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-2">
+                        <label class="levelFontDesignPersonal">Favorite EBL Service</label>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <input [(ngModel)]="lifeStyleInfo.fav_ebl_service" formControlName="fav_ebl_service"
+                                class="form-control" type="text" fullWidth nbInput placeholder="Favorite EBL Service">
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <label class="levelFontDesignPersonal">Bank Service Introduced EBL</label>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <input [(ngModel)]="lifeStyleInfo.bank_serv_intro_ebl" formControlName="bank_serv_intro_ebl"
+                                class="form-control" type="text" fullWidth nbInput
+                                placeholder="Bank Service Introduced EBL">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+
+                    <div class="col-md-2">
+                        <label class="levelFontDesignPersonal">EBL Service Improve Name</label>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <input [(ngModel)]="lifeStyleInfo.ebl_serv_improve_name"
+                                formControlName="ebl_serv_improve_name" class="form-control" type="text" fullWidth
+                                nbInput placeholder="EBL Service Improve Name">
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <label class="levelFontDesignPersonal">Personal Status</label>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group" style="margin-top: 10px;">
+                            <nb-checkbox status="basic" [(ngModel)]="lifeStyleInfo.personal_status"
+                                formControlName="personal_status"></nb-checkbox>
+                        </div>
+                    </div>
+                </div>
+
+            </fieldset>
+        </nb-card-body>
+
+        <nb-card-footer>
+            <div class="form-group">
+                <button nbButton hero [status]="'primary'" type="submit"
+                    style="width: 70px; height: 30px; font-size: 12px;margin-left: 90%;" nbSpinnerStatus="danger"
+                    nbSpinnerSize="large" nbSpinnerMessage="">Save</button>
+            </div>
+        </nb-card-footer>
+    </nb-card>
+</form>

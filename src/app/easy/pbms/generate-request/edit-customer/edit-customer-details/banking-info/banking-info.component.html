@@ -1,0 +1,127 @@
+
+    <nb-card>
+        <nb-card-body>
+            <form (ngSubmit)="onSaveBankingInfo()" [formGroup]="bankinginfoForm">
+                <div class="row">
+                    <div class="col-md-4">
+                        <label class="levelFontDesignPersonal">DPS with EBL</label>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="form-group" style="margin-top: 12px;">
+                            <input [(ngModel)]="bankingInfo.cust_no" formControlName="cust_no" class="form-control"  
+                            type="text" fullWidth nbInput placeholder="Debit Card Ebl" hidden>
+
+                            <nb-checkbox status="basic" [(ngModel)]="bankingInfo.dps_with_ebl" formControlName="dps_with_ebl"></nb-checkbox>
+                            <!-- <span class="task-name" style="margin-left: 10%;">{{ dps_with_ebl_text }}</span> -->
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <label class="levelFontDesignPersonal">Debit Card with EBL</label>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="form-group" style="margin-top: 12px;">
+                            <nb-checkbox status="basic" [(ngModel)]="bankingInfo.debit_card_ebl" formControlName="debit_card_ebl"></nb-checkbox>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-4">
+                        <label class="levelFontDesignPersonal">Credit Card with EBL</label>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="form-group" style="margin-top: 12px;">
+                            <nb-checkbox status="basic" [(ngModel)]="bankingInfo.credit_card_ebl" formControlName="credit_card_ebl"></nb-checkbox>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <label class="levelFontDesignPersonal">Lifestyle Card with EBL</label>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="form-group" style="margin-top: 12px;">
+                            <nb-checkbox status="basic" [(ngModel)]="bankingInfo.lifestyle_card_ebl" formControlName="lifestyle_card_ebl"></nb-checkbox>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-4">
+                        <label class="levelFontDesignPersonal">Secured Loan with EBL</label>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="form-group" style="margin-top: 12px;">
+                            <nb-checkbox status="basic" [(ngModel)]="bankingInfo.secured_loan_ebl" formControlName="secured_loan_ebl"></nb-checkbox>
+                        </div>
+                    </div>  
+                    <div class="col-md-4">
+                        <label class="levelFontDesignPersonal">Personal Loan with EBL</label>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="form-group" style="margin-top: 12px;">
+                            <nb-checkbox status="basic" [(ngModel)]="bankingInfo.personal_loan_ebl" formControlName="personal_loan_ebl"></nb-checkbox>
+                        </div>
+                    </div>
+                </div>
+                   
+                <div class="row">
+                    <div class="col-md-4">
+                        <label class="levelFontDesignPersonal">Auto Loan with EBL</label>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="form-group" style="margin-top: 12px;">
+                            <nb-checkbox status="basic" [(ngModel)]="bankingInfo.auto_loan_ebl" formControlName="auto_loan_ebl"></nb-checkbox>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <label class="levelFontDesignPersonal">Home Loan with EBL</label>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="form-group" style="margin-top: 12px;">
+                            <nb-checkbox status="basic" [(ngModel)]="bankingInfo.home_loan_ebl" formControlName="home_loan_ebl"></nb-checkbox>
+                        </div>
+                    </div> 
+                </div>
+
+
+                <div class="row">
+                    <div class="col-md-4">
+                        <label class="levelFontDesignPersonal">Two Wheeler Loan with EBL</label>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="form-group" style="margin-top: 12px;">
+                            <nb-checkbox status="basic" [(ngModel)]="bankingInfo.wheeler_loan_ebl" formControlName="wheeler_loan_ebl"></nb-checkbox>
+                        </div>
+                    </div> 
+                    <div class="col-md-4">
+                        <label class="levelFontDesignPersonal">Status</label>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="form-group" style="margin-top: 12px;">
+                            <nb-checkbox status="basic" [(ngModel)]="bankingInfo.banking_status" formControlName="banking_status"></nb-checkbox>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-4">
+                        <label class="levelFontDesignPersonal">Family CIF</label>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group" style = "margin-top: 8%; font-size: 11px;"> 
+                            <input [(ngModel)]="bankingInfo.family_cif" formControlName="family_cif" class="form-control" 
+                            type="text" fullWidth nbInput placeholder="Family CIF">
+                        </div>
+                    </div>
+                </div> 
+                <div class="form-group">
+                    <button nbButton hero [status]="'primary'" type="submit" style="width: 70px; height: 30px; font-size: 12px;margin-left: 90%;" nbSpinnerStatus="danger" nbSpinnerSize="large" nbSpinnerMessage="">Save</button>
+                </div>
+            </form>
+        </nb-card-body>
+
+        <!-- <nb-card-footer style="padding:0 !important; margin: 1% !important; margin-top: 10px;">
+            <div class="form-group">
+                <button nbButton hero [status]="'primary'" type="submit" style="width: 10%;font-size: 12px;margin-left: 90%;margin-top: 1%;" nbSpinnerStatus="danger" nbSpinnerSize="large" nbSpinnerMessage="">Save</button>
+            </div>
+        </nb-card-footer> -->
+    </nb-card>

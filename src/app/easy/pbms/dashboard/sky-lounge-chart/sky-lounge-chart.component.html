@@ -1,0 +1,10 @@
+<p style="font-size: 22px; font-weight: 600; opacity: 0.8;">Sky Lounge Chart</p>
+<div class="row">
+    <div class="col-md-3" *ngFor="let item of data">
+        <div style="cursor: pointer;" [ngStyle]="{'background-color':item.color}">
+            <p class="t-color">{{item.status_code}}</p>
+            <p class="t-color">{{item.count}}</p>
+        </div>
+    </div>
+</div>
+<figure id="piesky"></figure>

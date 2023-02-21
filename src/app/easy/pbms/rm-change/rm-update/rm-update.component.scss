@@ -1,0 +1,31 @@
+.levelFontDesign{
+    font-size: 11px;
+      font-weight: 600;
+      opacity: 0.7;
+      font-family: arial;
+  }
+
+  .levelFontDesign1{
+    font-size: 11px;
+    font-weight: 600;
+    margin-top: 13%;
+    opacity: 0.7;
+    font-family: arial;
+}
+
+:host /deep/ .ng2-smart-action-multiple-select{
+  text-align: center;
+}
+
+:host /deep/ .ng2-smart-action-multiple-select > input{
+width:12px;
+height:12px;
+display: unset;
+}
+
+:host ::ng-deep table tr:first-child th { position : sticky; top: -1px; z-index: 100; border: 1px solid #dee2e6; }
+::ng-deep.nb-theme-default nb-card-body{
+  padding: 0.0001rem 1.1rem;
+}
+
+:host ::ng-deep table tr:first-child th input { margin-left: 38%; }

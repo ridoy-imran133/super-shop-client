@@ -1,0 +1,70 @@
+<nb-card>
+    <nb-card-header>
+        Gift
+        <!-- {{text}} Vendor -->
+        <a nbButton style="float: right;" size="tiny" [status]="'danger'" (click)="dismissfornone()">
+            <span>X</span></a>
+    </nb-card-header>
+    <nb-card-body>
+        <form (ngSubmit)="onSaveGift()" [formGroup]="masterForm">
+            <div class="row" style="margin-top: 1%;">
+                <div class="col-md-2">
+                    <label class="levelFontDesign">Gift Code: <span style="color: red;">*</span></label>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <input [(ngModel)]="gift.gift_code" formControlName="gift_code"
+                            class="form-control" type="text" fullWidth nbInput [ngClass]="{ 'is-invalid': submitted && fval.gift_code.errors }">
+                            <div *ngIf="submitted && fval.gift_code.errors" class="invalid-feedback">
+                                <div *ngIf="fval.gift_code.errors.required">Gift Code</div>
+                                <div *ngIf="fval.gift_code.errors.maxlength">Gift Code less then or equal 3 character</div>
+                            </div>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <label class="levelFontDesign">Gift name: <span style="color: red;">*</span></label>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <input [(ngModel)]="gift.gift_name" formControlName="gift_name"
+                            class="form-control" type="text" fullWidth nbInput [ngClass]="{ 'is-invalid': submitted && fval.gift_name.errors }">
+                            <div *ngIf="submitted && fval.gift_name.errors" class="invalid-feedback">
+                                <div *ngIf="fval.gift_name.errors.required">Gift Name</div>
+                            </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-2">
+                    <label class="levelFontDesign">Active:</label>
+                </div>
+                <div class="col-md-4" style="padding-top: 1%;">
+                    <div class="form-group">
+                        <nb-checkbox status="basic" [(ngModel)]="status" formControlName="status">
+                        </nb-checkbox>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <label class="levelFontDesign">Vendor Name: <span style="color: red;">*</span></label>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <nb-select [(ngModel)]="gift.vendor_code" formControlName="vendor_code" [ngClass]="{ 'is-invalid': submitted && fval.vendor_code.errors }"
+                            [selected]="gift.vendor_code" fullWidth placeholder="Select Vendor">
+                            <nb-option *ngFor="let vs of _vendors" [value]="vs.vendor_code"> {{ vs.vendor_name }}</nb-option>
+                        </nb-select>
+                        <div *ngIf="fval.vendor_code.errors" class="invalid-feedback">
+                            <div *ngIf="fval.vendor_code.errors.required">Vendor Name is Required</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <button nbButton hero [status]="'primary'" type="submit"
+                    style="width: 70px; height: 30px; font-size: 12px;" nbSpinnerStatus="danger"
+                    nbSpinnerSize="large" nbSpinnerMessage="">Save</button>
+            </div>
+        </form>
+    </nb-card-body>
+</nb-card>

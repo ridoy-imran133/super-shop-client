@@ -1,0 +1,28 @@
+
+<div class="row">
+    <div class="col-md-12" style = "overflow-y: scroll;">
+      <nb-card>
+        <nb-card-header>
+          <span>User List </span>
+          <a nbButton style="float: right;" size="small" shape="round" [status]="'primary'"
+             (click)="addUser()"><i class="nb-plus"></i> Add User </a>
+            
+        </nb-card-header>
+  
+        <nb-card-body style="padding: 1rem 0rem; padding-top: 0rem;">
+  
+          <ng2-smart-table [settings]="settings"
+           [source]="source"
+           (custom)="onCustom($event)">
+          </ng2-smart-table>
+        </nb-card-body>
+      </nb-card>
+        <!-- <div class="smart-table-container table-fixed-header" style = "height: 540px;">
+          
+        </div> -->
+        
+      <!-- </tbody></table> -->
+    </div>
+  </div>
+  
+  

@@ -1,0 +1,33 @@
+.nb-theme-default nb-card{
+    border: none !important;
+}
+
+::ng-deep.nb-theme-default nb-route-tabset .route-tab.active .tab-link::before {
+    background-color: none;
+}
+
+::ng-deep.nb-theme-default nb-tabset nb-tab{
+    padding: 0 !important;
+    
+}
+
+::ng-deep.nb-theme-default nb-tabset .tab-link{
+    text-transform: none !important;
+}
+// ::ng-deep.nb-theme-default li{
+//     margin-right: 2px !important;
+// }
+
+.levelFontDesign1{
+    font-size: 11px;
+    font-weight: 600;
+    opacity: 0.7;
+    font-family: arial;
+}
+
+.blurcolor{
+    background-color: rgba(0, 0, 0, 0.48);
+  }
+  .modal{
+    z-index: 1040 !important;
+  }

@@ -1,0 +1,37 @@
+<div class="row">
+  <div class="col-md-12">
+    <nb-card>
+      <nb-card-header>
+
+        <div class="row" style="margin-top: 1%;">
+          <div class="col-md-3">
+            <span>Vendor List </span>
+          </div>
+          <div class="col-md-2">
+            <input #search class="search" type="text" placeholder="Search..." nbInput shape="semi-round"
+              (keyup)="onSearch(search.value)">
+          </div>
+          <div class="col-md-1" style="margin-top: 0.35%;">
+            <!-- <button *ngIf="roleid == 'R001' || roleid == 'R004'" style="margin-top: 1%;" size="tiny" nbButton status="primary" (click)="approveMultipleBirthday()">Approve</button> -->
+          </div>
+          <div class="col-md-6">
+            <a nbButton style="float: right;" size="small" shape="round" [status]="'primary'" (click)="addVendor()"><i
+                class="nb-plus"></i> Add Vendor </a>
+          </div>
+        </div>
+      </nb-card-header>
+      <nb-card-body>
+        <ng2-smart-table [settings]="settings" [source]="source" (custom)="onCustom($event)">
+        </ng2-smart-table>
+      </nb-card-body>
+    </nb-card>
+  </div>
+</div>
+
+<div class="modal blurcolor bd-example-modal-xl" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" [ngStyle]="{'display':display}">
+  <div class="modal-dialog modal-xl">
+    <div class="modal-content">
+      <ngx-add-vendor [_venFromOther]="vendorpass"></ngx-add-vendor>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,288 @@
+<nb-card>
+  <nb-card-header>
+    <span>Customer Search </span>
+    <nb-icon style="float: right; font-size: 1.3rem;cursor: pointer;" icon="arrow-down" *ngIf="searcharrow"
+      (click)=searcharrowfunc()></nb-icon>
+    <nb-icon style="float: right; font-size: 1.3rem;cursor: pointer;" icon="arrow-left" *ngIf="!searcharrow"
+      (click)=searcharrowfunc()></nb-icon>
+  </nb-card-header>
+  <nb-card-body *ngIf="searcharrow" style="padding-bottom: 0px; padding-top: 8px;">
+    <form (ngSubmit)="searchCustomer()" [formGroup]="masterForm">
+      <div class="row">
+        <!-- <div class="col-md-2" *ngIf="roleid != 'R003'" style="padding-top: 0.4%; margin-right: -5%;">
+          <nb-checkbox [value]="isbirthday" (change)="toggle()">Is Birthday</nb-checkbox>
+        </div>
+        <div class="col-md-1" *ngIf="roleid != 'R003' && isbirthday" style="padding-top: 0.5%;">
+          <button size="tiny" (click)="addBirthdayRequest()" nbButton hero [status]="'primary'" type="button"
+            style="margin-top: 2%;" nbSpinnerStatus="danger" nbSpinnerSize="large" nbSpinnerMessage="">Bulk
+            Birthday</button>
+        </div> -->
+        <div class="col-md-1" *ngIf="isareacode">
+          <label class="levelFontDesign">Area Code</label>
+        </div>
+        <div class="col-md-3" *ngIf="isareacode">
+          <div class="form-group">
+            <nb-select [(ngModel)]="_searchModel.area_code" formControlName="area_code"
+              [ngClass]="{ 'is-invalid': submitted && fval.area_code.errors }" [selected]="_searchModel.area_code"
+              fullWidth placeholder="Select Area" (selectedChange)="areawisebranch(_searchModel.area_code)">
+              <nb-option *ngIf="isareacode" value="">All</nb-option>
+              <nb-option *ngFor="let c of _areas" [value]="c.area_code"> {{ c.area_name }}</nb-option>
+            </nb-select>
+          </div>
+        </div>
+        <div class="col-md-1">
+          <label class="levelFontDesign">Branch</label>
+        </div>
+        <div class="col-md-3">
+          <div class="form-group">
+            <nb-select [(ngModel)]="_searchModel.branch_code" formControlName="branch_code"
+              [ngClass]="{ 'is-invalid': submitted && fval.branch_code.errors }" [selected]="_searchModel.branch_code"
+              fullWidth placeholder="Select Branch" (selectedChange)="branchselect()">
+              <!-- <nb-option *ngIf="isareacode" value="">All</nb-option> -->
+              <nb-option *ngFor="let c of _showbranch" [value]="c.branch_code"> {{ c.branch_name }}</nb-option>
+            </nb-select>
+          </div>
+        </div>
+        <div class="col-md-1" style="margin-top: 0.4%;">
+          <button nbButton hero [status]="'primary'" type="submit" style="width: 70px; height: 30px; font-size: 12px;"
+            nbSpinnerStatus="danger" nbSpinnerSize="large" nbSpinnerMessage="">Search</button>
+        </div>
+      </div>
+      <!-- <div class="form-group">
+          <button nbButton hero [status]="'primary'" type="submit" style="width: 70px; height: 30px; font-size: 12px;" nbSpinnerStatus="danger" nbSpinnerSize="large" nbSpinnerMessage="">Search</button>
+        </div> -->
+    </form>
+  </nb-card-body>
+</nb-card>
+<nb-card *ngIf="iscustomersshow" style="height: 10% !important;">
+  <nb-card-header>
+    <div class="row" style="margin-top: 1%;">
+      <div class="col-md-3">
+        Customer List
+        <!-- <nb-select placeholder="10" [(ngModel)]="defaultRowPerPage">
+        <nb-option (click)="setPager()" value="10" >10</nb-option>
+        <nb-option (click)="setPager()" value="20" >20</nb-option>
+        <nb-option (click)="setPager()" value="50" >50</nb-option>
+        <nb-option (click)="setPager()" value="100" >100</nb-option>
+      </nb-select> -->
+      </div>
+      <div class="col-md-3">
+        <input #search class="search" type="text" placeholder="Search..." nbInput shape="semi-round"
+          (keyup)="onSearch(search.value)">
+      </div>
+      <!-- <div class="col-md-1" style="margin-top: 0.35%;">
+      </div> -->
+      <div class="col-md-6">
+        <nb-icon style="float: right; font-size: 1.3rem;cursor: pointer;" icon="arrow-down" *ngIf="!tablearrow"
+          (click)=tablerowfunc()></nb-icon>
+        <nb-icon style="float: right; font-size: 1.3rem;cursor: pointer;" icon="arrow-left" *ngIf="tablearrow"
+          (click)=tablerowfunc()></nb-icon>
+      </div>
+    </div>
+    <!-- <nb-select placeholder="10" [(ngModel)]="defaultRowPerPage">
+        <nb-option (click)="setPager()" value="10" >10</nb-option>
+        <nb-option (click)="setPager()" value="20" >20</nb-option>
+        <nb-option (click)="setPager()" value="50" >50</nb-option>
+        <nb-option (click)="setPager()" value="100" >100</nb-option>
+      </nb-select> -->
+    <!-- <nb-icon style="float: right; font-size: 1.3rem;" icon="arrow-down" *ngIf="arrowButton" (click) = arrowButtonFunction()></nb-icon>
+      <nb-icon style="float: right; font-size: 1.3rem;" icon="arrow-left" *ngIf="!arrowButton" (click) = arrowButtonFunction()></nb-icon> -->
+  </nb-card-header>
+  <nb-card-body *ngIf="!tablearrow">
+    <!-- <div class="table-container">
+        <ng2-smart-table #table [settings]="settings"
+            [source]="source"
+            (custom)="onCustom($event)" *ngIf="loading" style="height: 755px !important;">
+        </ng2-smart-table>
+      </div> -->
+    <!-- <div class="col-md-12" style = "overflow-x: scroll;">
+        <div class="smart-table-container" style = "width: 2000px;">
+          <ng2-smart-table #table [settings]="settings"
+          [source]="source"
+          (custom)="onCustom($event)" *ngIf="loading" style="height: 755px !important;">
+      </ng2-smart-table>
+        </div>
+    </div> -->
+    <!-- <button (click) = onClick()>save</button> -->
+
+    <div class="table-container">
+      <ng2-smart-table #table [settings]="settings" [source]="source" (custom)="onCustom($event)" *ngIf="loading"
+        style="height: 755px !important;">
+      </ng2-smart-table>
+    </div>
+  </nb-card-body>
+</nb-card>
+<nb-card *ngIf="isLoader" size="small" [nbSpinner]="!loading" nbSpinnerStatus="success" nbSpinnerSize="giant"
+  nbSpinnerMessage="wait">
+  <nb-card-body>
+  </nb-card-body>
+</nb-card>
+<div class="modal bd-example-modal-xl blurcolor" tabindex="-1" role="dialog" [ngStyle]="{'display':displayStyle}">
+  <div class="modal-dialog modal-xl" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <!-- <ngx-edit-customer-details [_customerInfo]="value"></ngx-edit-customer-details>     -->
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" (click)="closePopup()">
+          Close
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Bulk Birthday -->
+<div class="modal blurcolor bd-example-modal-xl" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" [ngStyle]="{'display':bulkbirthday}">
+  <div class="modal-dialog modal-xl">
+    <div class="modal-content">
+      <ngx-add-birthday [_bulkmsgOther]="bulkbirthday"></ngx-add-birthday>
+    </div>
+  </div>
+</div>
+<!-- Add Request -->
+<div class="modal blurcolor bd-example-modal-xl" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" [ngStyle]="{'display':addrequest}">
+  <div class="modal-dialog modal-xl">
+    <div class="modal-content">
+      <ngx-add-request [_customerfromgenerateRequest]="customerforaddrequest" [isbirth]="isbirthday" [textfromother]="addrequest"></ngx-add-request>
+    </div>
+  </div>
+</div>
+
+<!-- History -->
+<div class="modal blurcolor bd-example-modal-xl" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" [ngStyle]="{'display':custhistory}">
+  <div class="modal-dialog modal-xl">
+    <div class="modal-content">
+      <ngx-cust-history [_customerfromgenerateRequest]="customerforhistory" [textfromother]="custhistory"></ngx-cust-history>
+    </div>
+  </div>
+</div>
+
+<!-- Update RM -->
+<div *ngIf="ismodalopen" class="modal blurcolor bd-example-modal-xl" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" [ngStyle]="{'display':updatermformodal}">
+  <div class="modal-dialog modal-xl">
+    <div class="modal-content">
+      <!-- <ngx-update-rm [_customerfromgenerateRequest]="customerforupdaterm"></ngx-update-rm> -->
+      <!-- <ngx-cust-history [_customerfromgenerateRequest]="customerforupdaterm"></ngx-cust-history> -->
+      <nb-card>
+        <nb-card-header>
+            <span>Update RM</span>
+            <a nbButton style="float: right;" size="tiny" [status]="'danger'" (click)="closePopupforUpdateRm()"> <span>X</span></a>
+        </nb-card-header>
+        <nb-card-body>
+          <fieldset style="border: 2px solid #edf1f7; padding: 0.35em 0.75em 0em">
+            <legend style="width: 9%; font-size: 14px; font-weight: 600; opacity: 0.9; font-family: arial;">
+              <span>Customer</span>
+            </legend>
+            <div class="row">
+              <div class="col-md-2">
+                  <label class="levelFontDesign">Customer No:</label>
+              </div>
+              <div class="col-md-4">
+                  <div class="form-group">
+                      <input disabled readonly [(ngModel)]="customerforrm.cust_no" type="text" fullWidth
+                          nbInput placeholder="customer no">
+                  </div>
+              </div>
+              <div class="col-md-2">
+                  <label class="levelFontDesign">Customer Name:</label>
+              </div>
+              <div class="col-md-4">
+                  <div class="form-group">
+                      <input disabled readonly [(ngModel)]="customerforrm.customer_name" type="text" fullWidth
+                          nbInput placeholder="Customer Name">
+                  </div>
+              </div>
+          </div>
+
+          </fieldset>
+          <fieldset style="border: 2px solid #edf1f7; padding: 0.35em 0.75em 0em">
+            <legend style="width: 9%; font-size: 14px; font-weight: 600; opacity: 0.9; font-family: arial;">
+              <span>Current RM</span>
+            </legend>
+            <div class="row">
+              <div class="col-md-2">
+                  <label class="levelFontDesign">RM Code:</label>
+              </div>
+              <div class="col-md-4">
+                  <div class="form-group">
+                      <input disabled readonly [(ngModel)]="_rmdetails.rm_code" type="text" fullWidth
+                          nbInput placeholder="customer no">
+                  </div>
+              </div>
+              <div class="col-md-2">
+                  <label class="levelFontDesign">RM Name:</label>
+              </div>
+              <div class="col-md-4">
+                  <div class="form-group">
+                      <input disabled readonly [(ngModel)]="_rmdetails.emp_name" type="text" fullWidth
+                          nbInput placeholder="Customer Name">
+                  </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-2">
+                  <label class="levelFontDesign">Priority Code:</label>
+              </div>
+              <div class="col-md-4">
+                  <div class="form-group">
+                      <input disabled readonly [(ngModel)]="_rmdetails.priority_code" type="text" fullWidth
+                          nbInput placeholder="customer no">
+                  </div>
+              </div>
+              <div class="col-md-2">
+                  <label class="levelFontDesign">Branch:</label>
+              </div>
+              <div class="col-md-4">
+                  <div class="form-group">
+                      <input disabled readonly [(ngModel)]="_rmdetails.branch_name" type="text" fullWidth
+                          nbInput placeholder="Customer Name">
+                  </div>
+              </div>
+            </div>
+          </fieldset>
+
+          <fieldset style="border: 2px solid #edf1f7; padding: 0.35em 0.75em 0em">
+            <legend style="width: 9%; font-size: 14px; font-weight: 600; opacity: 0.9; font-family: arial;">
+              <span>Update</span>
+            </legend>
+            <div class="row">
+              <div class="col-md-2" >
+                <label class="levelFontDesign">Branch:</label>
+              </div>
+              <div class="col-md-3" >
+                <div class="form-group">
+                  <nb-select [(ngModel)]="branch_code" fullWidth placeholder="Select Branch" (selectedChange)="branchselectforRM()">
+                    <!-- <nb-option *ngIf="isareacode" value="">All</nb-option> -->
+                    <nb-option *ngFor="let c of _branch" [value]="c.branch_code"> {{ c.branch_name }}</nb-option>
+                  </nb-select>
+                </div>
+              </div>
+              <div class="col-md-2">
+                  <label class="levelFontDesign">New RM:</label>
+              </div>
+              <div class="col-md-3">
+                  <div class="form-group">
+                    <nb-select [(ngModel)]="prio_code" fullWidth placeholder="Select">
+                      <nb-option *ngFor="let r of _rm" [value]="r.priority_code"> {{ r.emp_rm_name }}</nb-option>
+                    </nb-select>
+                  </div>
+              </div>
+              <div class="col-md-2">
+                <button size="tiny" nbButton status="primary" (click)="savepriority()" style="margin-top: 6%;">save</button>
+              </div>
+          </div>
+          </fieldset>
+        </nb-card-body>
+    </nb-card>
+    </div>
+  </div>
+</div>
+
+<div class="modal blurcolor bd-example-modal-xl" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" [ngStyle]="{'display':custprofileupdate}">
+  <div class="modal-dialog modal-xl">
+    <div class="modal-content">
+      <ngx-edit-customer-details [_customerfromgenerateRequest]="customerprofileupdatemodal"></ngx-edit-customer-details>
+    </div>
+  </div>
+</div>

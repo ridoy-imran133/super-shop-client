@@ -1,0 +1,190 @@
+<nb-card>
+    <nb-card-header>
+      <span>Customer Search </span>
+      <nb-icon style="float: right; font-size: 1.3rem;cursor: pointer;" icon="arrow-down" *ngIf="searcharrow"
+        (click)=commonshowhide()></nb-icon>
+      <nb-icon style="float: right; font-size: 1.3rem;cursor: pointer;" icon="arrow-left" *ngIf="!searcharrow"
+        (click)=commonshowhide()></nb-icon>
+    </nb-card-header>
+    <nb-card-body style="padding-bottom: 0px; padding-top: 8px;">
+      <form (ngSubmit)="searchCustomer()" [formGroup]="masterForm" *ngIf="searcharrow">
+        <div class="row">          
+          <div class="col-md-2" *ngIf="isareacode">
+            <label class="levelFontDesign">Area Code:</label>
+          </div>
+          <div class="col-md-4" *ngIf="isareacode">
+            <div class="form-group">
+              <nb-select [(ngModel)]="_searchModel.area_code" formControlName="area_code"
+                [ngClass]="{ 'is-invalid': submitted && fval.area_code.errors }" [selected]="_searchModel.area_code"
+                fullWidth placeholder="Select Area" (selectedChange)="areawisebranch(_searchModel.area_code)">
+                <nb-option *ngIf="isareacode" value="">All</nb-option>
+                <nb-option *ngFor="let c of _areas" [value]="c.area_code"> {{ c.area_name }}</nb-option>
+              </nb-select>
+            </div>
+          </div>
+          <div class="col-md-2" *ngIf="isareacode">
+            <label class="levelFontDesign">Branch:</label>
+          </div>
+          <div class="col-md-4" *ngIf="isareacode">
+            <div class="form-group">
+              <nb-select [(ngModel)]="_searchModel.branch_code" formControlName="branch_code"
+                [ngClass]="{ 'is-invalid': submitted && fval.branch_code.errors }" [selected]="_searchModel.branch_code"
+                fullWidth placeholder="Select Branch">
+                <!-- <nb-option *ngIf="isareacode" value="">All</nb-option> -->
+                <nb-option *ngFor="let c of _showbranch" [value]="c.branch_code"> {{ c.branch_name }}</nb-option>
+              </nb-select>
+            </div>
+          </div>
+        </div>
+        <div class="row" style="margin-top: 1%;">
+            <div class="col-md-2">
+                <label class="levelFontDesignnext">Month:</label>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <nb-select [(ngModel)]="_searchModel.month" formControlName="month" name="month"
+                                          [selected]="_searchModel.month" fullWidth placeholder="Select Month">
+                        <nb-option value="01">January</nb-option>
+                        <nb-option value="02">February</nb-option>
+                        <nb-option value="03">March</nb-option>
+                        <nb-option value="04">April</nb-option>
+                        <nb-option value="05">May</nb-option>
+                        <nb-option value="06">June</nb-option>
+                        <nb-option value="07">July</nb-option>
+                        <nb-option value="08">August</nb-option>
+                        <nb-option value="09">September</nb-option>
+                        <nb-option value="10">October</nb-option>
+                        <nb-option value="11">November</nb-option>
+                        <nb-option value="12">December</nb-option>
+                    </nb-select>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <label class="levelFontDesignnext">Year:</label>
+            </div>
+            <div class="col-md-4">
+            <div class="form-group">
+                <nb-select [(ngModel)]="_searchModel.year" formControlName="year" name="year"
+                                        [selected]="_searchModel.year" fullWidth placeholder="Select year">
+                    <nb-option value="01">2022</nb-option>
+                    <nb-option value="02">2023</nb-option>
+                </nb-select>
+            </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <button nbButton hero [status]="'primary'" type="submit" style="width: 70px; height: 30px; font-size: 12px;"
+              nbSpinnerStatus="danger" nbSpinnerSize="large" nbSpinnerMessage="">Search</button>
+        </div>
+        <!-- <div class="form-group">
+            <button nbButton hero [status]="'primary'" type="submit" style="width: 70px; height: 30px; font-size: 12px;" nbSpinnerStatus="danger" nbSpinnerSize="large" nbSpinnerMessage="">Search</button>
+          </div> -->
+      </form>
+    </nb-card-body>
+</nb-card>
+
+  <div class="row" *ngIf="iscustlistshow">
+    <div class="col-md-12">
+        <nb-card>
+            <nb-card-header>
+                <span>Customer List</span>
+                <nb-icon style="float: right; font-size: 1.3rem;cursor: pointer;" icon="arrow-down" *ngIf="customerlistshow"
+                    (click)=commonshowhide()></nb-icon>
+                <nb-icon style="float: right; font-size: 1.3rem;cursor: pointer;" icon="arrow-left" *ngIf="!customerlistshow"
+                    (click)=commonshowhide()></nb-icon>
+                <!-- <a nbButton style="float: right;" size="small" shape="round" [status]="'primary'" (click)="addMeetAndGreetRequest()"><i class="nb-plus"></i> Add service </a> -->
+            </nb-card-header>
+            <nb-card-body>
+                <div class="row" *ngIf="customerlistshow">
+                    <div class="col-md-12">
+
+                        <nb-tabset>
+                            <nb-tab tabTitle="No Recommendation" badgeText={{this._norecomcount}} badgePosition="top right"
+                                badgeStatus="danger" route="/easy/pbms/meet-greet/pending">
+                                <nb-card>
+                                    <nb-card-body style="max-height: 200px; padding: 0rem !important;">
+                                        <ng2-smart-table #table [settings]="settingscustomenorecommendation" [source]="sourcecustomenorecommendation"
+                                            (custom)="onCustom($event)" (userRowSelect)="onUserRowSelect($event)" *ngIf="_norecomcount != 0">
+                                        </ng2-smart-table>
+                                        <div *ngIf="_norecomcount == 0 && nodata"
+                                            style="border: 2px solid #edf1f7; padding: 0.35em 0.75em 0em">
+                                            <span class="levelFontDesign1">no data found</span>
+                                        </div>
+                                    </nb-card-body>
+                                </nb-card>
+                                <nb-card *ngIf="isLoader" size="small" [nbSpinner]="!loading" nbSpinnerStatus="success" nbSpinnerSize="giant"
+                                    nbSpinnerMessage="wait">
+                                    <nb-card-body>
+                                    </nb-card-body>
+                                </nb-card>
+
+                                <nb-card *ngIf="_norecomcount != 0">
+                                    <nb-card-header>
+                                        <span>Add Service</span>
+                                    </nb-card-header>
+                                    <nb-card-body>
+                                        <form (ngSubmit)="onSaveBirthday()" [formGroup]="birthdaygiftvendorform">
+                                            <div class="row">
+                                                <div class="col-md-2">
+                                                    <label class="levelFontDesign">Gift Type:<span style="color: red;"> *</span></label>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <div class="form-group">
+                                                        <nb-select [(ngModel)]="gift_type" formControlName="gift_type" name="gift_type" (selectedChange)="changeVendor(gift_type)" style="margin-top: 2%;"
+                                                                            [selected]="gift_type" fullWidth placeholder="Select Gift Type" [ngClass]="{ 'is-invalid': submitted && fvalforbirthday.gift_type.errors }">
+                                                            <nb-option *ngFor="let g of _gifts" [value]="g.gift_code"> {{ g.gift_name }}</nb-option>
+                                                        </nb-select>
+                                                        <div *ngIf="submitted && fvalforbirthday.gift_type.errors" class="invalid-feedback">
+                                                            <div *ngIf="fvalforbirthday.gift_type.errors.required">Select Gift Type</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <label class="levelFontDesign">Vendor:<span style="color: red;"> *</span></label>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <nb-select [(ngModel)]="vendor" formControlName="vendor" name="vendor" [ngClass]="{ 'is-invalid': submitted && fvalforbirthday.vendor.errors }"
+                                                                                [selected]="vendor" fullWidth placeholder="Select Vendor" style="margin-top: 2%;">
+                                                        <nb-option *ngFor="let c of _showVendor" [value]="c.vendor_code"> {{ c.vendor_name }}</nb-option>
+                                                    </nb-select>
+                                                    <div *ngIf="submitted && fvalforbirthday.vendor.errors" class="invalid-feedback">
+                                                        <div *ngIf="fvalforbirthday.vendor.errors.required">Select Vendor</div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-2" style="padding-top: 0.7%;">
+                                                    <button (click)="onSaveBirthday()" nbButton hero [status]="'primary'" type="button" style="width: 70px; height: 30px; font-size: 12px;" nbSpinnerStatus="danger" nbSpinnerSize="large" nbSpinnerMessage="">Save</button>
+                                                </div>
+                                            </div>
+                                            <!-- <div class="form-group">
+                                                <button (click)="onSaveBirthday()" nbButton hero [status]="'primary'" type="button" style="width: 70px; height: 30px; font-size: 12px;" nbSpinnerStatus="danger" nbSpinnerSize="large" nbSpinnerMessage="">Save</button>
+                                            </div> -->
+                                        </form>
+                                    </nb-card-body>
+                                </nb-card>
+                            </nb-tab>
+                            <nb-tab tabTitle="Recommendation" badgeText={{this._recomcount}} badgePosition="top right"
+                                badgeStatus="danger" route="/easy/pbms/meet-greet/recommendation">
+                                <ng2-smart-table #table [settings]="settingscustomerecommendation" [source]="sourcecustomerecommendation"
+                                    (custom)="onCustom($event)" *ngIf="_recomcount != 0">
+                                </ng2-smart-table>
+                                <div *ngIf="_recomcount == 0" style="border: 2px solid #edf1f7; padding: 0.35em 0.75em">
+                                    <span class="levelFontDesign1">no data found</span>
+                                </div>
+                            </nb-tab>
+                        </nb-tabset>
+                    </div>
+                </div>
+            </nb-card-body>
+        </nb-card>
+    </div>
+</div>
+
+
+<div class="modal blurcolor bd-example-modal-xl" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" [ngStyle]="{'display':addrequest}">
+    <div class="modal-dialog modal-xl">
+      <div class="modal-content">
+        <ngx-add-birthgift [_customerfromgenerateRequest]="customerforaddrequest" [textfromother]="addrequest"></ngx-add-birthgift>
+      </div>
+    </div>
+</div>

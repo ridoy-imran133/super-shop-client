@@ -1,0 +1,1293 @@
+<nb-card>
+    <nb-card-header>
+        <span>Customer Profile Update</span>
+        <a nbButton style="float: right;" size="tiny" [status]="'danger'" (click)="dismiss()"> <span>X</span></a>
+    </nb-card-header>
+    <nb-card-body>
+        <div class="row">
+            <div class="col-md-2">
+                <label class="levelFontDesignPersonal">Customer No:</label>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group">
+                    <input disabled readonly [(ngModel)]="cust_no" class="form-control" type="text" fullWidth nbInput>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <label class="levelFontDesignPersonal">Customer Name:</label>
+            </div>
+            <div class="col-md-5">
+                <div class="form-group">
+                    <input disabled readonly [(ngModel)]="cust_name" class="form-control" type="text" fullWidth nbInput>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <nb-tabset>
+                    <nb-tab tabTitle="Personal Info" style="max-height: 600px;">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <form [formGroup]="PersonalInfoForm">
+                                    <fieldset style="border: 2px solid #edf1f7; padding: 0.35em 0.75em 0em">
+                                        <div class="row">
+                                            <div class="col-md-2">
+                                                <label class="levelFontDesignPersonal">Branch Code</label>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <input class="levelFontDesignPersonal" disabled
+                                                        formControlName="branch_code" class="form-control" type="text"
+                                                        fullWidth nbInput>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <label class="levelFontDesignPersonal">Branch Name</label>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <input disabled formControlName="branch_name" class="form-control"
+                                                        type="text" fullWidth nbInput>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-md-2">
+                                                <label class="levelFontDesignPersonal">Business Date</label>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <input nbInput [nbDatepicker]="formpicker" disabled
+                                                        formControlName="business_date" class="form-control" disabled>
+                                                    <nb-datepicker #formpicker></nb-datepicker>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <label class="levelFontDesignPersonal">Cat ID</label>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <input disabled readonly formControlName="cat_desc"
+                                                        class="form-control" type="text" fullWidth nbInput>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-md-2">
+                                                <label class="levelFontDesignPersonal">Segment Code</label>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <input disabled readonly formControlName="segment_name"
+                                                        class="form-control" type="text" fullWidth nbInput>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <label class="levelFontDesignPersonal">Customer Type</label>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <input disabled readonly formControlName="customer_desc"
+                                                        class="form-control" type="text" fullWidth nbInput>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </fieldset>
+
+                                    <fieldset
+                                        style="margin-top: 10px; border: 2px solid #edf1f7; padding: 0.35em 0.75em 0em">
+                                        <div class="row">
+                                            <div class="col-md-2">
+                                                <label class="levelFontDesignPersonal">Birth Date</label>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <input nbInput [nbDatepicker]="formpicker" disabled
+                                                    formControlName="birth_date" class="form-control" disabled>
+                                                <nb-datepicker #formpicker></nb-datepicker>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <label class="levelFontDesignPersonal">CIF Creation Date</label>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <input nbInput [nbDatepicker]="formpicker"
+                                                        formControlName="cif_creation_date" class="form-control"
+                                                        disabled>
+                                                    <nb-datepicker #formpicker></nb-datepicker>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-md-2">
+                                                <label class="levelFontDesignPersonal">Family CIF</label>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <input disabled readonly formControlName="family_cif"
+                                                        class="form-control" type="text" fullWidth nbInput>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <label class="levelFontDesignPersonal">Address</label>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <textarea class="levelTextFontDesignPersonal" disabled readonly
+                                                        formControlName="address" rows="4"></textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-md-2">
+                                                <label class="levelFontDesignPersonal">Priority Code</label>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <input disabled readonly formControlName="priority_code"
+                                                        class="form-control" type="text" fullWidth nbInput>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <label class="levelFontDesignPersonal">Mobile Number</label>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <input disabled readonly formControlName="mobile_number"
+                                                        class="form-control" type="text" fullWidth nbInput>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-2">
+                                                <label class="levelFontDesignPersonal">E-Mail</label>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <input disabled readonly formControlName="e_mail"
+                                                        class="form-control" type="text" fullWidth nbInput>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <label class="levelFontDesignPersonal">Birthday Recom</label>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <input disabled readonly formControlName="birthday_recom"
+                                                        class="form-control" type="text" fullWidth nbInput>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </fieldset>
+
+                                    <fieldset
+                                        style="margin-top: 10px; border: 2px solid #edf1f7; padding: 0.35em 0.75em 0em">
+                                        <div class="row">
+                                            <div class="col-md-2">
+                                                <label class="levelFontDesignPersonal">Picdrop Recom</label>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <input disabled readonly formControlName="picdrop_recom"
+                                                        class="form-control" type="text" fullWidth nbInput>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <label class="levelFontDesignPersonal">Birthday Reason</label>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <input disabled readonly formControlName="birthday_reason"
+                                                        class="form-control" type="text" fullWidth nbInput>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-md-2">
+                                                <label class="levelFontDesignPersonal">CASA Balance</label>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <input disabled readonly formControlName="casa_balance"
+                                                        class="form-control" type="text" fullWidth nbInput
+                                                        style="text-align: right;">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <label class="levelFontDesignPersonal">FD Balance</label>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <input disabled readonly formControlName="fd_balance"
+                                                        class="form-control" type="text" fullWidth nbInput
+                                                        style="text-align: right;">
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-md-2">
+                                                <label class="levelFontDesignPersonal">Total Balance</label>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <input disabled readonly formControlName="total_balance"
+                                                        class="form-control" type="text" fullWidth nbInput
+                                                        style="text-align: right;">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <label class="levelFontDesignPersonal">Picdrop Reason</label>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <input disabled readonly formControlName="picdrop_reason"
+                                                        class="form-control" type="text" fullWidth nbInput>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-md-2">
+                                                <label class="levelFontDesignPersonal">Status</label>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <input disabled readonly formControlName="status"
+                                                        class="form-control" type="text" fullWidth nbInput>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </fieldset>
+                                </form>
+                            </div>
+                        </div>
+                    </nb-tab>
+                    <nb-tab tabTitle="Life Style" class="lifeStyleTab">
+                        <div class="row"  style="width:99%;">
+                            <div class="col-md-12">
+                                <form [formGroup]="lifestyleInfoForm">
+                                    <nb-card>
+                                        <nb-card-body style="max-height: 400px;">
+
+                                            <fieldset style="border: 2px solid #edf1f7; padding: 0.35em 0.75em 0em">
+                                                <legend
+                                                    style="width: 6%; font-size: 14px; font-weight: 600; opacity: 0.9; font-family: arial;">
+                                                    <span>Travel</span>
+                                                </legend>
+                                                <div class="row">
+                                                    <div class="col-md-2">
+                                                        <label class="levelFontDesignPersonal">Travel Code</label>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="form-group">
+                                                            <input formControlName="travel_mode_code"
+                                                                class="form-control" type="text" fullWidth nbInput>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-2">
+                                                        <label class="levelFontDesignPersonal">Child Favorite
+                                                            Place</label>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="form-group">
+                                                            <input formControlName="child_fav_place"
+                                                                class="form-control" type="text" fullWidth nbInput>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row">
+                                                    <div class="col-md-2">
+                                                        <label class="levelFontDesignPersonal">Airline Name</label>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="form-group">
+                                                            <input formControlName="airline_name" class="form-control"
+                                                                type="text" fullWidth nbInput>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-2">
+                                                        <label class="levelFontDesignPersonal">Local Holiday
+                                                            Place</label>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="form-group">
+                                                            <input formControlName="local_holiday_place"
+                                                                class="form-control" type="text" fullWidth nbInput>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row">
+                                                    <div class="col-md-2">
+                                                        <label class="levelFontDesignPersonal">Forign Holiday
+                                                            Place</label>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="form-group">
+                                                            <input formControlName="foreign_holiday_place"
+                                                                class="form-control" type="text" fullWidth nbInput>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-2">
+                                                        <label class="levelFontDesignPersonal">Local Hotel</label>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="form-group">
+                                                            <input formControlName="local_hotel" class="form-control"
+                                                                type="text" fullWidth nbInput>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row">
+                                                    <div class="col-md-2">
+                                                        <label class="levelFontDesignPersonal">Foreign Hotel</label>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="form-group">
+                                                            <input formControlName="foreign_hotel" class="form-control"
+                                                                type="text" fullWidth nbInput>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-2">
+                                                        <label class="levelFontDesignPersonal">Wishing Vacation
+                                                            Place</label>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="form-group">
+                                                            <input formControlName="wishing_vacation_place"
+                                                                class="form-control" type="text" fullWidth nbInput>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </fieldset>
+
+                                            <fieldset style="margin-top: 10px; border: 2px solid #edf1f7; padding: 0.35em 0.75em 0em">
+                                                <legend
+                                                    style="width: 6%; font-size: 14px; font-weight: 600; opacity: 0.9; font-family: arial;">
+                                                    <span>Food</span>
+                                                </legend>
+                                                <div class="row">
+                                                    <div class="col-md-2">
+                                                        <label class="levelFontDesignPersonal">Local Shopping
+                                                            Place</label>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="form-group">
+                                                            <input formControlName="local_shopping_place"
+                                                                class="form-control" type="text" fullWidth nbInput>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-2">
+                                                        <label class="levelFontDesignPersonal">Foreign Shopping
+                                                            Place</label>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="form-group">
+                                                            <input formControlName="foreign_shopping_place"
+                                                                class="form-control" type="text" fullWidth nbInput>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+
+                                                <div class="row">
+                                                    <div class="col-md-2">
+                                                        <label class="levelFontDesignPersonal">Jewelry Shop</label>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="form-group">
+                                                            <input formControlName="jewelry_shop" class="form-control"
+                                                                type="text" fullWidth nbInput>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-2">
+                                                        <label class="levelFontDesignPersonal">Foreign
+                                                            Restaurant</label>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="form-group">
+                                                            <input formControlName="foreign_restaurant"
+                                                                class="form-control" type="text" fullWidth nbInput>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row">
+                                                    <div class="col-md-2">
+                                                        <label class="levelFontDesignPersonal">Privilege Store
+                                                            Name</label>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="form-group">
+                                                            <input formControlName="privilege_store_name"
+                                                                class="form-control" type="text" fullWidth nbInput>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-2">
+                                                        <label class="levelFontDesignPersonal">Favorite Cosine</label>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="form-group">
+                                                            <input formControlName="favorite_cosine"
+                                                                class="form-control" type="text" fullWidth nbInput>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row">
+                                                    <div class="col-md-2">
+                                                        <label class="levelFontDesignPersonal">Favorite Dessert</label>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="form-group">
+                                                            <input formControlName="favorite_dessert"
+                                                                class="form-control" type="text" fullWidth nbInput>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-2">
+                                                        <label class="levelFontDesignPersonal">Favorite Drink</label>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="form-group">
+                                                            <input formControlName="favorite_drink" class="form-control"
+                                                                type="text" fullWidth nbInput>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row">
+                                                    <div class="col-md-2">
+                                                        <label class="levelFontDesignPersonal">Favorite Fruit</label>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="form-group">
+                                                            <input formControlName="favorite_fruit" class="form-control"
+                                                                type="text" fullWidth nbInput>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-2">
+                                                        <label class="levelFontDesignPersonal">Local Restaurant</label>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="form-group">
+                                                            <input formControlName="local_restaurant"
+                                                                class="form-control" type="text" fullWidth nbInput>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </fieldset>
+
+                                            <fieldset style="margin-top: 10px; border: 2px solid #edf1f7; padding: 0.35em 0.75em 0em">
+                                                <legend
+                                                    style="width: 6%; font-size: 14px; font-weight: 600; opacity: 0.9; font-family: arial;">
+                                                    <span>Leisure</span>
+                                                </legend>
+                                                <div class="row">
+                                                    <div class="col-md-2">
+                                                        <label class="levelFontDesignPersonal">Song Type Bengali</label>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="form-group">
+                                                            <input formControlName="song_type_ben" class="form-control"
+                                                                type="text" fullWidth nbInput>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row">
+                                                    <div class="col-md-2">
+                                                        <label class="levelFontDesignPersonal">Song Type Nonben</label>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="form-group">
+                                                            <input formControlName="song_type_nonben"
+                                                                class="form-control" type="text" fullWidth nbInput>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-2">
+                                                        <label class="levelFontDesignPersonal">Singer Bengali</label>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="form-group">
+                                                            <input formControlName="singer_ben" class="form-control"
+                                                                type="text" fullWidth nbInput>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row">
+                                                    <div class="col-md-2">
+                                                        <label class="levelFontDesignPersonal">Singer
+                                                            Non-Bengali</label>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="form-group">
+                                                            <input formControlName="singer_nonben" class="form-control"
+                                                                type="text" fullWidth nbInput>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-2">
+                                                        <label class="levelFontDesignPersonal">Movie Genre
+                                                            Bengali</label>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="form-group">
+                                                            <input formControlName="movie_genre_ben"
+                                                                class="form-control" type="text" fullWidth nbInput>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row">
+                                                    <div class="col-md-2">
+                                                        <label class="levelFontDesignPersonal">Movie Genre
+                                                            Non-Bengali</label>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="form-group">
+                                                            <input formControlName="movie_genre_nonben"
+                                                                class="form-control" type="text" fullWidth nbInput>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-2">
+                                                        <label class="levelFontDesignPersonal">Actor Bengali</label>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="form-group">
+                                                            <input formControlName="actor_ben" class="form-control"
+                                                                type="text" fullWidth nbInput>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row">
+                                                    <div class="col-md-2">
+                                                        <label class="levelFontDesignPersonal">Actor Non-Bengali</label>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="form-group">
+                                                            <input formControlName="actor_nonben" class="form-control"
+                                                                type="text" fullWidth nbInput>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-2">
+                                                        <label class="levelFontDesignPersonal">Movie Bengali</label>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="form-group">
+                                                            <input formControlName="movie_ben" class="form-control"
+                                                                type="text" fullWidth nbInput>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row">
+                                                    <div class="col-md-2">
+                                                        <label class="levelFontDesignPersonal">Movie English</label>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="form-group">
+                                                            <input formControlName="movie_eng" class="form-control"
+                                                                type="text" fullWidth nbInput>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-2">
+                                                        <label class="levelFontDesignPersonal">Movie Others</label>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="form-group">
+                                                            <input formControlName="movie_others" class="form-control"
+                                                                type="text" fullWidth nbInput>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+
+                                                <div class="row">
+                                                    <div class="col-md-2">
+                                                        <label class="levelFontDesignPersonal">Writer Bengali</label>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="form-group">
+                                                            <input formControlName="writer_ben" class="form-control"
+                                                                type="text" fullWidth nbInput>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-2">
+                                                        <label class="levelFontDesignPersonal">Writer
+                                                            Non-Bengali</label>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="form-group">
+                                                            <input formControlName="writer_nonben" class="form-control"
+                                                                type="text" fullWidth nbInput>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row">
+                                                    <div class="col-md-2">
+                                                        <label class="levelFontDesignPersonal">Favorite Radio
+                                                            Channel</label>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="form-group">
+                                                            <input formControlName="fav_radio_channel"
+                                                                class="form-control" type="text" fullWidth nbInput>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-2">
+                                                        <label class="levelFontDesignPersonal">Favorite TV
+                                                            Channel</label>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="form-group">
+                                                            <input formControlName="fav_tv_channel" class="form-control"
+                                                                type="text" fullWidth nbInput>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row">
+                                                    <div class="col-md-2">
+                                                        <label class="levelFontDesignPersonal">Favorite Painter</label>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="form-group">
+                                                            <input formControlName="fav_painter" class="form-control"
+                                                                type="text" fullWidth nbInput>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-2">
+                                                        <label class="levelFontDesignPersonal">Preferable
+                                                            Magazine</label>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="form-group">
+                                                            <input formControlName="preferable_magazine"
+                                                                class="form-control" type="text" fullWidth nbInput>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </fieldset>
+
+                                            <fieldset style="margin-top: 10px; border: 2px solid #edf1f7; padding: 0.35em 0.75em 0em">
+                                                <legend
+                                                    style="width: 8%; font-size: 14px; font-weight: 600; opacity: 0.9; font-family: arial;">
+                                                    <span>Life Style</span>
+                                                </legend>
+                                                <div class="row">
+                                                    <div class="col-md-2">
+                                                        <label class="levelFontDesignPersonal">Favorite Mobile
+                                                            Brand</label>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="form-group">
+                                                            <input formControlName="fav_mobile_brand"
+                                                                class="form-control" type="text" fullWidth nbInput>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-2">
+                                                        <label class="levelFontDesignPersonal">Favorite
+                                                            Accessories</label>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="form-group">
+                                                            <input formControlName="fav_accessories"
+                                                                class="form-control" type="text" fullWidth nbInput>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row">
+                                                    <div class="col-md-2">
+                                                        <label class="levelFontDesignPersonal">Favorite Purfume</label>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="form-group">
+                                                            <input formControlName="fav_purfume" class="form-control"
+                                                                type="text" fullWidth nbInput>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-2">
+                                                        <label class="levelFontDesignPersonal">Favorite Car
+                                                            Brand</label>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="form-group">
+                                                            <input formControlName="fav_car_brand" class="form-control"
+                                                                type="text" fullWidth nbInput>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row">
+                                                    <div class="col-md-2">
+                                                        <label class="levelFontDesignPersonal">Favorite Grocery
+                                                            Storebd</label>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="form-group">
+                                                            <input formControlName="fav_grocery_storebd"
+                                                                class="form-control" type="text" fullWidth nbInput>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-2">
+                                                        <label class="levelFontDesignPersonal">Favorite Toiletries
+                                                            Brand</label>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="form-group">
+                                                            <input formControlName="fav_toiletries_brand"
+                                                                class="form-control" type="text" fullWidth nbInput>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row">
+                                                    <div class="col-md-2">
+                                                        <label class="levelFontDesignPersonal">Favorite Spa</label>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="form-group">
+                                                            <input formControlName="fav_spa" class="form-control"
+                                                                type="text" fullWidth nbInput>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-2">
+                                                        <label class="levelFontDesignPersonal">Child Birthday Arrange
+                                                            Type</label>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="form-group">
+                                                            <input formControlName="child_birthday_arng_type"
+                                                                class="form-control" type="text" fullWidth nbInput>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row">
+                                                    <div class="col-md-2">
+                                                        <label class="levelFontDesignPersonal">Birthday Gift
+                                                            Code</label>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="form-group">
+                                                            <input formControlName="birthday_gift_code"
+                                                                class="form-control" type="text" fullWidth nbInput>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-2">
+                                                        <label class="levelFontDesignPersonal">Birthday Gift
+                                                            Details</label>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="form-group">
+                                                            <input formControlName="birthday_gift_details"
+                                                                class="form-control" type="text" fullWidth nbInput>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row">
+                                                    <div class="col-md-2">
+                                                        <label class="levelFontDesignPersonal">Aniversary Gift
+                                                            Code</label>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="form-group">
+                                                            <input formControlName="aniversary_gift_code"
+                                                                class="form-control" type="text" fullWidth nbInput>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-2">
+                                                        <label class="levelFontDesignPersonal">Aniversary Gift
+                                                            Details</label>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="form-group">
+                                                            <input formControlName="aniversary_gift_details"
+                                                                class="form-control" type="text" fullWidth nbInput>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+
+                                                <div class="row">
+                                                    <div class="col-md-2">
+                                                        <label class="levelFontDesignPersonal">Health Club
+                                                            Member</label>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="form-group">
+                                                            <input formControlName="health_club_member"
+                                                                class="form-control">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-2">
+                                                        <label class="levelFontDesignPersonal">Social Club
+                                                            Member</label>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="form-group">
+                                                            <input formControlName="social_club_member"
+                                                                class="form-control" type="text" fullWidth nbInput>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row">
+                                                    <div class="col-md-2">
+                                                        <label class="levelFontDesignPersonal">Local Hospital</label>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="form-group">
+                                                            <input formControlName="local_hospital" class="form-control"
+                                                                type="text" fullWidth nbInput>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-2">
+                                                        <label class="levelFontDesignPersonal">Foreign Hospital</label>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="form-group">
+                                                            <input formControlName="foreign_hospital"
+                                                                class="form-control" type="text" fullWidth nbInput>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-2">
+                                                        <label class="levelFontDesignPersonal">Car Servicing
+                                                            Center</label>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="form-group">
+                                                            <input formControlName="car_servicing_center"
+                                                                class="form-control" type="text" fullWidth nbInput>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </fieldset>
+
+                                            <fieldset style="margin-top: 10px; border: 2px solid #edf1f7; padding: 0.35em 0.75em 0em">
+                                                <legend
+                                                    style="width: 6%; font-size: 14px; font-weight: 600; opacity: 0.9; font-family: arial;">
+                                                    <span>Sports</span>
+                                                </legend>
+                                                <div class="row">
+                                                    <div class="col-md-2">
+                                                        <label class="levelFontDesignPersonal">Games Watching</label>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="form-group">
+                                                            <input formControlName="games_watching" class="form-control"
+                                                                type="text" fullWidth nbInput>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-md-2">
+                                                        <label class="levelFontDesignPersonal">Favorite Football
+                                                            Team</label>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="form-group">
+                                                            <input formControlName="fav_football_team"
+                                                                class="form-control" type="text" fullWidth nbInput>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row">
+
+                                                    <div class="col-md-2">
+                                                        <label class="levelFontDesignPersonal">Favorite Cricket
+                                                            Team</label>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="form-group">
+                                                            <input formControlName="fav_cricket_team"
+                                                                class="form-control" type="text" fullWidth nbInput>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-2">
+                                                        <label class="levelFontDesignPersonal">Favorite Others
+                                                            Team</label>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="form-group">
+                                                            <input formControlName="fav_others_team"
+                                                                class="form-control" type="text" fullWidth nbInput>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row">
+                                                    <div class="col-md-2">
+                                                        <label class="levelFontDesignPersonal">Favorite Sports
+                                                            Person</label>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="form-group">
+                                                            <input formControlName="fav_sports_person"
+                                                                class="form-control" type="text" fullWidth nbInput>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </fieldset>
+
+                                            <fieldset style="margin-top: 10px; border: 2px solid #edf1f7; padding: 0.35em 0.75em 0em">
+                                                <legend
+                                                    style="width: 6%; font-size: 14px; font-weight: 600; opacity: 0.9; font-family: arial;">
+                                                    <span>Others</span>
+                                                </legend>
+                                                <div class="row">
+                                                    <div class="col-md-2">
+                                                        <label class="levelFontDesignPersonal">Hobby</label>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="form-group">
+                                                            <input formControlName="hobby" class="form-control"
+                                                                type="text" fullWidth nbInput>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-2">
+                                                        <label class="levelFontDesignPersonal">Favorite Color</label>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="form-group">
+                                                            <input formControlName="fav_color" class="form-control"
+                                                                type="text" fullWidth nbInput>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row">
+                                                    <div class="col-md-2">
+                                                        <label class="levelFontDesignPersonal">Favorite Dress</label>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="form-group">
+                                                            <input formControlName="fav_dress" class="form-control"
+                                                                type="text" fullWidth nbInput>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-2">
+                                                        <label class="levelFontDesignPersonal">Passionate Social
+                                                            Culture</label>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="form-group">
+                                                            <input formControlName="passionate_social_culture"
+                                                                class="form-control" type="text" fullWidth nbInput>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row">
+                                                    <div class="col-md-2">
+                                                        <label class="levelFontDesignPersonal">Associate Charity
+                                                            Organization</label>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="form-group">
+                                                            <input formControlName="associate_charity_org"
+                                                                class="form-control" type="text" fullWidth nbInput>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-2">
+                                                        <label class="levelFontDesignPersonal">Taken Other Bank
+                                                            Service</label>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="form-group">
+                                                            <input formControlName="taken_other_bank_serv"
+                                                                class="form-control" type="text" fullWidth nbInput>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row">
+                                                    <div class="col-md-2">
+                                                        <label class="levelFontDesignPersonal">Social Event Expect
+                                                            EBL</label>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="form-group">
+                                                            <input formControlName="social_event_expect_ebl"
+                                                                class="form-control" type="text" fullWidth nbInput>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-2">
+                                                        <label class="levelFontDesignPersonal">Favorite Others
+                                                            Bank</label>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="form-group">
+                                                            <input formControlName="fav_others_bank"
+                                                                class="form-control" type="text" fullWidth nbInput>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row">
+                                                    <div class="col-md-2">
+                                                        <label class="levelFontDesignPersonal">Favorite EBL
+                                                            Service</label>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="form-group">
+                                                            <input formControlName="fav_ebl_service"
+                                                                class="form-control" type="text" fullWidth nbInput>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-2">
+                                                        <label class="levelFontDesignPersonal">Bank Service Introduced
+                                                            EBL</label>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="form-group">
+                                                            <input formControlName="bank_serv_intro_ebl"
+                                                                class="form-control" type="text" fullWidth nbInput>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row">
+
+                                                    <div class="col-md-2">
+                                                        <label class="levelFontDesignPersonal">EBL Service Improve
+                                                            Name</label>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="form-group">
+                                                            <input formControlName="ebl_serv_improve_name"
+                                                                class="form-control" type="text" fullWidth nbInput>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-2">
+                                                        <label class="levelFontDesignPersonal">Personal Status</label>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <div class="form-group" style="margin-top: 10px;">
+                                                            <nb-checkbox status="basic"
+                                                                formControlName="personal_status">
+                                                            </nb-checkbox>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </fieldset>
+
+                                        </nb-card-body>
+                                        <nb-card-footer>
+                                            <div class="form-group">
+                                                <div class="row">
+                                                    <div class="col-md-2">
+                                                        <button size="tiny" nbButton status="primary"
+                                                            (click)="onSaveLifeStyleInfo()">save</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </nb-card-footer>
+                                    </nb-card>
+
+                                </form>
+                            </div>
+                        </div>
+                    </nb-tab>
+                    <nb-tab tabTitle="Banking Info" style="max-height: 600px;">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <form [formGroup]="bankinginfoForm">
+                                    <nb-card>
+                                        <nb-card-body style="max-height: 400px;">
+                                            
+                                                <div class="row">
+                                                    <div class="col-md-2">
+                                                        <label class="levelFontDesignPersonal">DPS with EBL</label>
+                                                    </div>
+                                                    <div class="col-md-2">
+                                                        <div class="form-group checkboxpadding">
+                                                            <input formControlName="cust_no" class="form-control"
+                                                                type="text" fullWidth nbInput hidden>
+                                                            <nb-checkbox status="basic" formControlName="dps_with_ebl">
+                                                            </nb-checkbox>
+                                                        </div>
+                                                    </div>
+                                                    <div class="strightLine">
+                                                    </div>
+                                                    <div class="col-md-2">
+                                                        <label class="levelFontDesignPersonal">Debit Card with
+                                                            EBL</label>
+                                                    </div>
+                                                    <div class="col-md-2">
+                                                        <div class="form-group checkboxpadding">
+                                                            <nb-checkbox status="basic"
+                                                                formControlName="debit_card_ebl">
+                                                            </nb-checkbox>
+                                                        </div>
+                                                    </div>
+                                                    <div class="strightLine">
+                                                    </div>
+                                                    <div class="col-md-2">
+                                                        <label class="levelFontDesignPersonal">Credit Card with
+                                                            EBL</label>
+                                                    </div>
+                                                    <div class="col-md-1">
+                                                        <div class="form-group checkboxpadding">
+                                                            <nb-checkbox status="basic"
+                                                                formControlName="credit_card_ebl">
+                                                            </nb-checkbox>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row">
+                                                    <div class="col-md-2">
+                                                        <label class="levelFontDesignPersonal">Lifestyle Card with
+                                                            EBL</label>
+                                                    </div>
+                                                    <div class="col-md-2">
+                                                        <div class="form-group checkboxpadding">
+                                                            <nb-checkbox status="basic"
+                                                                formControlName="lifestyle_card_ebl">
+                                                            </nb-checkbox>
+                                                        </div>
+                                                    </div>
+                                                    <div class="strightLine">
+                                                    </div>
+                                                    <div class="col-md-2">
+                                                        <label class="levelFontDesignPersonal">Secured Loan with
+                                                            EBL</label>
+                                                    </div>
+                                                    <div class="col-md-2">
+                                                        <div class="form-group checkboxpadding">
+                                                            <nb-checkbox status="basic"
+                                                                formControlName="secured_loan_ebl">
+                                                            </nb-checkbox>
+                                                        </div>
+                                                    </div>
+                                                    <div class="strightLine">
+                                                    </div>
+                                                    <div class="col-md-2">
+                                                        <label class="levelFontDesignPersonal">Personal Loan with
+                                                            EBL</label>
+                                                    </div>
+                                                    <div class="col-md-1">
+                                                        <div class="form-group checkboxpadding">
+                                                            <nb-checkbox status="basic"
+                                                                formControlName="personal_loan_ebl">
+                                                            </nb-checkbox>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row">
+                                                    <div class="col-md-2">
+                                                        <label class="levelFontDesignPersonal">Auto Loan with
+                                                            EBL</label>
+                                                    </div>
+                                                    <div class="col-md-2">
+                                                        <div class="form-group checkboxpadding">
+                                                            <nb-checkbox status="basic" formControlName="auto_loan_ebl">
+                                                            </nb-checkbox>
+                                                        </div>
+                                                    </div>
+                                                    <div class="strightLine">
+                                                    </div>
+                                                    <div class="col-md-2">
+                                                        <label class="levelFontDesignPersonal">Home Loan with
+                                                            EBL</label>
+                                                    </div>
+                                                    <div class="col-md-2">
+                                                        <div class="form-group checkboxpadding">
+                                                            <nb-checkbox status="basic" formControlName="home_loan_ebl">
+                                                            </nb-checkbox>
+                                                        </div>
+                                                    </div>
+                                                    <div class="strightLine">
+                                                    </div>
+                                                    <div class="col-md-2" style="padding-left: 1%;">
+                                                        <label class="levelFontDesignPersonal">Two Wheeler Loan with
+                                                            EBL</label>
+                                                    </div>
+                                                    <div class="col-md-1">
+                                                        <div class="form-group checkboxpadding">
+                                                            <nb-checkbox status="basic"
+                                                                formControlName="wheeler_loan_ebl">
+                                                            </nb-checkbox>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row">
+                                                    <div class="col-md-2">
+                                                        <label class="levelFontDesignPersonal">Status</label>
+                                                    </div>
+                                                    <div class="col-md-2">
+                                                        <div class="form-group checkboxpadding">
+                                                            <nb-checkbox status="basic"
+                                                                formControlName="banking_status">
+                                                            </nb-checkbox>
+                                                        </div>
+                                                    </div>
+                                                    <div class="strightLine">
+                                                    </div>
+                                                    <div class="col-md-2">
+                                                        <label class="levelFontDesignPersonal">Family CIF</label>
+                                                    </div>
+                                                    <div class="col-md-2">
+                                                        <div class="form-group">
+                                                            <input formControlName="family_cif" class="form-control"
+                                                                type="text" fullWidth nbInput>
+                                                        </div>
+                                                    </div>
+                                                    <div class="strightLine">
+                                                    </div>
+                                                </div>
+                                        </nb-card-body>
+                                        <nb-card-footer style="margin-top: 1%;">
+                                            <div class="form-group">
+                                                <div class="col-md-2">
+                                                    <button size="tiny" nbButton status="primary"
+                                                        (click)="onSaveBankingInfo()">Save</button>
+                                                </div>
+                                            </div>
+                                        </nb-card-footer>
+                                    </nb-card>
+                                </form>
+                            </div>
+                        </div>
+                    </nb-tab>
+
+                </nb-tabset>
+            </div>
+        </div>
+        <!-- <div class="row">
+            <div class="col-md-12">
+                
+                
+            </div>
+        </div> -->
+
+        <!-- <nb-card style="max-height: 15%; max-width: 100%; min-width: 100%;">
+        <nb-card-body>
+            <div class="row" style="max-height: 55%; max-width: 100%; min-width: 100%;">
+                
+            </div>
+        </nb-card-body>
+      </nb-card> -->
+
+    </nb-card-body>
+</nb-card>
