@@ -1,0 +1,76 @@
+<nb-card>
+    <nb-card-header>
+      <span>Customer Search </span>
+      <nb-icon style="float: right; font-size: 1.3rem;" icon="arrow-down" *ngIf="issearchsection" (click) = arrowButtonFunction()></nb-icon>
+      <nb-icon style="float: right; font-size: 1.3rem;" icon="arrow-left" *ngIf="!issearchsection" (click) = arrowButtonFunction()></nb-icon>
+    </nb-card-header>
+    <nb-card-body style="padding-bottom: 0px; padding-top: 8px;" *ngIf="issearchsection">
+      <form (ngSubmit)="searchCustomer()" [formGroup]="masterForm">
+        <div class="row">
+            <div class="col-md-2">
+
+            </div>
+            <div class="col-md-3">
+                
+                <div class="row">
+                    <div class="col-md-4">
+                        <label class="levelFontDesign">Confirm From Date:</label>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="form-group">
+                            <input nbInput [nbDatepicker]="formpicker" [(ngModel)]="_report.confirm_from_date" placeholder="Confirm Date"
+                                formControlName="confirm_from_date" class="form-control" >
+                            <nb-datepicker #formpicker format="dd/MM/yyyy"></nb-datepicker>
+                            <!-- <div *ngIf="submitted && fval.confirm_from_date.errors" class="invalid-feedback">
+                              <div *ngIf="fval.confirm_from_date.errors.required">Reporting Date Required</div>
+                          </div> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div style="border-left: 2px solid rgb(134, 129, 129); margin-top: 1%; margin-left: 4%; margin-right: 4%; margin-bottom: 2%;">
+            </div>
+            <div class="col-md-3">
+                
+                <div class="row">
+                    <div class="col-md-4">
+                        <label class="levelFontDesign">Confirm To Date:</label>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="form-group">
+                            <input nbInput [nbDatepicker]="formpicker1" [(ngModel)]="_report.confirm_to_date" placeholder="Confirm To Date"
+                                formControlName="confirm_to_date" class="form-control">
+                            <nb-datepicker #formpicker1 format="dd/MM/yyyy"></nb-datepicker>
+                            <!-- <div *ngIf="submitted && fval.confirm_to_date.errors" class="invalid-feedback">
+                              <div *ngIf="fval.confirm_to_date.errors.required">Reporting Date Required</div>
+                          </div> -->
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+            <div class="col-md-3">
+
+            </div>
+        </div>
+        <div class="form-group">
+          <button nbButton hero [status]="'primary'" type="submit" style="width: 70px; height: 30px; font-size: 12px;" nbSpinnerStatus="danger" nbSpinnerSize="large" nbSpinnerMessage="">Search</button>&nbsp;&nbsp;
+          <input (click)="clearformdata()" type="reset" nbButton class="btn btn-primary" readonly hero style="width: 70px; height: 30px; font-size: 12px;" nbSpinnerStatus="danger" nbSpinnerSize="large" nbSpinnerMessage="" value="CLEAR">
+        </div>
+      </form>
+    </nb-card-body>
+</nb-card>
+
+<nb-card *ngIf="tablesearch">
+    <nb-card-header>
+        <span>Service List </span>
+        <nb-icon style="float: right; font-size: 1.3rem;" icon="arrow-down" *ngIf="istablesection" (click) = !arrowButtonFunction()></nb-icon>
+        <nb-icon style="float: right; font-size: 1.3rem;" icon="arrow-left" *ngIf="!istablesection" (click) = arrowButtonFunction()></nb-icon>
+        <a (click)="exportAsXLSX()" nbButton style="float: right; background: #24c532; opacity: 0.7; color: white; margin-right: 1px;" size="tiny" shape="round"> excel </a>
+    </nb-card-header>
+    <nb-card-body *ngIf="istablesection">    
+      <ng2-smart-table #table [settings]="settings"
+            [source]="source">
+      </ng2-smart-table>
+    </nb-card-body>
+  </nb-card>

@@ -1,31 +1,31 @@
 <div class="header-container" >
   <div class="logo-container">
     <a class="logo" href="" (click)="navigateHome()" style="border-left:0; padding: 0">
-      <img src="assets/images/jnu.png" style="height: 40px; width: 250px;margin-left: -8%;"/>
+      <img src="assets/images/eag.jpg" style="height: 40px; width: 250px;margin-left: -8%;"/>
     </a>
   </div>
 </div>
 
 <div class="header-container">
-  <p style="font-size: 23px; font-family: Tahoma; color: #676A6C; font-weight: 550; padding-top: 3%;">Super Shop</p>
+  <p style="font-size: 23px; font-family: Tahoma; color: #ffffff; font-weight: 550; padding-top: 9%;">Super Shop</p>
 </div>
 <div class="header-container">
   <div class="row">
     <div class="col-md-12">
       <div class="row" style="margin-top: 8%">
         <div class="col-md-3">
-          <p style="line-height: 0; font-size: 12px; font-family: open sans; color: #676A6C; font-weight: 550;">Branch: </p>
+          <p style="line-height: 0; font-size: 12px; font-family: open sans; color: #ffffff; font-weight: 550;">Outlet: </p>
         </div>
         <div class="col-md-9">
-          <p style="line-height: 0; font-size: 12px; font-family: open sans; color: #676A6C; padding-left: 3%;">{{branchText}}</p>
+          <p style="line-height: 0; font-size: 12px; font-family: open sans; color: #ffffff; padding-left: 3%;">Dhaka - Savar</p>
         </div>
       </div>
       <div class="row">
         <div class="col-md-3">
-          <p style="line-height: 0; font-size: 12px; font-family: open sans; color: #676A6C; font-weight: 550;">Welcome: </p>
+          <p style="line-height: 0; font-size: 12px; font-family: open sans; color: #ffffff; font-weight: 550;">Welcome: </p>
         </div>
         <div class="col-md-9">
-          <p style="line-height: 0; font-size: 12px; font-family: open sans; color: #676A6C; padding-left: 3%;">{{fullName}}</p>
+          <p style="line-height: 0; font-size: 12px; font-family: open sans; color: #ffffff; padding-left: 3%;">{{fullName}}</p>
         </div>
       </div>
     </div>
@@ -33,29 +33,29 @@
 </div>
 <div class="header-container">
   <div class="row">
-    <div class="col-md-8" style="padding: 0;">
+    <div class="col-md-12" style="padding: 0;">
       <div class="row" style="padding-top: 16%;">
         <div class="col-md-2" style="padding: 0; padding-left: 1%;">
-          <p style="line-height: 0; font-size: 12px; font-family: open sans; color: #676A6C; font-weight: 550;">Date: </p>
+          <p style="line-height: 0; font-size: 12px; font-family: open sans; color: #ffffff; font-weight: 550;">Date: </p>
         </div>
         <div class="col-md-10" style="padding-left: 1%;">
-          <p style="line-height: 0; font-size: 12px; font-family: open sans; color: #676A6C; float: right;">{{today}}</p>
+          <p style="line-height: 0; font-size: 12px; font-family: open sans; color: #ffffff; float: right;">{{today}}</p>
         </div>
       </div>
       <div class="row" style="float: right;" (mouseover)="changeText=true" (mouseout)="changeText=false">
         <div class="col-md-2" style="padding: 0; margin-top: -12%; padding-left: 15%;">
-          <nb-icon (click)="logout()" [hidden]="changeText" icon="log-out" style="font-size: 0.75rem; color:#676A6C; cursor: pointer;"></nb-icon>
+          <nb-icon (click)="logout()" [hidden]="changeText" icon="log-out" style="font-size: 0.75rem; color:#ffffff; cursor: pointer;"></nb-icon>
           <nb-icon (click)="logout()" [hidden]="!changeText" icon="log-out" style="font-size: 0.75rem; color:white; cursor: pointer"></nb-icon>
         </div>
         <div class="col-md-10">
-          <p (click)="logout()" [hidden]="changeText" style="line-height: 0; font-size: 12px; font-family: open sans; color: #676A6C; font-weight: 550; cursor: pointer">Logout </p>
+          <p (click)="logout()" [hidden]="changeText" style="line-height: 0; font-size: 12px; font-family: open sans; color: #ffffff; font-weight: 550; cursor: pointer">Logout </p>
           <p (click)="logout()" [hidden]="!changeText" style="line-height: 0; font-size: 12px; font-family: open sans; color: white; font-weight: 550; cursor: pointer">Logout </p>
         </div>
       </div>
     </div>
-    <div class="col-md-4" style="padding-left: 10%; padding-top: 2%;" (mouseenter) ="mouseEnter('div a') "  (mouseleave) ="mouseLeave('div A')">
+    <!-- <div class="col-md-4" style="padding-left: 10%; padding-top: 2%;" (mouseenter) ="mouseEnter('div a') "  (mouseleave) ="mouseLeave('div A')">
       <img *ngIf='!changeIcon' src={{src}} [nbPopover]="ProjectListComponent" style="height: 40px; width: 35px; cursor: pointer;"/>
-    </div>
+    </div> -->
   </div>
 </div>
 

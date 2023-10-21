@@ -1,30 +1,44 @@
 
 <!-- <nb-layout>
     <nb-layout-column style="margin: 0; padding: 0;"> -->
-        
-        <div class="header">
-            <div class="container">
-                <div class="navbar" (scroll)="onscroll($event)" [ngClass]="navbarfixed? 'fixedcl': 'nofixed'">
-                    <div class="logo">
-                        <img src="assets/images/jnu.png" style="height: 40px; width: 250px;"/>
+        <div class="row">
+            <div style="width: 100%; height: 200px; margin: 0 auto">
+                <image-slider [slides]="slides"></image-slider>
+              </div>
+        </div>
+
+        <!--Own Products-->
+
+        <div class="categories">
+            <div class="small-container">
+                <div class="row">
+                    <div class="col-md-8">
+                        <h2 class="title">Own Item</h2>
                     </div>
-                    <nav>
-                        <ul id="MenuItems" #MenuItems [ngStyle]="{'height':heightavg}">
-                            <li><a href="">Home</a></li>
-                            <li><a href="">Products</a></li>
-                            <li><a href="">About</a></li>
-                            <li><a href="">Contact</a></li>
-                            <li><a href="">Account</a></li>
-                        </ul>
-                    </nav>
-                    <img src="assets/images/cart.png" width="30px" height="30px">
-                    <img src="assets/images/menu-icon.png" class="menu-icon" (click)="menutoggle()">
+                    <div class="col-md-4">
+                        <a href="" class="btn">See More &#8594;</a>
+                    </div>
                 </div>
                 <div class="row">
+                    <div class="col-3">
+                        <img src="assets/images/frozen.png">
+                    </div>
+                    <div class="col-3">
+                        <img src="assets/images/clean.jpg">
+                    </div>
+                    <div class="col-3">
+                        <img src="assets/images/frozen.png">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="header">
+            <div class="container">
+                <div class="row">
                     <div class="col-6">
-                        <h1>Give Your Workout <br> A New Style</h1>
-                        <p>Success isn't always about greatness. It's all about consistency, Consistent <br> hard works
-                        gain success. Greatness will come</p>
+                        <h1>Campaign Related <br> Heading</h1> 
+                        <p>Campaign details within 3 line</p>
                         <a href="" class="btn">Explore Now &#8594;</a>
                     </div>
                     <div class="col-6">
@@ -34,25 +48,67 @@
             </div>
         </div>
 
-        <!-- Feattured Categories -->
-        
-        <div class="categories">
-            <div class="small-container">
-                <div class="row">
-                    <div class="col-3">
-                        <img src="assets/images/feat04.jpg">
+        <!-- Feattured Products -->
+
+        <div class="small-container">
+            <h2 class="title">Featured Products</h2>
+            <div class="row">
+                <div class="col-4">
+                    <img src="assets/images/products/p1.jpg">
+                    <h4>Fortune Basmoti-Rice</h4>
+                    <div class="ratings">
+                        <!-- <nb-icon icon="star"></nb-icon> -->
+                        <nb-icon icon="star" pack="font-awesome"></nb-icon>
+                        <nb-icon icon="star" pack="font-awesome"></nb-icon>
+                        <nb-icon icon="star" pack="font-awesome"></nb-icon>
+                        <nb-icon icon="star" pack="font-awesome"></nb-icon>
+                        <nb-icon icon="star-half-stroke" pack="font-awesome"></nb-icon>
                     </div>
-                    <div class="col-3">
-                        <img src="assets/images/feat03.jpg">
+                    <p>$3.00</p>
+                </div>
+                <div class="col-4">
+                    <img src="assets/images/products/p2.jpg">
+                    <h4>Fortune Basmoti-Rice</h4>
+                    <div class="ratings">
+                        <!-- <nb-icon icon="star"></nb-icon> -->
+                        <nb-icon icon="star" pack="font-awesome"></nb-icon>
+                        <nb-icon icon="star" pack="font-awesome"></nb-icon>
+                        <nb-icon icon="star" pack="font-awesome"></nb-icon>
+                        <nb-icon icon="star" pack="font-awesome"></nb-icon>
+                        <nb-icon icon="star-half-stroke" pack="font-awesome"></nb-icon>
                     </div>
-                    <div class="col-3">
-                        <img src="assets/images/feat01.jpg">
+                    <p>$3.00</p>
+                </div>
+                <div class="col-4">
+                    <img src="assets/images/products/p3.jpg">
+                    <h4>Fortune Basmoti-Rice</h4>
+                    <div class="ratings">
+                        <!-- <nb-icon icon="star"></nb-icon> -->
+                        <nb-icon icon="star" pack="font-awesome"></nb-icon>
+                        <nb-icon icon="star" pack="font-awesome"></nb-icon>
+                        <nb-icon icon="star" pack="font-awesome"></nb-icon>
+                        <nb-icon icon="star" pack="font-awesome"></nb-icon>
+                        <nb-icon icon="star-half-stroke" pack="font-awesome"></nb-icon>
                     </div>
+                    <p>$3.00</p>
+                </div>
+                <div class="col-4">
+                    <img src="assets/images/products/p4.jpg">
+                    <h4>Fortune Basmoti-Rice</h4>
+                    <div class="ratings">
+                        <!-- <nb-icon icon="star"></nb-icon> -->
+                        <nb-icon icon="star" pack="font-awesome"></nb-icon>
+                        <nb-icon icon="star" pack="font-awesome"></nb-icon>
+                        <nb-icon icon="star" pack="font-awesome"></nb-icon>
+                        <nb-icon icon="star" pack="font-awesome"></nb-icon>
+                        <nb-icon icon="star-half-stroke" pack="font-awesome"></nb-icon>
+                    </div>
+                    <p>$3.00</p>
                 </div>
             </div>
         </div>
 
-        <!-- Feattured Products -->
+        <!-- Feattured Products 2 -->
 
         <div class="small-container">
             <h2 class="title">Featured Products</h2>

@@ -7,19 +7,3 @@
     padding-top: nb-theme(layout-padding-top);
   }
 }
-
-nb-sidebar{
-  background-color: #2F4050;
-}
-
-::ng-deep.nb-theme-default nb-menu .menu-item a.active {
-  border-left: 2px solid #3366ff !important;
-}
-
-::ng-deep.nb-theme-default nb-menu .menu-item > .menu-items > .menu-item a.active {
-  border-left: 2px solid yellow !important;
-}
-
-// ::ng-deep.nb-theme-default nb-sidebar.compacted nb-menu .menu-item a.active{
-//   background-color: #293846 !important;
-// }

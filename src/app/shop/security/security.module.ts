@@ -11,6 +11,8 @@ import { MenuComponent } from './menu/menu.component';
 import { ProjectComponent } from './project/project.component';
 import { ModuleComponent } from './module/module.component';
 import { RoleComponent } from './role/role.component';
+import { EmployeeComponent } from './employee/employee.component';
+import { AddEmployeeComponent } from './employee/add-employee/add-employee/add-employee.component';
 
 
 @NgModule({
@@ -43,7 +45,9 @@ import { RoleComponent } from './role/role.component';
     MenuComponent,
     ProjectComponent,
     ModuleComponent,
-    RoleComponent
+    RoleComponent,
+    EmployeeComponent,
+    AddEmployeeComponent
   ],
 })
 export class SecurityModule { }

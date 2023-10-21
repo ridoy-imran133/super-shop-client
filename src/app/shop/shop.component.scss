@@ -165,9 +165,9 @@
   color: #5dcfe3;
 }
 
-:host /deep/ ng2-st-tbody-custom a.ng2-smart-action.ng2-smart-action-custom-custom:hover {
-  color: #5dcfe3;
-}
+// :host /deep/ ng2-st-tbody-custom a.ng2-smart-action.ng2-smart-action-custom-custom:hover {
+//   color: #5dcfe3;
+// }
 
 // :host /deep/ ng2-smart-table tbody tr.selected {
 //   background: red !important;
@@ -185,4 +185,13 @@
     color: #ffffff;
   }
 
-
+  :host /deep/ ng2-st-tbody-custom a.ng2-smart-action.ng2-smart-action-custom-custom > .deleteicon  {
+    padding: 2px 5px 2px 5px;
+    margin: 0px 0px 0px 10px;
+    background: var(--unnamed-color-45d199) 0% 0% no-repeat padding-box;
+    background: #fc0000 0% 0% no-repeat padding-box;
+    border-radius: 3px;
+    opacity: 1;
+    font-size: 17px;
+    font-weight: 999;
+  }

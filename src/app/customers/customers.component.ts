@@ -7,10 +7,10 @@ import { MENU_ITEMS } from './customers-menu';
   selector: 'ngx-customers',
   styleUrls: ['customers.component.scss'],
   template: `
-    <ngx-one-column-layout>
+    <ngx-shop-column-layout>
       <nb-menu [items]="menu1" [autoCollapse]="true"></nb-menu>
       <router-outlet></router-outlet>
-    </ngx-one-column-layout>
+    </ngx-shop-column-layout>
   `,
 })
 export class CustomersComponent {

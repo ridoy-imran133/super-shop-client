@@ -1,6 +1,7 @@
 import { DOCUMENT } from '@angular/common';
 import { Component, ElementRef, HostListener, Inject, OnInit, ViewChild } from '@angular/core';
 import { NbIconLibraries } from '@nebular/theme';
+import { SlideInterface } from '../slider/ImageSlider/types/slide.interface';
 
 @Component({
   selector: 'ngx-initial-page',
@@ -8,6 +9,15 @@ import { NbIconLibraries } from '@nebular/theme';
   styleUrls: ['./initial-page.component.scss']
 })
 export class InitialPageComponent implements OnInit {
+
+  slides: SlideInterface[] = [
+    {url: 'assets/images/camera1.jpg', title: 'c1'},
+    {url: 'assets/images/camera2.jpg', title: 'c2'},
+    {url: 'assets/images/camera3.jpg', title: 'c3'},
+    {url: 'assets/images/camera4.jpg', title: 'c4'}
+  ];
+
+
   @ViewChild("MenuItems") MenuItems: ElementRef;
   ismenutoggle: boolean = true;
   heightavg: string = "0px";

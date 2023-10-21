@@ -5,6 +5,7 @@ import { ModuleComponent } from './module/module.component';
 import { ProjectComponent } from './project/project.component';
 import { RoleComponent } from './role/role.component';
 import { SecurityComponent } from './security.component';
+import { EmployeeComponent } from './employee/employee.component';
 
 const routes: Routes = [{
   path: '',
@@ -25,6 +26,10 @@ const routes: Routes = [{
     {
       path: 'role',
       component: RoleComponent
+    },
+    {
+      path: 'employee',
+      component: EmployeeComponent
     },
 
     {

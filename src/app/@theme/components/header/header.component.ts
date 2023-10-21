@@ -11,6 +11,7 @@ import { ProjectListComponent } from './project-list/project-list.component';
 import { ProjectList } from './project-list/ProjectList';
 import { environment } from '../../../../environments/environment';
 import { DatePipe } from '@angular/common';
+import { UserProfile } from '../../../shared/models/shop/UserProfile';
 
 @Component({
   selector: 'ngx-header',
@@ -32,7 +33,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   branch = "Banch Name";
   user: any;
   users= [];
-
+  public userprofile : UserProfile;
   themes = [
     {
       value: 'default',
@@ -80,8 +81,8 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.today = new DatePipe('en-EN').transform(new Date(new Date()), 'dd-MMM, yyyy');
-    this.getAllProject();
-    this.getUserInfo();
+    //this.getAllProject();
+    this.getUserProfile();
     //this.testDataSet();
     this.currentTheme = this.themeService.currentTheme;
     this.user = { name: "Nick Jones", picture: "assets/images/nick.png" };
@@ -149,50 +150,68 @@ export class HeaderComponent implements OnInit, OnDestroy {
     return false;
   }
 
-  getAllProject() {
-    var projectList = localStorage.getItem("projectList");
-    if(projectList == null || projectList == ""){
-      this._UserService.commonGet( 'Security/GetUserProjects?userId=' +sessionStorage.getItem("userId"))
+  // getAllProject() {
+  //   var projectList = localStorage.getItem("projectList");
+  //   if(projectList == null || projectList == ""){
+  //     this._UserService.commonGet( 'Security/GetUserProjects?userId=' +sessionStorage.getItem("userId"))
+  //     .subscribe(
+  //       response => {
+  //         var val = JSON.parse(JSON.stringify(response));
+  //         val.projectInfoList.forEach(element => {
+  //           var project = element;
+  //           project.appIcon = " data:image/png;base64,".concat(project.appIcon);
+  //           console.log(project.appIcon);
+  //           this._projectList.push(project);
+  //           });                
+  //           localStorage.setItem("projectList", JSON.stringify(this._projectList));
+  //       },
+  //       error => {
+  //         // this._influxToastaService.showToast('danger', 'Response', error.message);
+  //       },
+  //       () => {
+  //       },
+  //     );
+  //   }
+  //   else{
+  //     this._projectList = JSON.parse(projectList);
+  //   }
+  // }
+
+
+  public getUserProfile() {
+    this._UserService.commonGet( 'Security/GetUserProfile/' + sessionStorage.getItem("username") + '/' + sessionStorage.getItem("a_token"))
       .subscribe(
         response => {
-          var val = JSON.parse(JSON.stringify(response));
-          val.projectInfoList.forEach(element => {
-            var project = element;
-            project.appIcon = " data:image/png;base64,".concat(project.appIcon);
-            console.log(project.appIcon);
-            this._projectList.push(project);
-            });                
-            localStorage.setItem("projectList", JSON.stringify(this._projectList));
+          var data = JSON.parse(JSON.stringify(response)).profile;
+           this.userprofile = data;
+           this.fullName = this.userprofile.FullName;
+          localStorage.setItem("FullName", this.userprofile.FullName);
         },
         error => {
-          // this._influxToastaService.showToast('danger', 'Response', error.message);
+
         },
         () => {
-        },
+          // No errors, route to new page
+        }
       );
-    }
-    else{
-      this._projectList = JSON.parse(projectList);
-    }
   }
 
-  getUserInfo() {
-    this._UserService.commonGet( 'Security/GetUserInfo?userId=' +sessionStorage.getItem("userId") +'&&projectId=P026')
-    .subscribe(
-      response => {
-        var val = JSON.parse(JSON.stringify(response));
-        this.branchText = val.userinfolist[0].branchName;
-        this.fullName = val.userinfolist[0].userName;
-        // sessionStorage.setItem("RoleId", val.userinfolist[0].roleId);        
-        // sessionStorage.setItem("BranchCode", val.userinfolist[0].branchCode);
-      },
-      error => {
-        // this._influxToastaService.showToast('danger', 'Response', error.message);
-      },
-      () => {
-      },
-    );
-  }
+
+  // getUserInfo() {
+  //   this._UserService.commonGet( 'Security/GetUserInfo?userId=' +sessionStorage.getItem("userId") +'&&projectId=P026')
+  //   .subscribe(
+  //     response => {
+  //       var val = JSON.parse(JSON.stringify(response));
+  //       this.branchText = val.userinfolist[0].branchName;
+  //       this.fullName = val.userinfolist[0].userName;
+  //     },
+  //     error => {
+  //       // this._influxToastaService.showToast('danger', 'Response', error.message);
+  //     },
+  //     () => {
+  //     },
+  //   );
+  // }
 
   // testDataSet(){
   //   var sampleProjectList = [ { title: 'Easy Asset Management', icon: 'npm', url: 'https://github.com/akveo/ngx-admin' }, { title: 'Easy RM Management', icon: 'npm', data: { id: 'myHeader', },}, { title: 'Easy Gefu Management', icon: 'npm' } ];

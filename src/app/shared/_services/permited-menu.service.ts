@@ -18,6 +18,12 @@ export class PermitedMenuService {
     return customArray;
   }
 
+  setCutomSalesProductMenu(){
+    let customArray: any =[];
+    customArray.push({name: 'Cancel',title: '<i class="nb-trash deleteicon"></i></button>',});
+    return customArray;
+  }
+
   // setCutomActionItemsForRecomendationList(){
   //   let customArray: any =[];
   //   customArray.push({name: 'Edit',title: '<span class= "retry">Edit</span>',})

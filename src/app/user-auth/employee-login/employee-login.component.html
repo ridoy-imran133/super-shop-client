@@ -1,0 +1,61 @@
+
+<nb-layout>
+    <nb-layout-column>
+        <nb-card style="margin: 2% 15%;padding: 5% 12%;">
+            <nb-card-body>
+                <h2> Employee Login </h2>
+                <form (ngSubmit)="onLogin()" [formGroup]="loginForm">
+                    <label class="levelFontDesign">Username:</label>
+                    <input [(ngModel)]="login.username" formControlName="username" class="form-control" type="text" 
+                   [ngClass]="{ 'is-invalid': submitted && fval.username.errors }" fullWidth nbInput placeholder="username">
+                        <div *ngIf="submitted && fval.username.errors" class="invalid-feedback">
+                            <div *ngIf="fval.username.errors.required">Please enter your username</div>
+                        </div>
+        
+                    <label class="levelFontDesign">Password:</label>
+                    <!-- <div class="row">
+                        <div class="col-md-11">
+                            
+                        </div>       
+                        <div class="col-md-1">
+                            
+                        </div>                 
+                    </div> -->
+
+                    <div class="input-container">
+                        <input [type]="getInputType()" nbInput [(ngModel)]="login.password" formControlName="password" class="form-control input-field"
+                        [ngClass]="{ 'is-invalid': submitted && fval.password.errors }" fullWidth placeholder="Password" style="margin-right: -1%;">                        
+                        <button type="button" class="submit-button" nbSuffix nbButton ghost (click)="toggleShowPassword()" style="background: #ced4da;">
+                            <nb-icon [icon]="showPassword ? 'eye-outline' : 'eye-off-2-outline'"
+                                    pack="eva"
+                                    [attr.aria-label]="showPassword ? 'hide password' : 'show password'">
+                            </nb-icon>
+                        </button>
+                        <!-- <button class="submit-button">Submit</button> -->
+                    </div>
+                        <div class="row" *ngIf="submitted && fval.password.errors" class="invalid-feedback">
+                            <div *ngIf="fval.password.errors.required">Please enter your password</div>
+                        </div>
+                    <!-- <input [(ngModel)]="login.password" formControlName="password" class="form-control" type="password" 
+                   [ngClass]="{ 'is-invalid': submitted && fval.password.errors }" fullWidth nbInput placeholder="Password"> -->
+                        <!-- <div *ngIf="submitted && fval.password.errors" class="invalid-feedback">
+                            <div *ngIf="fval.password.errors.required">Please enter your password</div>
+                        </div> -->
+
+                    
+                    <div style="margin: 2%;"></div>
+                    <nb-checkbox style="margin-top: 3%;"  status="primary">Remember me</nb-checkbox>
+                    <a (click)="forgotpass()" class="forgot-pass">Forgot Password ?</a>
+                    <div style="margin: 2%;"></div>
+                    <div class="row" style="margin: 0%;">
+                        <button nbButton hero [status]="'primary'" type="submit" style="width: 70px; height: 30px; font-size: 12px;" nbSpinnerStatus="danger" nbSpinnerSize="large" nbSpinnerMessage="">Login</button>
+                    </div>
+                    <div style="margin: 2%;"></div>
+                    <div class="row" style="margin: 0%;">
+                        <p class="ptext-color">Don't have an account?</p><a [routerLink]=registerurl class="forgot-pass">Sign Up</a>
+                    </div>                    
+                </form>
+            </nb-card-body>
+        </nb-card>
+    </nb-layout-column>
+</nb-layout>

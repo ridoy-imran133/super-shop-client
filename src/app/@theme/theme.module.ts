@@ -46,6 +46,7 @@ import { ProjectListComponent } from './components/header/project-list/project-l
 import { SidebarComponent } from './components/sidebar/sidebar/sidebar.component';
 import { SideComponent } from './side/side/side.component';
 import { ShopColumnLayoutComponent } from './layouts/shop-column/shop-column.layout';
+import { ShopHeaderComponent } from './components/header/shop-header/shop-header.component';
 
 const NB_MODULES = [
   NbLayoutModule,
@@ -86,7 +87,7 @@ const PIPES = [
 @NgModule({
   imports: [CommonModule, ...NB_MODULES],
   exports: [CommonModule, ...PIPES, ...COMPONENTS],
-  declarations: [...COMPONENTS, ...PIPES, ProjectListComponent, SidebarComponent, SideComponent],
+  declarations: [...COMPONENTS, ...PIPES, ProjectListComponent, SidebarComponent, SideComponent, ShopHeaderComponent],
 })
 export class ThemeModule {
   static forRoot(): ModuleWithProviders<ThemeModule> {

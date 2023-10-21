@@ -1,8 +1,8 @@
 <nb-card>
     <nb-card-header>
-        Gift List
+        Category List
         <a nbButton style="float: right;" size="small" shape="round" [status]="'primary'" (click)="addCategory()"><i
-            class="nb-plus"></i> Add Gift </a>
+            class="nb-plus"></i> Add Category </a>
     </nb-card-header>
     <nb-card-body>
         <ng2-smart-table [settings]="settings" [source]="source" (custom)="onCustom($event)">

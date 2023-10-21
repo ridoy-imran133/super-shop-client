@@ -5,6 +5,9 @@ import { CommonService } from '../../easy/services/common.service';
 import { SessionService } from '../../easy/services/session.service';
 import { LoginModel } from '../../shared/models/LoginModel';
 import { InfluxToastaService } from '../../shared/_services/influx.toast.service';
+import { RouterLink } from '../../shared/enum/routerlink';
+import { ApiRouting } from '../../shared/enum/api_routing';
+import { LocalSessionService } from '../../shared/_services/local-session.service';
 
 @Component({
   selector: 'ngx-log-in',
@@ -13,12 +16,13 @@ import { InfluxToastaService } from '../../shared/_services/influx.toast.service
 })
 export class LogInComponent implements OnInit {
 
+  showPassword = false;
   login: LoginModel;  
   submitted = false;
   public loginForm: FormGroup;
-
+  registerurl = RouterLink.register;
   constructor(private _commonService: CommonService, private formBuilder: FormBuilder, private _influxToastaService: InfluxToastaService,
-    private _sessionService: SessionService, private router: Router) { 
+    private _LocalSessionService: LocalSessionService, private router: Router) { 
     this.login = new LoginModel();
   }
 
@@ -40,12 +44,15 @@ export class LogInComponent implements OnInit {
   forgotpass(){
     alert();
   }
-  onLogin(){
+  onLogin(){    
     this.submitted = true;
     if (this.loginForm.invalid) {
       return;
     }
-    this._commonService.commonPost('Auth/UserLogin' ,this.login)
+    
+    this._LocalSessionService.sessionClear();
+    this._LocalSessionService.localClear();
+    this._commonService.commonPost(ApiRouting.login ,this.login)
     .subscribe(
       response => {
         var val = JSON.parse(JSON.stringify(response));
@@ -54,7 +61,7 @@ export class LogInComponent implements OnInit {
           sessionStorage.setItem("a_token", data.a_token);
           sessionStorage.setItem("s_token", data.s_token);
           sessionStorage.setItem("username", data.userName);
-          this.router.navigate(['/menu']);
+          this.router.navigate([RouterLink.menu]);
         }
         else{
           this._influxToastaService.showToast('danger', 'Response', val.status_message);
@@ -68,5 +75,17 @@ export class LogInComponent implements OnInit {
     );
   }
 
+
+  //Password Show Hide
+  getInputType() {
+    if (this.showPassword) {
+      return 'text';
+    }
+    return 'password';
+  }
+
+  toggleShowPassword() {
+    this.showPassword = !this.showPassword;
+  }
 
 }

@@ -1,0 +1,187 @@
+<nb-card style="height: 400px;">
+    <nb-card-header>
+        {{textval}} Employee
+        <a nbButton style="float: right;" size="tiny" [status]="'danger'" (click)="dismissfornone()">
+            <span>X</span></a>
+    </nb-card-header>
+    <nb-card-body>
+        <form (ngSubmit)="onSaveEmployee()" [formGroup]="masterForm">
+            <div class="row" style="margin-top: 1%;">
+                <div class="col-md-2">
+                    <label class="levelFontDesign">Name: <span style="color: red;">*</span></label>
+                </div>
+                <div class="col-md-10">
+                    <div class="form-group">
+                        <input [(ngModel)]="employee.FullName" formControlName="full_name" class="form-control" 
+                            type="text" fullWidth nbInput placeholder="Customer Name">
+                        <!-- <input [(ngModel)]="employee.FullName" formControlName="full_name" class="form-control" 
+                        type="text" fullWidth nbInput [ngClass]="{ 'is-invalid': submitted && fval.full_name.errors }"> -->
+                            <!-- <div *ngIf="submitted && fval.full_name.errors" class="invalid-feedback">
+                                <div *ngIf="fval.full_name.errors.required">Gift Name</div>
+                            </div> -->
+                    </div>
+                </div>
+            </div>
+            <div class="row" style="margin-top: 1%;">
+                <div class="col-md-2">
+                    <label class="levelFontDesign">Gender: <span style="color: red;">*</span></label>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <nb-select [(ngModel)]="employee.Gender" [size]= "size" formControlName="gender" fullWidth placeholder="Select Gender" [(selected)]="employee.Gender">
+                            <nb-option value="M">Male</nb-option>
+                            <nb-option value="F">Female</nb-option>
+                            <nb-option value="O">Other</nb-option>
+                          </nb-select>
+                    </div>
+                </div>
+
+                <div class="col-md-2">
+                    <label class="levelFontDesign">Date of Birth: <span style="color: red;">*</span></label>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <input [(ngModel)]="employee.DateOfBirth" formControlName="date_of_birth" class="form-control" type="date" 
+                                   [ngClass]="{ 'is-invalid': submitted && fval.date_of_birth.errors }" fullWidth nbInput placeholder="dateofbirth">
+                            <!-- <div *ngIf="submitted && fval.date_of_birth.errors" class="invalid-feedback">
+                                <div *ngIf="fval.date_of_birth.errors.required">Date of Birth</div>
+                            </div> -->
+                    </div>
+                </div>
+            </div>
+            <div class="row" style="margin-top: 1%;">
+                <div class="col-md-2">
+                    <label class="levelFontDesign">Mobile: <span style="color: red;">*</span></label>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <input [(ngModel)]="employee.PhoneNumber" formControlName="phone_number"
+                            class="form-control" type="text" fullWidth nbInput [ngClass]="{ 'is-invalid': submitted && fval.phone_number.errors }">
+                            <!-- <div *ngIf="submitted && fval.phone_number.errors" class="invalid-feedback">
+                                <div *ngIf="fval.phone_number.errors.required">Gift Name</div>
+                            </div> -->
+                    </div>
+                </div>
+
+                <div class="col-md-2">
+                    <label class="levelFontDesign">Email: <span style="color: red;">*</span></label>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <input [(ngModel)]="employee.Email" formControlName="email"
+                            class="form-control" type="text" fullWidth nbInput [ngClass]="{ 'is-invalid': submitted && fval.email.errors }">
+                            <!-- <div *ngIf="submitted && fval.email.errors" class="invalid-feedback">
+                                <div *ngIf="fval.email.errors.required">Email</div>
+                            </div> -->
+                    </div>
+                </div>
+            </div>
+            <div class="row" style="margin-top: 1%;">
+                <div class="col-md-2">
+                    <label class="levelFontDesign">Address: <span style="color: red;">*</span></label>
+                </div>
+                <div class="col-md-10">
+                    <div class="form-group">
+                        <textarea [(ngModel)]="employee.Address" formControlName="address"
+                        class="form-control" nbInput fullWidth placeholder="Address"></textarea>
+                        <!-- <input [(ngModel)]="employee.Address" formControlName="address"
+                            class="form-control" type="text" fullWidth nbInput [ngClass]="{ 'is-invalid': submitted && fval.address.errors }">
+                            <div *ngIf="submitted && fval.address.errors" class="invalid-feedback">
+                                <div *ngIf="fval.address.errors.required">Gift Name</div>
+                            </div> -->
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <fieldset style="border: 2px solid #edf1f7; padding: 0.35em 0.75em 0em">
+                        <legend style="width: 13%; font-size: 14px; font-weight: 600; opacity: 0.9; font-family: arial;">
+                          <span>Emergency Contact</span>
+                        </legend>
+                        <div class="row">
+                            <div class="col-md-2">
+                                <label class="levelFontDesign">Name: <span style="color: red;">*</span></label>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <input [(ngModel)]="employee.ECName" formControlName="ec_name"
+                                        class="form-control" type="text" fullWidth nbInput [ngClass]="{ 'is-invalid': submitted && fval.ec_name.errors }">
+                                        <!-- <div *ngIf="submitted && fval.ec_name.errors" class="invalid-feedback">
+                                            <div *ngIf="fval.phone_number.errors.required">Gift Name</div>
+                                        </div> -->
+                                </div>
+                            </div>
+            
+                            <div class="col-md-2">
+                                <label class="levelFontDesign">Phone: <span style="color: red;">*</span></label>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <input [(ngModel)]="employee.ECPhoneNumber" formControlName="ec_phone"
+                                        class="form-control" type="text" fullWidth nbInput [ngClass]="{ 'is-invalid': submitted && fval.ec_phone.errors }">
+                                        <!-- <div *ngIf="submitted && fval.ec_phone.errors" class="invalid-feedback">
+                                            <div *ngIf="fval.ec_phone.errors.required">Email</div>
+                                        </div> -->
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>                
+            </div>
+            <div class="row" style="margin-top: 1%;">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <div class="col-md-2">
+                            <!-- <nb-checkbox (checkedChange)="toggle($event)">Has Access</nb-checkbox> -->
+                            <nb-checkbox status="primary" [checked]="employee.HasSystemAccess" (checkedChange)="toggle($event)">Has Access</nb-checkbox>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row" *ngIf="employee.HasSystemAccess">
+                <div class="col-md-12">
+                    <fieldset style="border: 2px solid #edf1f7; padding: 0.35em 0.75em 0em">
+                        <legend style="width: 9%; font-size: 14px; font-weight: 600; opacity: 0.9; font-family: arial;">
+                          <span>Permission</span>
+                        </legend>
+                        <div class="row">
+                            <div class="col-md-2">
+                                <label class="levelFontDesign">User Name: <span style="color: red;">*</span></label>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <input [(ngModel)]="employee.UserName" formControlName="user_name"
+                                        class="form-control" type="text" fullWidth nbInput [ngClass]="{ 'is-invalid': submitted && fval.user_name.errors }">
+                                </div>
+                            </div> 
+                            <div class="col-md-2">
+                                <label class="levelFontDesign">Select Role: <span style="color: red;">*</span></label>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+
+
+                                    <nb-select [(ngModel)]="employee.RoleCode" formControlName="role_code" [ngClass]="{ 'is-invalid': submitted && fval.role_code.errors }"
+                                        [selected]="employee.RoleCode" fullWidth placeholder="Select Role">
+                                        <nb-option *ngFor="let sc of roles" [value]="sc.RoleCode"> {{ sc.RoleName }}</nb-option>
+                                    </nb-select>
+                                    <div *ngIf="fval.role_code.errors" class="invalid-feedback">
+                                        <div *ngIf="fval.role_code.errors.required">Sub Category is Required</div>
+                                    </div>
+
+                                    
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </fieldset>
+                </div>                
+            </div>
+            <div class="form-group" style="margin-top: 1%;">
+                <button nbButton hero [status]="'primary'" type="submit"
+                    style="width: 70px; height: 30px; font-size: 12px;" nbSpinnerStatus="danger"
+                    nbSpinnerSize="large" nbSpinnerMessage="">Save</button>
+            </div>
+        </form>
+    </nb-card-body>
+</nb-card>

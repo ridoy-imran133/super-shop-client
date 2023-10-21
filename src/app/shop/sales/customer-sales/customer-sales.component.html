@@ -1,0 +1,174 @@
+<h2>Sales(Customer)</h2>
+<nb-card>
+    <nb-card-body>
+        <div class="row" style="padding: 1%;">
+            <div class="col-md-8" style="border: 1px solid #506DA6;">
+                <div class="row" style="background-color: #506DA6; padding: 3%;">
+                    <div class="col-md-4">
+                        <input class="form-control" type="text" fullWidth nbInput placeholder="Search Customer">
+                    </div>
+                    <div class="col-md-2"></div>
+                    <div class="col-md-4">
+                        <input [(ngModel)]="productcode" class="form-control" type="text" fullWidth nbInput placeholder="Search Product" (keyup.enter)="productSearch()">
+                    </div>
+                    <div class="col-md-2">
+                        <button nbButton hero [status]="'primary'" type="button"
+                    style="width: 40px; height: 20px; font-size: 12px;" nbSpinnerStatus="danger"
+                    nbSpinnerSize="large" nbSpinnerMessage="" (click)="productSearch()">Go</button>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <h5>Product Details</h5>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12" style="padding: 0;">
+                        <ng2-smart-table [settings]="settings" [source]="source" (custom)="onCustom($event)">
+                        </ng2-smart-table>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <h5>Payment Receive</h5>
+                    </div>
+                </div>
+                <div class="row" style="border: 2px solid #EBEBEB;">
+                    <div class="col-md-3" style="border-right: 2px solid #EBEBEB; padding-top: 1.7%;">
+                        <h6>Received In</h6>
+                    </div>
+                    <div class="col-md-2" style="padding: 1%; border-right: 2px solid #EBEBEB;">
+                        <nb-select [(selected)]="this._transaction.PaymentType">
+                            <nb-option value="cash">Cash</nb-option>
+                            <nb-option value="card">Card</nb-option>
+                            <nb-option value="mfs">MFS</nb-option>
+                          </nb-select>
+                    </div>
+                    <div class="col-md-4" style="border-right: 2px solid #EBEBEB; padding-top: 1%;">
+                        <input type="text" [ngModel]="_transaction.PaymentValue" class="form-control" (blur)="onPaymentValue($event.target.value)" (input)="onInputChanged($event)" />
+                    </div>
+                    <div class="col-md-3" style="padding-top: 1.45%;">
+                        <button nbButton hero [status]="'primary'" type="button"
+                    style="width: 110px; height: 30px; font-size: 12px;" nbSpinnerStatus="danger"
+                    nbSpinnerSize="large" nbSpinnerMessage="" (click)="getProductLists()">Save & Print</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="row">
+                    <div class="col-md-1"></div>
+                    <div class="col-md-11" style="border: 1px solid #506DA6;">
+                        <div class="row" style="background-color: #506DA6;">
+                            <div class="col-md-5" style="border-right: 2px solid #EBEBEB; padding: 3%;">
+                                <label style="font-weight: 550; color: white; padding-top: 3%; font-size: .85rem;">Discount</label>
+                            </div>
+                            <div class="col-md-6" style="padding-top: 2%; padding-bottom: 2%;"> 
+                                <input type="text" [ngModel]="_transaction.DiscountParcent" class="form-control" (blur)="onDiscount($event.target.value)" >
+                            </div>
+                            <div class="col-md-1" style="padding: 0;padding-top: 4%;">
+                                <p style="font-weight: 550; margin: 0; font-size: 1.05rem; color: white;">%</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-5" style="border-right: 2px solid #EBEBEB; padding: 3%;">
+                                <label style="font-weight: 550; padding-top: 3%; font-size: .85rem;">Flat Discount</label>
+                            </div>
+                            <div class="col-md-6" style="padding-top: 2%; padding-bottom: 2%;"> 
+                                <input type="text" [ngModel]="_transaction.FlatDiscount" class="form-control" (blur)="onFlatDiscount($event.target.value)" >
+                            </div>
+                            <div class="col-md-1" style="padding: 0;padding-top: 4%;">
+                                <p style="font-weight: 550; margin: 0; font-size: 1.05rem;">tk</p>
+                            </div>
+                        </div>
+
+                        <div class="row" style="background-color: #506DA6;">
+                            <div class="col-md-5" style="border-right: 2px solid #EBEBEB; padding: 2% 3% 0% 3%;">
+                                <label style="font-weight: 550; color: white; padding-top: 1%; font-size: .85rem;">Pre Due</label>
+                            </div>
+                            <div class="col-md-7" style="padding: 2% 3% 0% 3%;">
+                                <p style="font-weight: 550; color: white; margin: 0; font-size: .85rem; text-align: end;">0 tk</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-5" style="border-right: 2px solid #EBEBEB; padding: 2% 3% 0% 3%;">
+                                <label style="font-weight: 550; padding-top: 1%; font-size: .85rem;">Grand Amount</label>
+                            </div>
+                            <div class="col-md-7" style="padding: 2% 3% 0% 3%;">
+                                <p style="font-weight: 550; margin: 0; font-size: .85rem; text-align: end;">{{_transaction.PrevGrandTotal}} tk</p>
+                            </div>
+                        </div>
+                        <div class="row" style="background-color: #506DA6;">
+                            <div class="col-md-5" style="border-right: 2px solid #EBEBEB; padding: 2% 3% 0% 3%;">
+                                <label style="font-weight: 550; color: white; padding-top: 1%; font-size: .85rem;">Discount Amount</label>
+                            </div>
+                            <div class="col-md-7" style="padding: 2% 3% 0% 3%;">
+                                <p style="font-weight: 550; color: white; margin: 0; font-size: .85rem; text-align: end;">{{_transaction.DiscountAmount}} tk</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-5" style="border-right: 2px solid #EBEBEB; padding: 2% 3% 0% 3%;">
+                                <label style="font-weight: 550; padding-top: 1%; font-size: .85rem;">Final Amount</label>
+                            </div>
+                            <div class="col-md-7" style="padding: 2% 3% 0% 3%;">
+                                <p style="font-weight: 550; margin: 0; font-size: .85rem; text-align: end;">{{_transaction.GrandTotal}} tk</p>
+                            </div>
+                        </div>
+                        <div class="row" style="background-color: #506DA6;">
+                            <div class="col-md-5" style="border-right: 2px solid #EBEBEB; padding: 2% 3% 0% 3%;">
+                                <label style="font-weight: 550; color: white; padding-top: 1%; font-size: .85rem;">Total Amount</label>
+                            </div>
+                            <div class="col-md-7" style="padding: 2% 3% 0% 3%;">
+                                <p style="font-weight: 550; color: white; margin: 0; font-size: .85rem; text-align: end;">{{_transaction.GrandTotal}} tk</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-5" style="border-right: 2px solid #EBEBEB; padding: 2% 3% 0% 3%;">
+                                <label style="font-weight: 550; padding-top: 1%; font-size: .85rem;">Collected</label>
+                            </div>
+                            <div class="col-md-7" style="padding: 2% 3% 0% 3%;">
+                                <p style="font-weight: 550; margin: 0; font-size: .85rem; text-align: end;">{{_transaction.CollectedAmount}} tk</p>
+                            </div>
+                        </div>
+                        <div class="row" style="background-color: #506DA6;">
+                            <div class="col-md-5" style="border-right: 2px solid #EBEBEB; padding: 2% 3% 0% 3%;">
+                                <label style="font-weight: 550; color: white; padding-top: 1%; font-size: .85rem;">Change Amount</label>
+                            </div>
+                            <div class="col-md-7" style="padding: 2% 3% 0% 3%;">
+                                <p style="font-weight: 550; color: white; margin: 0; font-size: .85rem; text-align: end;">{{_transaction.ChangeAmount}} tk</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>                
+            </div>
+        </div>
+    </nb-card-body>
+</nb-card>
+
+<div *ngIf="isVisible">
+    <table id="table">
+        <tr>
+            <th>Total Amount</th>
+            <th>{{_transaction.PrevGrandTotal}}</th>
+        </tr>
+    
+        <tr>
+            <th>Discount Amount</th>
+            <th>{{_transaction.DiscountAmount}}</th>
+        </tr>
+    
+        <tr>
+            <th>Final Amount</th>
+            <th>{{_transaction.GrandTotal}}</th>
+        </tr>
+        
+        <tr>
+            <th>Collected Amount</th>
+            <th>{{_transaction.CollectedAmount}}</th>
+        </tr>
+    
+        <tr>
+            <th>Change Amount</th>
+            <th>{{_transaction.ChangeAmount}}</th>
+        </tr>
+    </table>
+</div>

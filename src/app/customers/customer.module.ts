@@ -6,6 +6,8 @@ import { NbEvaIconsModule } from '@nebular/eva-icons';
 import { CustomersRoutingModule } from './customers-routing.module';
 import { CustomersComponent } from './customers.component';
 import { InitialPageComponent } from './initial-page/initial-page.component';
+import { SliderComponent } from './slider/slider.component';
+import { ImageSliderModule } from './slider/ImageSlider/imageSlider.module';
 
 @NgModule({
   imports: [
@@ -14,11 +16,13 @@ import { InitialPageComponent } from './initial-page/initial-page.component';
     NbMenuModule,
     NbIconModule,
     NbEvaIconsModule,
-    NbSelectModule
+    NbSelectModule,
+    ImageSliderModule
   ],
   declarations: [
     CustomersComponent,
-    InitialPageComponent
+    InitialPageComponent,
+    SliderComponent
   ],
 })
 export class CustomerModule {

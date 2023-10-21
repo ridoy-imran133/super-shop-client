@@ -36,6 +36,7 @@ import { RegisterComponent } from './user-auth/register/register.component';
 import { InitialPageComponent } from './customers/initial-page/initial-page.component';
 import { NbEvaIconsModule } from '@nebular/eva-icons';
 import { FirstDesignComponent } from './practice/first-design/first-design.component';
+import { EmployeeLoginComponent } from './user-auth/employee-login/employee-login.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -43,6 +44,7 @@ import { FirstDesignComponent } from './practice/first-design/first-design.compo
     LogInComponent,
     RegisterComponent,
     FirstDesignComponent,
+    EmployeeLoginComponent,
     // InitialPageComponent
   ],
   imports: [

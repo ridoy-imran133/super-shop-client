@@ -27,6 +27,7 @@ import { TryOneComponent } from './try-one/try-one.component';
 import { AddTryOneComponent } from './add-try-one/add-try-one.component';
 import { DashBoardComponent } from './dash-board/dash-board.component';
 import { AutoCompleteComponent } from './auto-complete/auto-complete.component';
+import { TestExportComponent } from './export/test-export/test-export.component';
 
 @NgModule({
   imports: [
@@ -70,7 +71,8 @@ import { AutoCompleteComponent } from './auto-complete/auto-complete.component';
     TryOneComponent,
     AddTryOneComponent,
     DashBoardComponent,
-    AutoCompleteComponent
+    AutoCompleteComponent,
+    TestExportComponent
   ],
 })
 export class TaskModule { }

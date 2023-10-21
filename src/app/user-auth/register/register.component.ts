@@ -5,6 +5,7 @@ import { CommonService } from '../../easy/services/common.service';
 import { SessionService } from '../../easy/services/session.service';
 import { RegistrationModel } from '../../shared/models/RegistrationModel';
 import { InfluxToastaService } from '../../shared/_services/influx.toast.service';
+import { RouterLink } from '../../shared/enum/routerlink';
 
 @Component({
   selector: 'ngx-register',
@@ -56,8 +57,8 @@ export class RegisterComponent implements OnInit {
       response => {
         var val = JSON.parse(JSON.stringify(response));
         if(val.response_code === '2000'){
-          this.router.navigate(['/']);
           this._influxToastaService.showToast('success', 'Response', val.response_message);
+          this.router.navigate([RouterLink.default]);
         }
         else{
           this._influxToastaService.showToast('danger', 'Response', val.response_message);

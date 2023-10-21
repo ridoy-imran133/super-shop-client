@@ -2,6 +2,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { CustomersComponent } from './customers.component';
 import { InitialPageComponent } from './initial-page/initial-page.component';
+import { SliderComponent } from './slider/slider.component';
 
 const routes: Routes = [{
   path: '',
@@ -22,7 +23,8 @@ const routes: Routes = [{
     //   loadChildren: () => import('./pbms/pbms.module')
     //     .then(m => m.PbmsModule),
     // },
-    { path: 'initial', component: InitialPageComponent },
+    { path: '', component: InitialPageComponent },
+    { path: 'slider', component: SliderComponent },
     {
       path: '',
       redirectTo: '',

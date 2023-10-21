@@ -15,10 +15,12 @@ import { LogInComponent } from './user-auth/log-in/log-in.component';
 import { RegisterComponent } from './user-auth/register/register.component';
 import { InitialPageComponent } from './customers/initial-page/initial-page.component';
 import { FirstDesignComponent } from './practice/first-design/first-design.component';
+import { EmployeeLoginComponent } from './user-auth/employee-login/employee-login.component';
 
 export const routes: Routes = [
-  { path: '', component: LogInComponent },
+  { path: 'user', component: LogInComponent },
   { path: 'register', component: RegisterComponent },
+  { path: 'employee', component: EmployeeLoginComponent },
   {
     path: 'shop',
     loadChildren: () => import('./shop/shop.module')
@@ -30,7 +32,7 @@ export const routes: Routes = [
       .then(m => m.EasyModule), canActivate: [AuthGuard]
   },
   {
-    path: 'customers',
+    path: '',
     loadChildren: () => import('./customers/customer.module')
       .then(m => m.CustomerModule)
   },

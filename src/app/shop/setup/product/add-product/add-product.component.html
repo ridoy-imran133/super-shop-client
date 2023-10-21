@@ -15,11 +15,11 @@
                 <div class="col-md-4">
                     <div class="form-group">
                         <nb-select [(ngModel)]="product.CatCode" formControlName="cat_code" [ngClass]="{ 'is-invalid': submitted && fval.cat_code.errors }"
-                            [selected]="product.CatCode" fullWidth placeholder="Select Vendor">
+                            [selected]="product.CatCode" fullWidth placeholder="Select Category">
                             <nb-option *ngFor="let c of categories" [value]="c.CatCode"> {{ c.CategoryName }}</nb-option>
                         </nb-select>
                         <div *ngIf="fval.cat_code.errors" class="invalid-feedback">
-                            <div *ngIf="fval.cat_code.errors.required">Vendor Name is Required</div>
+                            <div *ngIf="fval.cat_code.errors.required">Category is Required</div>
                         </div>
                     </div>
                 </div>
@@ -29,11 +29,11 @@
                 <div class="col-md-4">
                     <div class="form-group">
                         <nb-select [(ngModel)]="product.SubCatCode" formControlName="subcat_code" [ngClass]="{ 'is-invalid': submitted && fval.subcat_code.errors }"
-                            [selected]="product.SubCatCode" fullWidth placeholder="Select Vendor">
+                            [selected]="product.SubCatCode" fullWidth placeholder="Select Sub Category">
                             <nb-option *ngFor="let sc of subcategories" [value]="sc.SubCatCode"> {{ sc.SubCategoryName }}</nb-option>
                         </nb-select>
                         <div *ngIf="fval.subcat_code.errors" class="invalid-feedback">
-                            <div *ngIf="fval.subcat_code.errors.required">Vendor Name is Required</div>
+                            <div *ngIf="fval.subcat_code.errors.required">Sub Category is Required</div>
                         </div>
                     </div>
                 </div>
@@ -58,11 +58,11 @@
                 <div class="col-md-4">
                     <div class="form-group">
                         <nb-select [(ngModel)]="product.QtyTypeCode" formControlName="qtytype_code" [ngClass]="{ 'is-invalid': submitted && fval.qtytype_code.errors }"
-                            [selected]="product.QtyTypeCode" fullWidth placeholder="Select Vendor">
+                            [selected]="product.QtyTypeCode" fullWidth placeholder="Select Quantity Type">
                             <nb-option *ngFor="let qt of qtytypes" [value]="qt.QtyTypeCode"> {{ qt.QtyTypeName }}</nb-option>
                         </nb-select>
                         <div *ngIf="fval.qtytype_code.errors" class="invalid-feedback">
-                            <div *ngIf="fval.qtytype_code.errors.required">Vendor Name is Required</div>
+                            <div *ngIf="fval.qtytype_code.errors.required">Quantity Type is Required</div>
                         </div>
                     </div>
                 </div>
@@ -75,11 +75,11 @@
                 <div class="col-md-4">
                     <div class="form-group">
                         <nb-select [(ngModel)]="product.BrandCode" formControlName="brand_code" [ngClass]="{ 'is-invalid': submitted && fval.brand_code.errors }"
-                            [selected]="product.BrandCode" fullWidth placeholder="Select Vendor">
+                            [selected]="product.BrandCode" fullWidth placeholder="Select Brancd">
                             <nb-option *ngFor="let b of brands" [value]="b.BrandCode"> {{ b.BrandName }}</nb-option>
                         </nb-select>
                         <div *ngIf="fval.brand_code.errors" class="invalid-feedback">
-                            <div *ngIf="fval.brand_code.errors.required">Vendor Name is Required</div>
+                            <div *ngIf="fval.brand_code.errors.required">Brand is Required</div>
                         </div>
                     </div>
                 </div>
