@@ -3,12 +3,13 @@ import { NbIconModule, NbMenuModule, NbSelectModule } from '@nebular/theme';
 
 import { ThemeModule } from '../@theme/theme.module';
 import { NbEvaIconsModule } from '@nebular/eva-icons';
-import { ShopComponent } from './shop.component';
-import { ShopRoutingModule } from './shop-routing.module';
+import { CustomersRoutingModule } from './customers-routing.module';
+import { CustomersComponent } from './customers.component';
+import { InitialPageComponent } from './initial-page/initial-page.component';
 
 @NgModule({
   imports: [
-    ShopRoutingModule,
+    CustomersRoutingModule,
     ThemeModule,
     NbMenuModule,
     NbIconModule,
@@ -16,8 +17,9 @@ import { ShopRoutingModule } from './shop-routing.module';
     NbSelectModule
   ],
   declarations: [
-    ShopComponent
+    CustomersComponent,
+    InitialPageComponent
   ],
 })
-export class ShopModule {
+export class CustomerModule {
 }

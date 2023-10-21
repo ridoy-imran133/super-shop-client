@@ -13,6 +13,8 @@ import { AuthGuard } from './authentication/auth.guard';
 import { MenuTokenComponent } from './authentication/menu-token.component';
 import { LogInComponent } from './user-auth/log-in/log-in.component';
 import { RegisterComponent } from './user-auth/register/register.component';
+import { InitialPageComponent } from './customers/initial-page/initial-page.component';
+import { FirstDesignComponent } from './practice/first-design/first-design.component';
 
 export const routes: Routes = [
   { path: '', component: LogInComponent },
@@ -28,9 +30,15 @@ export const routes: Routes = [
       .then(m => m.EasyModule), canActivate: [AuthGuard]
   },
   {
+    path: 'customers',
+    loadChildren: () => import('./customers/customer.module')
+      .then(m => m.CustomerModule)
+  },
+  {
     path: 'menu',
     component: MenuTokenComponent
-  },
+  },  
+  { path: 'first-design', component: FirstDesignComponent },
   {
     path: 'auth',
     component: NbAuthComponent,

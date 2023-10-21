@@ -1,0 +1,364 @@
+
+<nb-layout>
+    <nb-layout-column style="margin: 0; padding: 0;">
+        
+        <div class="header">
+            <div class="container">
+                <div class="navbar" (scroll)="onscroll($event)" [ngClass]="navbarfixed? 'fixedcl': 'nofixed'">
+                    <div class="logo">
+                        <img src="assets/images/jnu.png" style="height: 40px; width: 250px;"/>
+                    </div>
+                    <nav>
+                        <ul id="MenuItems" #MenuItems [ngStyle]="{'height':heightavg}">
+                            <li><a href="">Home</a></li>
+                            <li><a href="">Products</a></li>
+                            <li><a href="">About</a></li>
+                            <li><a href="">Contact</a></li>
+                            <li><a href="">Account</a></li>
+                        </ul>
+                    </nav>
+                    <img src="assets/images/cart.png" width="30px" height="30px">
+                    <img src="assets/images/menu-icon.png" class="menu-icon" (click)="menutoggle()">
+                </div>
+                <div class="row">
+                    <div class="col-6">
+                        <h1>Give Your Workout <br> A New Style</h1>
+                        <p>Success isn't always about greatness. It's all about consistency, Consistent <br> hard works
+                        gain success. Greatness will come</p>
+                        <a href="" class="btn">Explore Now &#8594;</a>
+                    </div>
+                    <div class="col-6">
+                        <img src="assets/images/team.png" class="header-img"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Feattured Categories -->
+        
+        <div class="categories">
+            <div class="small-container">
+                <div class="row">
+                    <div class="col-3">
+                        <img src="assets/images/feat04.jpg">
+                    </div>
+                    <div class="col-3">
+                        <img src="assets/images/feat03.jpg">
+                    </div>
+                    <div class="col-3">
+                        <img src="assets/images/feat01.jpg">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Feattured Products -->
+
+        <div class="small-container">
+            <h2 class="title">Featured Products</h2>
+            <div class="row">
+                <div class="col-4">
+                    <img src="assets/images/products/p1.jpg">
+                    <h4>Fortune Basmoti-Rice</h4>
+                    <div class="ratings">
+                        <!-- <nb-icon icon="star"></nb-icon> -->
+                        <nb-icon icon="star" pack="font-awesome"></nb-icon>
+                        <nb-icon icon="star" pack="font-awesome"></nb-icon>
+                        <nb-icon icon="star" pack="font-awesome"></nb-icon>
+                        <nb-icon icon="star" pack="font-awesome"></nb-icon>
+                        <nb-icon icon="star-half-stroke" pack="font-awesome"></nb-icon>
+                    </div>
+                    <p>$3.00</p>
+                </div>
+                <div class="col-4">
+                    <img src="assets/images/products/p2.jpg">
+                    <h4>Fortune Basmoti-Rice</h4>
+                    <div class="ratings">
+                        <!-- <nb-icon icon="star"></nb-icon> -->
+                        <nb-icon icon="star" pack="font-awesome"></nb-icon>
+                        <nb-icon icon="star" pack="font-awesome"></nb-icon>
+                        <nb-icon icon="star" pack="font-awesome"></nb-icon>
+                        <nb-icon icon="star" pack="font-awesome"></nb-icon>
+                        <nb-icon icon="star-half-stroke" pack="font-awesome"></nb-icon>
+                    </div>
+                    <p>$3.00</p>
+                </div>
+                <div class="col-4">
+                    <img src="assets/images/products/p3.jpg">
+                    <h4>Fortune Basmoti-Rice</h4>
+                    <div class="ratings">
+                        <!-- <nb-icon icon="star"></nb-icon> -->
+                        <nb-icon icon="star" pack="font-awesome"></nb-icon>
+                        <nb-icon icon="star" pack="font-awesome"></nb-icon>
+                        <nb-icon icon="star" pack="font-awesome"></nb-icon>
+                        <nb-icon icon="star" pack="font-awesome"></nb-icon>
+                        <nb-icon icon="star-half-stroke" pack="font-awesome"></nb-icon>
+                    </div>
+                    <p>$3.00</p>
+                </div>
+                <div class="col-4">
+                    <img src="assets/images/products/p4.jpg">
+                    <h4>Fortune Basmoti-Rice</h4>
+                    <div class="ratings">
+                        <!-- <nb-icon icon="star"></nb-icon> -->
+                        <nb-icon icon="star" pack="font-awesome"></nb-icon>
+                        <nb-icon icon="star" pack="font-awesome"></nb-icon>
+                        <nb-icon icon="star" pack="font-awesome"></nb-icon>
+                        <nb-icon icon="star" pack="font-awesome"></nb-icon>
+                        <nb-icon icon="star-half-stroke" pack="font-awesome"></nb-icon>
+                    </div>
+                    <p>$3.00</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Latest Products -->
+
+        <div class="small-container">
+            <h2 class="title">Latest Products</h2>
+            <div class="row">
+                <div class="col-4">
+                    <img src="assets/images/products/p1.jpg">
+                    <h4>Fortune Basmoti-Rice</h4>
+                    <div class="ratings">
+                        <!-- <nb-icon icon="star"></nb-icon> -->
+                        <nb-icon icon="star" pack="font-awesome"></nb-icon>
+                        <nb-icon icon="star" pack="font-awesome"></nb-icon>
+                        <nb-icon icon="star" pack="font-awesome"></nb-icon>
+                        <nb-icon icon="star" pack="font-awesome"></nb-icon>
+                        <nb-icon icon="star-half-stroke" pack="font-awesome"></nb-icon>
+                    </div>
+                    <p>$3.00</p>
+                </div>
+                <div class="col-4">
+                    <img src="assets/images/products/p2.jpg">
+                    <h4>Fortune Basmoti-Rice</h4>
+                    <div class="ratings">
+                        <!-- <nb-icon icon="star"></nb-icon> -->
+                        <nb-icon icon="star" pack="font-awesome"></nb-icon>
+                        <nb-icon icon="star" pack="font-awesome"></nb-icon>
+                        <nb-icon icon="star" pack="font-awesome"></nb-icon>
+                        <nb-icon icon="star" pack="font-awesome"></nb-icon>
+                        <nb-icon icon="star-half-stroke" pack="font-awesome"></nb-icon>
+                    </div>
+                    <p>$3.00</p>
+                </div>
+                <div class="col-4">
+                    <img src="assets/images/products/p3.jpg">
+                    <h4>Fortune Basmoti-Rice</h4>
+                    <div class="ratings">
+                        <!-- <nb-icon icon="star"></nb-icon> -->
+                        <nb-icon icon="star" pack="font-awesome"></nb-icon>
+                        <nb-icon icon="star" pack="font-awesome"></nb-icon>
+                        <nb-icon icon="star" pack="font-awesome"></nb-icon>
+                        <nb-icon icon="star" pack="font-awesome"></nb-icon>
+                        <nb-icon icon="star-half-stroke" pack="font-awesome"></nb-icon>
+                    </div>
+                    <p>$3.00</p>
+                </div>
+                <div class="col-4">
+                    <img src="assets/images/products/p4.jpg">
+                    <h4>Fortune Basmoti-Rice</h4>
+                    <div class="ratings">
+                        <!-- <nb-icon icon="star"></nb-icon> -->
+                        <nb-icon icon="star" pack="font-awesome"></nb-icon>
+                        <nb-icon icon="star" pack="font-awesome"></nb-icon>
+                        <nb-icon icon="star" pack="font-awesome"></nb-icon>
+                        <nb-icon icon="star" pack="font-awesome"></nb-icon>
+                        <nb-icon icon="star-half-stroke" pack="font-awesome"></nb-icon>
+                    </div>
+                    <p>$3.00</p>
+                </div>
+
+                <div class="col-4">
+                    <img src="assets/images/products/p1.jpg">
+                    <h4>Fortune Basmoti-Rice</h4>
+                    <div class="ratings">
+                        <!-- <nb-icon icon="star"></nb-icon> -->
+                        <nb-icon icon="star" pack="font-awesome"></nb-icon>
+                        <nb-icon icon="star" pack="font-awesome"></nb-icon>
+                        <nb-icon icon="star" pack="font-awesome"></nb-icon>
+                        <nb-icon icon="star" pack="font-awesome"></nb-icon>
+                        <nb-icon icon="star-half-stroke" pack="font-awesome"></nb-icon>
+                    </div>
+                    <p>$3.00</p>
+                </div>
+                <div class="col-4">
+                    <img src="assets/images/products/p2.jpg">
+                    <h4>Fortune Basmoti-Rice</h4>
+                    <div class="ratings">
+                        <!-- <nb-icon icon="star"></nb-icon> -->
+                        <nb-icon icon="star" pack="font-awesome"></nb-icon>
+                        <nb-icon icon="star" pack="font-awesome"></nb-icon>
+                        <nb-icon icon="star" pack="font-awesome"></nb-icon>
+                        <nb-icon icon="star" pack="font-awesome"></nb-icon>
+                        <nb-icon icon="star-half-stroke" pack="font-awesome"></nb-icon>
+                    </div>
+                    <p>$3.00</p>
+                </div>
+                <div class="col-4">
+                    <img src="assets/images/products/p3.jpg">
+                    <h4>Fortune Basmoti-Rice</h4>
+                    <div class="ratings">
+                        <!-- <nb-icon icon="star"></nb-icon> -->
+                        <nb-icon icon="star" pack="font-awesome"></nb-icon>
+                        <nb-icon icon="star" pack="font-awesome"></nb-icon>
+                        <nb-icon icon="star" pack="font-awesome"></nb-icon>
+                        <nb-icon icon="star" pack="font-awesome"></nb-icon>
+                        <nb-icon icon="star-half-stroke" pack="font-awesome"></nb-icon>
+                    </div>
+                    <p>$3.00</p>
+                </div>
+                <div class="col-4">
+                    <img src="assets/images/products/p4.jpg">
+                    <h4>Fortune Basmoti-Rice</h4>
+                    <div class="ratings">
+                        <!-- <nb-icon icon="star"></nb-icon> -->
+                        <nb-icon icon="star" pack="font-awesome"></nb-icon>
+                        <nb-icon icon="star" pack="font-awesome"></nb-icon>
+                        <nb-icon icon="star" pack="font-awesome"></nb-icon>
+                        <nb-icon icon="star" pack="font-awesome"></nb-icon>
+                        <nb-icon icon="star-half-stroke" pack="font-awesome"></nb-icon>
+                    </div>
+                    <p>$3.00</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Offer -->
+        <div class="offer">
+            <div class="small-container">
+                <div class="row">
+                    <div class="col-6">
+                        <img src="assets/images/sw.png" class="offer-img"/>
+                    </div>
+                    <div class="col-6">
+                        <p>Exclusively available on JNU store</p>
+                        <h1>Smart Brand 02</h1>
+                        <small>A smartwatch is a wearable computing device that closely resembles 
+                            a wristwatch or other time-keeping device. In addition to telling time, 
+                            many smartwatches are Bluetooth-capable.
+                        </small>
+                        <a href="" class="btn">Buy Now &#8594;</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Testimonial -->
+        <div class="testimonial">
+            <div class="small-container">
+                <div class="row">
+                    <div class="col-3">
+                        <nb-icon icon="quote-left" pack="font-awesome" class="quote-icon-design"></nb-icon>
+                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting 
+                            industry. Lorem Ipsum has been the industry's standard dummy text.
+                        </p>
+                        <div class="ratings">
+                            <nb-icon icon="star" pack="font-awesome"></nb-icon>
+                            <nb-icon icon="star" pack="font-awesome"></nb-icon>
+                            <nb-icon icon="star" pack="font-awesome"></nb-icon>
+                            <nb-icon icon="star" pack="font-awesome"></nb-icon>
+                            <nb-icon icon="star-half-stroke" pack="font-awesome"></nb-icon>
+                        </div>
+                        <img src="assets/images/alan.png"/>
+                        <h3>Alan Parker</h3>
+                    </div>
+                    <div class="col-3">
+                        <nb-icon icon="quote-left" pack="font-awesome" class="quote-icon-design"></nb-icon>
+                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting 
+                            industry. Lorem Ipsum has been the industry's standard dummy text.
+                        </p>
+                        <div class="ratings">
+                            <nb-icon icon="star" pack="font-awesome"></nb-icon>
+                            <nb-icon icon="star" pack="font-awesome"></nb-icon>
+                            <nb-icon icon="star" pack="font-awesome"></nb-icon>
+                            <nb-icon icon="star" pack="font-awesome"></nb-icon>
+                            <nb-icon icon="star-half-stroke" pack="font-awesome"></nb-icon>
+                        </div>
+                        <img src="assets/images/eva.png"/>
+                        <h3>Eva Parker</h3>
+                    </div>
+                    <div class="col-3">
+                        <nb-icon icon="quote-left" pack="font-awesome" class="quote-icon-design"></nb-icon>
+                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting 
+                            industry. Lorem Ipsum has been the industry's standard dummy text.
+                        </p>
+                        <div class="ratings">
+                            <nb-icon icon="star" pack="font-awesome"></nb-icon>
+                            <nb-icon icon="star" pack="font-awesome"></nb-icon>
+                            <nb-icon icon="star" pack="font-awesome"></nb-icon>
+                            <nb-icon icon="star" pack="font-awesome"></nb-icon>
+                            <nb-icon icon="star-half-stroke" pack="font-awesome"></nb-icon>
+                        </div>
+                        <img src="assets/images/jack.png"/>
+                        <h3>Jack Parker</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Testimonial -->
+        <div class="brands">
+            <div class="small-container">
+                <div class="row">
+                    <div class="col-2">
+                        <img src="assets/images/brands/b1.png">
+                    </div>
+                    <div class="col-2">
+                        <img src="assets/images/brands/b2.png">
+                    </div>
+                    <div class="col-2">
+                        <img src="assets/images/brands/b3.png">
+                    </div>
+                    <div class="col-2">
+                        <img src="assets/images/brands/b4.png">
+                    </div>
+                    <div class="col-2">
+                        <img src="assets/images/brands/b5.png">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <div class="container">
+                <div class="row">
+                    <div class="footer-col-1">
+                        <h3 class="font-size">Download Our App</h3>
+                        <p>Download App for Android  and ios mobile phone.</p>
+                        <div class="app-logo">
+                            <img src="assets/images/ps.png">
+                            <img src="assets/images/as.png">
+                        </div>
+                    </div>
+                    <div class="footer-col-2">
+                        <img src="assets/images/jnu.png" style="height: 40px; width: 250px;"/>
+                        <p>Order grocery online, save money, save time.</p>
+                    </div>
+                    <div class="footer-col-3">
+                        <h3 class="font-size">Useful Links</h3>
+                        <ul>
+                            <li style="padding: 3%;">Coupons</li>
+                            <li style="padding: 3%;">Blog Post</li>
+                            <li style="padding: 3%;">Return Policy</li>
+                            <li style="padding: 3%;">Join Affiliate</li>
+                        </ul>
+                    </div>
+                    <div class="footer-col-4">
+                        <h3 class="font-size">Follow Us</h3>
+                        <ul>
+                            <li style="padding: 3%;">Facebook</li>
+                            <li style="padding: 3%;">Twitter</li>
+                            <li style="padding: 3%;">Instagram</li>
+                            <li style="padding: 3%;">YouTube</li>
+                        </ul>
+                    </div>
+                </div>
+                <hr>
+                <p class="copyright">Copyright 2023 - JNU</p>
+            </div>
+        </div>
+    </nb-layout-column>
+</nb-layout>

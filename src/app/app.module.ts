@@ -25,6 +25,7 @@ import {
   NbCardModule,
   NbCheckboxModule,
   NbButtonModule,
+  NbIconModule,
 } from '@nebular/theme';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BossInterceptor } from './authentication/interceptor';
@@ -32,18 +33,24 @@ import { BnNgIdleService } from 'bn-ng-idle';
 import { MenuTokenComponent } from './authentication/menu-token.component';
 import { LogInComponent } from './user-auth/log-in/log-in.component';
 import { RegisterComponent } from './user-auth/register/register.component';
-
+import { InitialPageComponent } from './customers/initial-page/initial-page.component';
+import { NbEvaIconsModule } from '@nebular/eva-icons';
+import { FirstDesignComponent } from './practice/first-design/first-design.component';
 @NgModule({
   declarations: [
     AppComponent,
     MenuTokenComponent,
     LogInComponent,
-    RegisterComponent
+    RegisterComponent,
+    FirstDesignComponent,
+    // InitialPageComponent
   ],
   imports: [
     FormsModule,
     ReactiveFormsModule,
     BrowserModule,
+    NbEvaIconsModule,
+    NbIconModule,
     NbLayoutModule,
     NbCardModule,
     NbPopoverModule,

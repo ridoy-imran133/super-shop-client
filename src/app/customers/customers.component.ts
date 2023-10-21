@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
 import { NbMenuItem, NbMenuService, NbSidebarService } from '@nebular/theme';
 
-import { MENU_ITEMS } from './shop-menu';
+import { MENU_ITEMS } from './customers-menu';
 
 @Component({
-  selector: 'ngx-shop',
-  styleUrls: ['shop.component.scss'],
+  selector: 'ngx-customers',
+  styleUrls: ['customers.component.scss'],
   template: `
     <ngx-one-column-layout>
       <nb-menu [items]="menu1" [autoCollapse]="true"></nb-menu>
@@ -13,6 +13,6 @@ import { MENU_ITEMS } from './shop-menu';
     </ngx-one-column-layout>
   `,
 })
-export class ShopComponent {
+export class CustomersComponent {
   menu1 = MENU_ITEMS;
 }

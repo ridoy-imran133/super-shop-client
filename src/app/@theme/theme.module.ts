@@ -36,7 +36,7 @@ import {
 import {
   OneColumnLayoutComponent,
   ThreeColumnsLayoutComponent,
-  TwoColumnsLayoutComponent,
+  TwoColumnsLayoutComponent
 } from './layouts';
 import { DEFAULT_THEME } from './styles/theme.default';
 import { COSMIC_THEME } from './styles/theme.cosmic';
@@ -45,6 +45,7 @@ import { DARK_THEME } from './styles/theme.dark';
 import { ProjectListComponent } from './components/header/project-list/project-list.component';
 import { SidebarComponent } from './components/sidebar/sidebar/sidebar.component';
 import { SideComponent } from './side/side/side.component';
+import { ShopColumnLayoutComponent } from './layouts/shop-column/shop-column.layout';
 
 const NB_MODULES = [
   NbLayoutModule,
@@ -70,6 +71,7 @@ const COMPONENTS = [
   SearchInputComponent,
   TinyMCEComponent,
   OneColumnLayoutComponent,
+  ShopColumnLayoutComponent,
   ThreeColumnsLayoutComponent,
   TwoColumnsLayoutComponent,
 ];
