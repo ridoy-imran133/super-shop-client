@@ -6,4 +6,5 @@ export class ProductModel {
     BrandCode: string;
     ItemCode: string;
     QtyTypeCode: string;
+    QtyTypeCode1: string;
 }
