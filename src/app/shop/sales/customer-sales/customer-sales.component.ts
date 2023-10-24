@@ -219,13 +219,13 @@ export class CustomerSalesComponent implements OnInit {
     this._commonService.commonPost('Transaction/save' ,this._transaction)
     .subscribe(
       response => {
-        var val = JSON.parse(JSON.stringify(response));
-        if(val.status_code === '40999'){
+        var val = JSON.parse(JSON.stringify(response)).response;
+        if(val.ResponseCode === '2000'){
           //this.dismiss();
-          this._influxToastaService.showToast('success', 'Response', val.status_message);
+          this._influxToastaService.showToast('success', 'Response', val.ResponseMessage);
         }
         else{
-          this._influxToastaService.showToast('danger', 'Response', val.status_message);
+          this._influxToastaService.showToast('danger', 'Response', val.ResponseMessage);
         }
       },
       error => {

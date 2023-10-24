@@ -41,4 +41,4 @@ import { SalesReportComponent } from './sales-report/sales-report.component';
     // QuantityEditComponent
   ],
 })
-export class SalesModule { }
+export class ReportsModule { }

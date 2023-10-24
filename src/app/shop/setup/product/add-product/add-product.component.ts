@@ -76,6 +76,8 @@ export class AddProductComponent implements OnInit {
       brand_code: ['', []],
       product_name: ['', [Validators.required]],
       status: ['', []],
+      purchase_rate: ['', []],
+      selling_rate: ['', []],
     });
   }
   get fval() {

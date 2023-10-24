@@ -77,6 +77,14 @@ export class ProductComponent implements OnInit {
         title: 'Quantity Type',
         type: 'string',
       },  
+      PurchaseRate: {
+        title: 'Purchase Rate',
+        type: 'string',
+      },
+      SellingRate: {
+        title: 'Selling Rate',
+        type: 'string',
+      },
     },
     mode: 'external',
     hideSubHeader: true,

@@ -70,6 +70,33 @@
 
             <div class="row" style="margin-top: 1%;">
                 <div class="col-md-2">
+                    <label class="levelFontDesign">Purchase Rate: <span style="color: red;">*</span></label>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <input [(ngModel)]="product.PurchaseRate" formControlName="purchase_rate"
+                            class="form-control" type="text" fullWidth nbInput [ngClass]="{ 'is-invalid': submitted && fval.purchase_rate.errors }">
+                            <div *ngIf="submitted && fval.purchase_rate.errors" class="invalid-feedback">
+                                <div *ngIf="fval.purchase_rate.errors.required">Gift Name</div>
+                            </div>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <label class="levelFontDesign">Product: <span style="color: red;">*</span></label>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <input [(ngModel)]="product.SellingRate" formControlName="selling_rate"
+                            class="form-control" type="text" fullWidth nbInput [ngClass]="{ 'is-invalid': submitted && fval.selling_rate.errors }">
+                            <div *ngIf="submitted && fval.selling_rate.errors" class="invalid-feedback">
+                                <div *ngIf="fval.selling_rate.errors.required">Gift Name</div>
+                            </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row" style="margin-top: 1%;">
+                <div class="col-md-2">
                     <label class="levelFontDesign">Brand: <span style="color: red;">*</span></label>
                 </div>
                 <div class="col-md-4">
